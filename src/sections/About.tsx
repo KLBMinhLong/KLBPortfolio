@@ -14,6 +14,10 @@ export function About() {
         <Reveal>
           <SectionHeading eyebrow={t.about.eyebrow} title={t.about.title} />
           <div className="about-copy">{t.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+          <div className="about-profile">
+            <img src="/assets/profile/nguyen-minh-long.jpg" alt={t.hero.portraitAlt} loading="lazy" />
+            <div><strong>Nguyễn Minh Long</strong><span>Software Developer · KLB.dev</span></div>
+          </div>
         </Reveal>
         <div className="about-cards">
           {t.about.cards.map((card, index) => {

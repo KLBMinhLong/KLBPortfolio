@@ -52,6 +52,12 @@ export interface LocaleContent {
     location: string;
     graduation: string;
     portraitAlt: string;
+    systemMap: {
+      eyebrow: string;
+      title: string;
+      nodes: string[];
+      footer: string;
+    };
   };
   proof: Array<{ label: string; value: string }>;
   work: {
@@ -606,6 +612,12 @@ export const content: Record<Language, LocaleContent> = {
       location: 'Thu Duc, Ho Chi Minh City',
       graduation: 'Expected graduation · Oct 2026',
       portraitAlt: 'Portrait of Nguyễn Minh Long',
+      systemMap: {
+        eyebrow: 'Engineering system map',
+        title: 'From intent to verified software',
+        nodes: ['Backend API', 'Product UI', 'AI assist', 'Test gate'],
+        footer: 'Human-reviewed · Evidence-driven',
+      },
     },
     proof: [
       { label: 'Experience', value: 'FPT IS · Development Intern' },
@@ -803,6 +815,12 @@ export const content: Record<Language, LocaleContent> = {
       location: 'Thủ Đức, TP. Hồ Chí Minh',
       graduation: 'Dự kiến tốt nghiệp · 10/2026',
       portraitAlt: 'Chân dung Nguyễn Minh Long',
+      systemMap: {
+        eyebrow: 'Bản đồ kỹ thuật',
+        title: 'Từ yêu cầu đến phần mềm đã kiểm chứng',
+        nodes: ['Backend API', 'Product UI', 'AI hỗ trợ', 'Cổng kiểm thử'],
+        footer: 'Con người kiểm duyệt · Dựa trên bằng chứng',
+      },
     },
     proof: [
       { label: 'Kinh nghiệm', value: 'FPT IS · Development Intern' },

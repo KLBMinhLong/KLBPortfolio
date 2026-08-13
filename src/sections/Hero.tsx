@@ -1,4 +1,4 @@
-import { ArrowDownRight, ArrowUpRight, Code2, MapPin, Network } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Bot, Braces, Code2, MapPin, Monitor, Network, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 import { Reveal } from '../components/ui/Reveal';
@@ -47,13 +47,24 @@ export function Hero() {
         </div>
       </Reveal>
 
-      <Reveal className="hero__portrait-wrap" delay={0.12}>
-        <div className="portrait-frame">
-          <img src="/assets/profile/nguyen-minh-long.jpg" alt={t.hero.portraitAlt} />
-          <div className="portrait-frame__coordinates" aria-hidden="true">
-            <span>10.8505° N</span>
-            <span>106.7717° E</span>
+      <Reveal className="hero__system-map" delay={0.12}>
+        <div className="engineering-map">
+          <div className="engineering-map__header">
+            <span>{t.hero.systemMap.eyebrow}</span>
+            <i aria-hidden="true" />
+            <span>SYS.01</span>
           </div>
+          <div className="engineering-map__canvas">
+            <div className="engineering-map__core">
+              <span>KLB.dev</span>
+              <strong>{t.hero.systemMap.title}</strong>
+            </div>
+            <div className="engineering-node engineering-node--backend"><Braces aria-hidden="true" /><span>01</span><strong>{t.hero.systemMap.nodes[0]}</strong></div>
+            <div className="engineering-node engineering-node--frontend"><Monitor aria-hidden="true" /><span>02</span><strong>{t.hero.systemMap.nodes[1]}</strong></div>
+            <div className="engineering-node engineering-node--ai"><Bot aria-hidden="true" /><span>03</span><strong>{t.hero.systemMap.nodes[2]}</strong></div>
+            <div className="engineering-node engineering-node--test"><ShieldCheck aria-hidden="true" /><span>04</span><strong>{t.hero.systemMap.nodes[3]}</strong></div>
+          </div>
+          <div className="engineering-map__footer"><span className="status-dot" aria-hidden="true" />{t.hero.systemMap.footer}</div>
         </div>
         <div className="system-trace" aria-hidden="true">
           <span>Problem</span><i /><span>Build</span><i /><span>Verify</span><i /><span>Ship</span>
