@@ -1,0 +1,106 @@
+{
+  "nav": {
+    "about": "Giới thiệu",
+    "experience": "Kinh nghiệm",
+    "skills": "Kỹ năng",
+    "projects": "Dự án",
+    "certificates": "Chứng chỉ",
+    "contact": "Liên hệ",
+    "cv": "Tải CV"
+  },
+  "hero": {
+    "badge": "Sẵn sàng ứng tuyển vị trí Intern / Fresher",
+    "greeting": "Xin chào, tôi là",
+    "name": "NGUYỄN MINH LONG",
+    "role": "Software Developer",
+    "tagline": "Lập trình viên chuyên Backend, có kinh nghiệm thực tế doanh nghiệp, áp dụng quy trình AI để phát triển giải pháp Full-stack tối ưu từ Spring Boot đến React.",
+    "cta_projects": "Xem Sản Phẩm",
+    "cta_contact": "Liên Hệ Ngay",
+    "download_cv": "Tải CV",
+    "stats": {
+      "fpt": "3 Tháng @ FPT IS",
+      "gpa": "GPA 3.53 / 4.0",
+      "projects": "4 Dự Án Core",
+      "english": "Trình Độ B2 Tiếng Anh"
+    }
+  },
+  "about": {
+    "tag": "01. Giới thiệu",
+    "title": "Về Bản Thân",
+    "subtitle": "Kết nối yêu cầu nghiệp vụ với kiến trúc phần mềm mạnh mẽ.",
+    "paragraph1": "Tôi là sinh viên năm cuối chuyên ngành Công nghệ Phần mềm tại Đại học HUTECH (dự kiến tốt nghiệp 10/2026) với GPA 3.53/4.0. Định hướng kỹ thuật cốt lõi của tôi là Backend Development với Java/Spring Boot và C#/.NET Core, đồng thời mở rộng năng lực Full-stack với React & TypeScript.",
+    "paragraph2": "Trong 3 tháng thực tập tại FPT Information System (FPT IS) thuộc Trung tâm Giải pháp Banking & Doanh nghiệp, tôi đã tự thiết kế và hoàn thiện eProcure Enterprise — hệ thống Quản lý Mua sắm Doanh nghiệp chuẩn hóa theo stack tiêu chuẩn gồm Spring Boot, PostgreSQL, bảo mật Keycloak JWT, luồng duyệt Camunda BPMN và báo cáo JasperReports.",
+    "paragraph3": "Tôi chủ động áp dụng các công cụ AI (AI-assisted engineering) để tối ưu hóa quy trình viết code, áp dụng kiến trúc phần mềm sạch và giải quyết vấn đề kỹ thuật một cách hiệu quả.",
+    "hobbies_title": "Ngoài Giờ Code",
+    "hobbies": "Ngoài giờ làm việc, tôi thích chơi cầu lông 🏸, xem phim viễn tưởng 🎬, chơi game 🎮, và sáng tạo nội dung chia sẻ kiến thức trên kênh YouTube cá nhân.",
+    "info_location": "Địa chỉ",
+    "info_university": "Trường",
+    "info_major": "Chuyên ngành",
+    "info_gpa": "GPA",
+    "info_status": "Trạng thái"
+  },
+  "experience": {
+    "tag": "02. Sự nghiệp & Học vấn",
+    "title": "Kinh Nghiệm & Học Vấn",
+    "subtitle": "Hành trình phát triển kỹ năng qua thực tế doanh nghiệp và quá trình học tập.",
+    "internship_title": "Development Intern",
+    "internship_company": "FPT Information System (FPT IS)",
+    "internship_unit": "Trung tâm Giải pháp Banking & Enterprise",
+    "internship_date": "04/2026 – 07/2026 | TP. Hồ Chí Minh",
+    "internship_desc1": "Hoàn thành chương trình đào tạo Backend Developer 3 tháng chuyên sâu về kiến trúc phần mềm doanh nghiệp.",
+    "internship_desc2": "Tự nghiên cứu, thiết kế và phát triển dự án eProcure Enterprise chuẩn hóa theo tech stack của khối Ngân hàng.",
+    "internship_desc3": "Phát triển RESTful APIs với Spring Boot, Spring Data JPA, kết nối PostgreSQL.",
+    "internship_desc4": "Tích hợp Keycloak cho phân quyền xác thực, Camunda BPM 2.0 quản lý quy trình duyệt, và JasperReports xuất báo cáo PDF.",
+    "education_title": "Cử nhân CNTT — Kỹ thuật Phần mềm",
+    "education_school": "Đại học Công nghệ TP.HCM (HUTECH)",
+    "education_date": "2022 – 10/2026 (Dự kiến tốt nghiệp)",
+    "education_desc1": "Điểm trung bình tích lũy GPA: 3.53 / 4.00 — Top sinh viên xuất sắc.",
+    "education_desc2": "Đạt Giấy khen Sinh viên Xuất sắc 3 năm học liên tiếp (2023–2026).",
+    "education_desc3": "Tích cực tham gia các dự án môn học, đảm nhận vai trò Project Lead quản lý hệ thống Ký túc xá."
+  },
+  "skills": {
+    "tag": "03. Công nghệ",
+    "title": "Kỹ Năng Kỹ Thuật",
+    "subtitle": "Bộ công nghệ tập trung vào hiệu năng, khả năng mở rộng và chất lượng code.",
+    "primary": "Kỹ Năng Cốt Lõi (Backend & Database)",
+    "secondary": "Kỹ Năng Bổ Trợ (Full-Stack & Mobile)",
+    "enterprise": "Công Cụ Enterprise & AI Workflow"
+  },
+  "projects": {
+    "tag": "04. Sản phẩm",
+    "title": "Dự Án Nổi Bật",
+    "subtitle": "Các dự án tiêu biểu thể hiện năng lực kiến trúc Backend, Full-stack và quản lý dự án.",
+    "view_github": "Mã Nguồn GitHub",
+    "live_demo": "Trải Nghiệm Live",
+    "eprocure_desc": "Hệ thống Mua sắm Doanh nghiệp Full-stack thực hiện trong kỳ thực tập FPT IS. Tích hợp Keycloak auth, luồng duyệt BPMN với Camunda và xuất báo cáo PDF tự động.",
+    "yoursneaker_desc": "Nền tảng thương mại điện tử Streetwear xây dựng với ASP.NET Core 8 & React. Bao gồm JWT auth, giỏ hàng, thanh toán, và dashboard quản trị sản phẩm.",
+    "dormitory_desc": "Hệ thống Quản lý Ký túc xá đảm nhận vai trò Project Lead cho nhóm 6 người. Thiết kế REST APIs backend, cơ sở dữ liệu PostgreSQL và quản lý tiến độ Agile bằng Jira.",
+    "thitracnghiem_desc": "Ứng dụng thi trắc nghiệm trên di động xây dựng bằng Flutter & Dart, kết nối backend ASP.NET Core Web API phục vụ làm bài thi online và chấm điểm real-time."
+  },
+  "certificates": {
+    "tag": "05. Bằng cấp & Giải thưởng",
+    "title": "Chứng Chỉ & Thành Tựu",
+    "subtitle": "Các chứng chỉ quốc tế từ Cisco, Google và danh hiệu học tập xuất sắc.",
+    "awards_title": "Danh Hiệu & Ngoại Ngữ",
+    "certs_title": "Chứng Chỉ Quốc Tế"
+  },
+  "contact": {
+    "tag": "06. Kết nối",
+    "title": "Liên Hệ Với Tôi",
+    "subtitle": "Tôi sẵn sàng nhận việc vị trí Intern / Fresher Software Developer.",
+    "form_name": "Họ và tên",
+    "form_email": "Địa chỉ Email",
+    "form_message": "Nội dung lời nhắn",
+    "form_send": "Gửi Lời Nhắn",
+    "form_success": "Cảm ơn bạn! Lời nhắn đã được gửi thành công.",
+    "connect_title": "Thông Tin Trực Tiếp",
+    "phone": "Số điện thoại / Zalo",
+    "email": "Email",
+    "location": "Địa chỉ",
+    "socials": "Mạng Xã Hội"
+  },
+  "footer": {
+    "text": "Thiết kế & phát triển bởi Nguyễn Minh Long.",
+    "rights": "Bản quyền được bảo lưu."
+  }
+}

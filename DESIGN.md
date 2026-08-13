@@ -1,47 +1,47 @@
-# DESIGN.md — KLBPortfolio Design System
+# DESIGN.md — KLBPortfolio Design System (UI/UX Pro Max Edition)
 
 ## Brand Identity
 
-**KLBPortfolio** — Personal developer portfolio.
-Phong cách: **Modern, Minimal, Premium Dark** — chuyên nghiệp nhưng có điểm nhấn creative, phù hợp với developer profile.
+**KLBPortfolio** — Personal developer portfolio of **Nguyễn Minh Long**.
+Phong cách: **Modern, Minimal, High-Contrast Premium Dark** — Đơn giản, cực kỳ tinh tế, chú trọng typography, glassmorphism và vi hiệu ứng (micro-animations). Phù hợp tuyệt đối với cảm quan chuyên nghiệp cho nhà tuyển dụng (HR/Tech Lead).
 
-### Design Principles
-1. **Clean & Readable**: Content là trung tâm, UI không gây rối mắt
-2. **Dark Elegance**: Dark theme chủ đạo, tạo cảm giác premium và tech-savvy
-3. **Subtle Motion**: Animations nhẹ nhàng, reveal-on-scroll, không quá lòe loẹt
-4. **Professional**: Nhà tuyển dụng là audience chính — thiết kế phải tạo niềm tin
-5. **Responsive**: Hoàn hảo trên mọi thiết bị (HR hay xem trên điện thoại)
+### Design Principles (UI/UX Pro Max)
+1. **Content-First Hierarchy**: Thông tin quan trọng (Skills, Experience, Projects, Proof of Work) đập vào mắt ngay lập tục.
+2. **High-Contrast Dark Elegance**: Nền tối sâu (`#0B0D17`), độ tương phản vừa phải giúp đọc lâu không mỏi mắt.
+3. **Glassmorphism & Subtle Glow**: Các card sở hữu hiệu ứng kính mờ (glassmorphism) kết hợp viền phát sáng nhã nhặn (subtle accent glow) khi hover.
+4. **Fluid Micro-Animations**: Sử dụng Framer Motion và CSS keyframes mượt mà (fade in, float, stagger) tạo cảm giác ứng dụng cao cấp.
+5. **Multi-device Responsiveness**: Tối ưu tuyệt đối từ màn hình Retina desktop down tới điện thoại di động thông thường.
 
 ---
 
 ## Color Palette
 
-### Core Colors
+### Core Background Colors
 | Token                  | Value                         | Usage                   |
 |------------------------|-------------------------------|--------------------------|
-| `--color-bg-primary`    | `#0B0D17`                     | Main background          |
-| `--color-bg-secondary`  | `#111427`                     | Cards, sections          |
-| `--color-bg-elevated`   | `#1A1D35`                     | Hover, elevated surfaces |
-| `--color-bg-glass`      | `rgba(17, 20, 39, 0.7)`      | Glassmorphism panels     |
+| `--color-bg-primary`    | `#0A0C16`                     | Deep space primary background |
+| `--color-bg-secondary`  | `#101323`                     | Section background alternate |
+| `--color-bg-card`       | `rgba(18, 22, 41, 0.7)`       | Glassmorphism card default   |
+| `--color-bg-card-hover` | `rgba(26, 31, 58, 0.85)`      | Glassmorphism card hover     |
 
-### Accent Colors
+### Brand Accent Colors
 | Token                  | Value                         | Usage                   |
 |------------------------|-------------------------------|--------------------------|
-| `--color-accent`        | `#6C63FF`                     | Primary accent (indigo/violet) |
-| `--color-accent-hover`  | `#5A52E0`                     | Accent hover             |
-| `--color-accent-glow`   | `rgba(108, 99, 255, 0.25)`   | Glow effects             |
-| `--color-accent-2`      | `#00D4AA`                     | Secondary accent (teal)  |
-| `--color-accent-gradient` | `linear-gradient(135deg, #6C63FF, #00D4AA)` | Gradient highlights |
+| `--color-accent`        | `#6C63FF`                     | Primary accent (electric indigo) |
+| `--color-accent-hover`  | `#584FF6`                     | Accent hover state      |
+| `--color-accent-glow`   | `rgba(108, 99, 255, 0.3)`     | Glow shadows & borders   |
+| `--color-accent-2`      | `#00D4AA`                     | Secondary accent (neon teal) |
+| `--color-accent-gradient` | `linear-gradient(135deg, #6C63FF, #00D4AA)` | Gradient text & CTA background |
 
 ### Text Colors
 | Token                    | Value     | Usage                |
 |--------------------------|-----------|----------------------|
-| `--color-text-primary`    | `#EAEAF5` | Headings, key content |
-| `--color-text-secondary`  | `#8B8DA3` | Body text, descriptions |
-| `--color-text-muted`      | `#5A5C72` | Subtle text, labels  |
-| `--color-text-on-accent`  | `#FFFFFF` | Text on accent surfaces |
+| `--color-text-primary`    | `#F0F2FF` | Headings, titles, key content |
+| `--color-text-secondary`  | `#9498B8` | Body paragraphs, bullet descriptions |
+| `--color-text-muted`      | `#5E6282` | Micro labels, dates, captions |
+| `--color-text-on-accent`  | `#FFFFFF` | Text inside solid accent buttons |
 
-### Status / Skill Colors
+### Brand & Tech Badge Colors
 | Token              | Value     | Usage            |
 |--------------------|-----------|-------------------|
 | `--color-java`      | `#F89820` | Java badge        |
@@ -51,13 +51,9 @@ Phong cách: **Modern, Minimal, Premium Dark** — chuyên nghiệp nhưng có �
 | `--color-angular`   | `#DD0031` | Angular badge     |
 | `--color-postgres`  | `#336791` | PostgreSQL badge  |
 | `--color-docker`    | `#2496ED` | Docker badge      |
-| `--color-node`      | `#339933` | Node.js badge     |
-
-### Border
-| Token            | Value     | Usage           |
-|------------------|-----------|-----------------|
-| `--color-border`  | `#1E2140` | Default borders |
-| `--color-border-hover` | `#2E3158` | Hover borders |
+| `--color-flutter`   | `#02569B` | Flutter badge     |
+| `--color-youtube`   | `#FF0000` | YouTube link/icon |
+| `--color-linkedin`  | `#0A66C2` | LinkedIn link     |
 
 ---
 
@@ -65,154 +61,96 @@ Phong cách: **Modern, Minimal, Premium Dark** — chuyên nghiệp nhưng có �
 
 ### Font Families
 ```css
---font-heading: 'Space Grotesk', sans-serif;  /* Modern, geometric — tech vibe */
---font-body: 'Inter', sans-serif;              /* Clean, highly readable */
---font-mono: 'JetBrains Mono', monospace;      /* Code snippets */
+--font-heading: 'Space Grotesk', -apple-system, sans-serif; /* Geometric modern tech vibe */
+--font-body: 'Inter', -apple-system, sans-serif;             /* Crisp, readable body text */
+--font-mono: 'JetBrains Mono', monospace;                     /* Code snippets & badges */
 ```
 
-### Font Scale
-| Token          | Size     | Usage                    |
-|----------------|----------|--------------------------|
-| `--text-xs`     | 0.75rem  | Badges, captions         |
-| `--text-sm`     | 0.875rem | Labels, small text       |
-| `--text-base`   | 1rem     | Body text                |
-| `--text-lg`     | 1.125rem | Large body               |
-| `--text-xl`     | 1.25rem  | Card titles              |
-| `--text-2xl`    | 1.5rem   | Section subtitles        |
-| `--text-3xl`    | 2rem     | Section headings         |
-| `--text-4xl`    | 2.5rem   | Page titles              |
-| `--text-hero`   | 4rem     | Hero name (desktop)      |
-
-### Font Weights
-| Token             | Value |
-|-------------------|-------|
-| `--font-regular`   | 400   |
-| `--font-medium`    | 500   |
-| `--font-semibold`  | 600   |
-| `--font-bold`      | 700   |
+### Font Scale & Line Heights
+| Token          | Size     | Line Height | Usage                    |
+|----------------|----------|-------------|--------------------------|
+| `--text-xs`     | 0.75rem  | 1.4         | Badges, metadata         |
+| `--text-sm`     | 0.875rem | 1.5         | Captions, secondary labels |
+| `--text-base`   | 1.00rem  | 1.6         | Primary body text        |
+| `--text-lg`     | 1.125rem | 1.6         | Lead paragraphs          |
+| `--text-xl`     | 1.25rem  | 1.4         | Card & modal titles      |
+| `--text-2xl`    | 1.50rem  | 1.3         | Section subtitles        |
+| `--text-3xl`    | 2.25rem  | 1.2         | Major section headings   |
+| `--text-4xl`    | 3.00rem  | 1.1         | Sub-hero headlines       |
+| `--text-hero`   | 4.25rem  | 1.05        | Main Hero Name           |
 
 ---
 
-## Spacing
-```css
---space-1:  0.25rem;
---space-2:  0.5rem;
---space-3:  0.75rem;
---space-4:  1rem;
---space-6:  1.5rem;
---space-8:  2rem;
---space-10: 2.5rem;
---space-12: 3rem;
---space-16: 4rem;
---space-20: 5rem;
---space-24: 6rem;
---space-32: 8rem;
-```
+## Spacing & Radius
 
----
-
-## Border Radius
 ```css
---radius-sm:   6px;
---radius-md:   10px;
---radius-lg:   16px;
---radius-xl:   24px;
+/* Radius Tokens */
+--radius-sm:   8px;
+--radius-md:   14px;
+--radius-lg:   20px;
+--radius-xl:   28px;
 --radius-full: 9999px;
+
+/* Spacing Tokens */
+--space-1:  0.25rem;
+--space-2:  0.50rem;
+--space-3:  0.75rem;
+--space-4:  1.00rem;
+--space-6:  1.50rem;
+--space-8:  2.00rem;
+--space-12: 3.00rem;
+--space-16: 4.00rem;
+--space-24: 6.00rem;
 ```
 
 ---
 
-## Shadows & Effects
-```css
---shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
---shadow-glow: 0 0 30px rgba(108, 99, 255, 0.2);
---shadow-glow-lg: 0 0 60px rgba(108, 99, 255, 0.15);
+## Glassmorphism & Shadow Tokens
 
-/* Glassmorphism */
---glass-bg: rgba(17, 20, 39, 0.6);
---glass-border: 1px solid rgba(255, 255, 255, 0.05);
+```css
+--shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.25);
+--shadow-glow: 0 0 25px rgba(108, 99, 255, 0.25);
+--shadow-glow-teal: 0 0 25px rgba(0, 212, 170, 0.25);
+
+--glass-bg: rgba(16, 19, 35, 0.65);
+--glass-border: 1px solid rgba(255, 255, 255, 0.08);
+--glass-border-active: 1px solid rgba(108, 99, 255, 0.4);
 --glass-blur: blur(16px);
 ```
 
 ---
 
-## Transitions
-```css
---transition-fast: 150ms ease;
---transition-base: 300ms ease;
---transition-slow: 500ms ease;
---transition-spring: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
-```
+## Motion & Micro-Interactions
 
-### Animation Patterns
-- **Section reveal**: fadeInUp on scroll (Intersection Observer / Framer Motion)
-- **Skill badges**: staggered appear animation
-- **Project cards**: hover lift + glow border
-- **Hero**: text typing effect hoặc gradient text animation
-- **Navigation**: blur + fade on scroll
-- **Cursor**: optional custom cursor glow
-
----
-
-## Breakpoints
-```css
---bp-sm:  640px;
---bp-md:  768px;
---bp-lg:  1024px;
---bp-xl:  1280px;
-```
+1. **Header Glass Scroll**: Header chuyển sang dạng floating glass bar khi cuộn xuống.
+2. **Hero Ambient Glow**: Background có các khối gradient chuyển động êm dịu đằng sau.
+3. **Card Lift & Border Glow**: Hover vào Card đẩy card lên nhẹ 4px và hiện viền gradient phát sáng.
+4. **Staggered Badges**: Skill & Certificate badges xuất hiện từng cái nối tiếp nhau.
+5. **Language Switcher Flip**: Chuyển đổi mượt giữa 🇺🇸 EN và 🇻🇳 VI.
 
 ---
 
 ## Component Specs
 
-### Navigation Bar
-- Sticky top, glassmorphism background
-- Logo/Name on left, section links on right
-- Mobile: hamburger menu with slide-in drawer
-- Active section highlight (scroll spy)
+### 1. Floating Header
+- Position: Sticky top với backdrop-filter mượt.
+- Left: Brand Monogram (`<ML/>`).
+- Right: Section Navigation Links + Language Toggle + Social Icons.
 
-### Hero Section
-- Full viewport height (100vh)
-- Large name with gradient text effect
-- Subtitle with typewriter or fade animation
-- CTA buttons: filled (accent) + outlined
-- Subtle animated background (particles, grid, or gradient mesh)
+### 2. Hero Section
+- Hero Title với hiệu ứng Gradient Text (`#6C63FF` → `#00D4AA`).
+- Interactive Stats Bar (3+ Months FPT IS | GPA 3.53 | 4+ Key Projects).
+- Action Buttons: "Explore My Work" (Glow Primary) + "Download CV" (Glass Outline).
 
-### Section Titles
-- Left-aligned hoặc center
-- Accent underline hoặc gradient bar
-- Section number (optional): "01.", "02."...
+### 3. Glass Project Cards
+- Visual Aspect Ratio 16:9 cho hình ảnh minh họa/code.
+- Tags badge cho các công nghệ sử dụng.
+- Link trực tiếp tới GitHub repository & demo.
 
-### Skill Badges
-- Pill-shaped với icon + label
-- Background color tương ứng với technology
-- Grouped by category (Backend, Frontend, Database, Tools)
-- Staggered animation on scroll
+### 4. Experience & Education Timeline
+- Cột mốc thời gian thiết kế dạng nút điểm glowing dot.
+- Phân định rõ ràng thời gian thực tập tại FPT IS & quá trình học tập HUTECH.
 
-### Project Cards
-- Background: glass effect
-- Thumbnail/screenshot image
-- Title, description, tech badges
-- Links: GitHub + Live Demo
-- Hover: border glow, slight lift
-
-### Experience Timeline
-- Vertical timeline on desktop
-- Company, role, date range, description bullets
-- Timeline dot with accent color
-- Animated reveal on scroll
-
-### Contact Section
-- Email, GitHub, phone info cards
-- Optional: contact form (Formspree integration)
-- Social links with hover effects
-
----
-
-## Image Guidelines
-- Profile photo: professional, circular crop
-- Project screenshots: 16:9 ratio, consistent styling
-- Use generate_image cho placeholders nếu cần
-- Lazy loading all images
-- WebP format preferred
+### 5. Certificates & Awards Grid
+- Các card hiển thị logo/bằng khen nhã nhặn.
+- Link mở chứng chỉ trực tuyến khi click.

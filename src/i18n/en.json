@@ -1,0 +1,106 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "contact": "Contact",
+    "cv": "Resume"
+  },
+  "hero": {
+    "badge": "Available for Intern & Fresher Roles",
+    "greeting": "Hi, I'm",
+    "name": "NGUYỄN MINH LONG",
+    "role": "Software Developer",
+    "tagline": "Backend-focused developer with enterprise experience, leveraging AI workflows to build scalable full-stack solutions from Spring Boot to React.",
+    "cta_projects": "Explore My Work",
+    "cta_contact": "Get In Touch",
+    "download_cv": "Download CV",
+    "stats": {
+      "fpt": "3 Months @ FPT IS",
+      "gpa": "GPA 3.53 / 4.0",
+      "projects": "4 Key Projects",
+      "english": "B2 English Level"
+    }
+  },
+  "about": {
+    "tag": "01. Introduction",
+    "title": "About Me",
+    "subtitle": "Bridging business requirements with robust software architectures.",
+    "paragraph1": "I am a final-year Information Technology student at HUTECH (graduating Oct 2026) with a 3.53/4.0 GPA. My technical foundation centers on Backend Development with Java/Spring Boot and C#/.NET Core, while actively expanding into Full-stack applications with React & TypeScript.",
+    "paragraph2": "During my 3-month internship at FPT Information System (FPT IS) within the Banking & Enterprise unit, I self-engineered eProcure Enterprise—a full-stack E-Procurement system adhering to enterprise standards including Spring Boot, PostgreSQL, Keycloak JWT authentication, Camunda BPMN workflow engines, and JasperReports.",
+    "paragraph3": "I actively embrace AI-assisted engineering tools to accelerate development velocity, optimize clean architecture patterns, and solve complex technical challenges efficiently.",
+    "hobbies_title": "Beyond Code",
+    "hobbies": "When I'm not developing applications, you'll find me playing badminton 🏸, watching sci-fi movies 🎬, gaming 🎮, or creating tech content on my YouTube channel.",
+    "info_location": "Location",
+    "info_university": "University",
+    "info_major": "Major",
+    "info_gpa": "GPA",
+    "info_status": "Status"
+  },
+  "experience": {
+    "tag": "02. Career & Education",
+    "title": "Experience & Education",
+    "subtitle": "My journey through enterprise software development and academic excellence.",
+    "internship_title": "Development Intern",
+    "internship_company": "FPT Information System (FPT IS)",
+    "internship_unit": "Banking & Enterprise Solution Center",
+    "internship_date": "Apr 2026 – Jul 2026 | Ho Chi Minh City",
+    "internship_desc1": "Completed rigorous 3-month backend engineering program focused on enterprise architecture.",
+    "internship_desc2": "Self-architected & built eProcure Enterprise capstone matching bank unit technology stack.",
+    "internship_desc3": "Implemented RESTful APIs with Spring Boot, Spring Data JPA, and PostgreSQL database.",
+    "internship_desc4": "Integrated Keycloak IAM for authorization, Camunda BPM 2.0 for workflow management, and JasperReports for PDF generation.",
+    "education_title": "Bachelor of IT — Software Engineering",
+    "education_school": "Ho Chi Minh City University of Technology (HUTECH)",
+    "education_date": "2022 – Oct 2026 (Expected)",
+    "education_desc1": "Academic GPA: 3.53 / 4.00 — Top Tier Student",
+    "education_desc2": "Awarded Outstanding Student Distinction for 3 consecutive academic years (2023–2026).",
+    "education_desc3": "Active participant in technical projects, leading dormitory management system development."
+  },
+  "skills": {
+    "tag": "03. Technical Stack",
+    "title": "Skills & Proficiencies",
+    "subtitle": "Streamlined technical toolset focused on performance, scalability, and clean code.",
+    "primary": "Primary Stack (Core Backend & DB)",
+    "secondary": "Secondary Stack (Full-Stack & Mobile)",
+    "enterprise": "Enterprise Tools & AI Workflows"
+  },
+  "projects": {
+    "tag": "04. Highlighted Work",
+    "title": "Featured Projects",
+    "subtitle": "Selected projects demonstrating backend architecture, full-stack integration, and leadership.",
+    "view_github": "GitHub Repo",
+    "live_demo": "Live Demo",
+    "eprocure_desc": "Full-stack Enterprise E-Procurement system built during FPT IS internship. Features Keycloak authentication, Camunda BPM workflow approval, and JasperReports PDF generation.",
+    "yoursneaker_desc": "Modern streetwear e-commerce platform built with ASP.NET Core 8 & React. Includes JWT auth, cart/order management, product CRUD admin dashboard, and MySQL backend.",
+    "dormitory_desc": "Dormitory Management System developed as Project Lead for a 6-member team. Engineered backend REST APIs, PostgreSQL schema, and managed Agile sprints with Jira.",
+    "thitracnghiem_desc": "Mobile exam application developed with Flutter & Dart, backed by ASP.NET Core Web API for real-time online testing and score analytics."
+  },
+  "certificates": {
+    "tag": "05. Proof of Knowledge",
+    "title": "Certificates & Achievements",
+    "subtitle": "Continuous learning certifications from Cisco, Google, and academic distinctions.",
+    "awards_title": "Academic Distinction & English",
+    "certs_title": "Global Certifications"
+  },
+  "contact": {
+    "tag": "06. Connect",
+    "title": "Get In Touch",
+    "subtitle": "I am currently open to Intern & Fresher Software Developer positions.",
+    "form_name": "Your Name",
+    "form_email": "Your Email",
+    "form_message": "Message",
+    "form_send": "Send Message",
+    "form_success": "Thank you! Your message has been sent successfully.",
+    "connect_title": "Direct Contact",
+    "phone": "Phone / Zalo",
+    "email": "Email",
+    "location": "Location",
+    "socials": "Social Profiles"
+  },
+  "footer": {
+    "text": "Designed & Built by Nguyễn Minh Long.",
+    "rights": "All rights reserved."
+  }
+}

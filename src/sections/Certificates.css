@@ -1,0 +1,59 @@
+.certs-section-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 992px) {
+  .certs-section-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.certs-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.certs-col-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.cert-card {
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.cert-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.cert-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+}
+
+.cert-issuer {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+.cert-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}

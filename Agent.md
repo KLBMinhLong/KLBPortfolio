@@ -1,34 +1,41 @@
 # Agent.md — KLBPortfolio
 
 ## Project Overview
-**KLBPortfolio** là trang portfolio cá nhân của **Nguyễn Minh Long** — sinh viên năm cuối ngành Kỹ thuật Phần mềm tại HUTECH, TP.HCM. Trang web giới thiệu kỹ năng, kinh nghiệm thực tập tại FPT IS, và các dự án nổi bật. Mục tiêu: gây ấn tượng với nhà tuyển dụng, thể hiện năng lực full-stack developer.
+**KLBPortfolio** là trang portfolio cá nhân của **Nguyễn Minh Long** — sinh viên năm cuối ngành Công nghệ Thông tin (chuyên ngành Công nghệ Phần mềm) tại Đại học Công nghệ TP.HCM (HUTECH). Trang web giới thiệu kỹ năng, kinh nghiệm thực tập tại FPT IS, tư duy lập trình hiện đại tích hợp AI (AI-assisted engineering), và các dự án nổi bật. 
+Mục tiêu: gây ấn tượng với nhà tuyển dụng, phục vụ nhu cầu tìm việc (Intern/Fresher Backend → Full-stack), chạy lâu dài trên tên miền **minhlongdev.id.vn**.
 
 ## Personal Info (cho content)
 - **Họ tên**: Nguyễn Minh Long
-- **Vai trò**: Software Engineer
+- **Vai trò**: Software Developer
 - **Trường**: Ho Chi Minh City University of Technology (HUTECH)
+- **Chuyên ngành**: Công nghệ Phần mềm
 - **GPA**: 3.53/4.0
 - **Tốt nghiệp dự kiến**: 10/2026
 - **Email**: nguyenminhlongcntt@gmail.com
-- **Phone**: +84 377241808
+- **Phone / Zalo**: +84 377241808
 - **Địa chỉ**: Thủ Đức, TP.HCM
+- **LinkedIn**: https://www.linkedin.com/in/minh-long-nguyễn-09984a333
 - **GitHub**: https://github.com/KLBMinhLong
-- **Chứng chỉ**: Bằng B2 Tiếng Anh
+- **YouTube**: https://www.youtube.com/@KLB-MinhLong
+- **Facebook**: https://www.facebook.com/long.nguyen.601773/
+- **Chứng chỉ**: Bằng B2 Tiếng Anh, Cisco Networking Basics, Cisco JS Essentials 1 & 2, Cisco Cybersecurity, Google Gemini Certified, Google Certified Educator L1
 - **Thành tựu**: Giấy khen sinh viên xuất sắc HUTECH (2023–2026)
+- **Domain**: `minhlongdev.id.vn`
+- **Sở thích**: Cầu lông, xem phim, chơi game, nghiên cứu công nghệ & AI
 
 ## Tech Stack
 
-### Build Tool
+### Build Tool & Frontend
 - **Framework**: React 18 + Vite + TypeScript
-- **Styling**: Vanilla CSS (CSS Variables, CSS Modules hoặc global styles)
+- **Styling**: Vanilla CSS (CSS Variables, CSS Modules, Glassmorphism, UI/UX Pro Max standards)
 - **Animations**: Framer Motion (smooth scroll, section reveals, hover effects)
-- **Icons**: Lucide React
+- **Icons**: Lucide React / FontAwesome
 - **i18n**: React Context + JSON locale files (EN ↔ VI)
-- **Deploy**: Vercel (recommended) + custom domain (e.g. minhlong.dev)
+- **Deploy**: Vercel + custom domain (`minhlongdev.id.vn`)
 
 ### NO dependencies on:
-- Tailwind CSS (trừ khi user yêu cầu)
-- Backend / Database (static site, dữ liệu hardcode trong data files)
+- Tailwind CSS (dùng Vanilla CSS với tokens đầy đủ)
+- Backend / Database cho bản thân trang Portfolio (dữ liệu static JSON/TS)
 - CMS
 
 ## Project Structure
@@ -43,11 +50,9 @@ KLBPortfolio/
 ├── tsconfig.json
 ├── index.html
 └── src/
-    ├── assets/               # Images, fonts, icons
-    │   ├── images/
-    │   └── icons/
+    ├── assets/               # Images, fonts, icons, avatar (CVImg.png)
     ├── components/           # Reusable UI components
-    │   ├── ui/               # Button, Badge, Card, SectionTitle...
+    │   ├── ui/               # Button, Badge, Card, SectionTitle, GlassCard...
     │   └── layout/           # Header, Footer, ScrollToTop, LanguageToggle
     ├── sections/             # Page sections
     │   ├── Hero.tsx
@@ -55,19 +60,21 @@ KLBPortfolio/
     │   ├── Skills.tsx
     │   ├── Experience.tsx
     │   ├── Projects.tsx
+    │   ├── Certificates.tsx  # Section chứng chỉ & giải thưởng
     │   └── Contact.tsx
-    ├── data/                 # Content data (tách khỏi UI)
+    ├── data/                 # Content data (tách khỏi UI để mở rộng tương lai)
     │   ├── profile.ts
     │   ├── skills.ts
     │   ├── experience.ts
-    │   └── projects.ts
+    │   ├── projects.ts
+    │   └── certificates.ts
     ├── i18n/                 # Internationalization
     │   ├── LanguageContext.tsx  # React Context provider
-    │   ├── useTranslation.ts   # Custom hook: const { t, lang, toggleLang } = useTranslation()
+    │   ├── useTranslation.ts   # Custom hook
     │   ├── en.json              # English translations
     │   └── vi.json              # Vietnamese translations
-    ├── hooks/                # Custom hooks (useScrollAnimation, useTheme...)
-    ├── styles/               # Global CSS, variables
+    ├── hooks/                # Custom hooks (useScrollAnimation...)
+    ├── styles/               # Global CSS, variables, UI/UX Pro Max tokens
     │   ├── variables.css
     │   ├── reset.css
     │   ├── global.css
@@ -77,122 +84,67 @@ KLBPortfolio/
     └── main.tsx
 ```
 
-## Sections & Content
+## Sections & Content Details
 
-### 1. Hero
-- Tên: Nguyễn Minh Long
-- Title: "Software Engineer"
-- Tagline: 1 câu pitch ngắn, mạnh mẽ
-- CTA buttons: "View Projects" / "Xem dự án" + "Contact" / "Liên hệ"
-- Language toggle button (EN ↔ VI) trên nav bar
-- Animated background (CSS particle/gradient mesh — NO Three.js/3D)
-- NOTE: Không dùng 3D (Three.js/R3F) — quá nặng cho portfolio, timeline tight
+### 1. Hero Section
+- **Tên**: Nguyễn Minh Long
+- **Title**: Software Developer
+- **Tagline (EN)**: *"Backend-focused developer with enterprise experience, leveraging AI workflows to build scalable full-stack solutions from Spring Boot to React."*
+- **Tagline (VI)**: *"Lập trình viên chuyên Backend, có kinh nghiệm thực tế doanh nghiệp, áp dụng quy trình AI để phát triển giải pháp Full-stack tối ưu."*
+- **Stats Bar**: `3+ Months @ FPT IS` | `GPA 3.53/4.0` | `4+ Key Projects` | `B2 English`
+- **CTA Buttons**: "Explore My Work" (scroll to Projects) + "Download CV" (`CV_Nguyen_Minh_Long.pdf`)
+- **Background**: Ambient Animated Gradient Mesh (Dark Theme)
 
-### 2. About Me
-- Sinh viên năm cuối HUTECH, GPA 3.53/4.0
-- Hướng đi: Backend enterprise (Java/Spring Boot, C#/.NET), đang mở rộng full-stack
-- Tính cách: đam mê học hỏi, tự học nhanh, làm việc nhóm tốt
-- Ảnh chân dung (placeholder ban đầu)
+### 2. About Me Section
+- Sinh viên năm cuối CNTT HUTECH (GPA 3.53/4.0), chuẩn bị tốt nghiệp 10/2026.
+- Thực tập tại FPT Information System (FPT IS): Chủ động xây dựng hệ thống eProcure Enterprise đáp ứng các công nghệ core của phòng Banking (Spring Boot, PostgreSQL, Keycloak, Camunda BPM, JasperReports).
+- Tư duy hiện đại: Ứng dụng công cụ AI (AI-assisted engineering) để tăng tốc độ phát triển code, tối ưu quy trình và giải quyết bài toán kỹ thuật phức tạp.
+- Định hướng: Intern/Fresher Backend Developer → Full-stack Developer trong tương lai.
+- Personal side: Đam mê cầu lông, xem phim, chơi game, làm YouTube chia sẻ công nghệ.
 
-### 3. Skills
-Nhóm theo category:
-- **Backend**: Java, Spring Boot, Spring Security, Spring Data JPA, ASP.NET Core, Entity Framework Core, Node.js, ExpressJS
-- **Frontend**: React, TypeScript, Angular, HTML, CSS, Bootstrap
-- **Database**: PostgreSQL, SQL Server, MySQL, MongoDB
-- **DevOps & Tools**: Docker, Docker Compose, Git, GitHub, Jira, Postman, Keycloak
-- **Other**: REST API, JWT Auth, Clean Architecture, Camunda BPM, JasperReports
+### 3. Experience & Education Section
+- **Education**: Đại học Công nghệ TP.HCM (HUTECH) — 2022–2026 | GPA 3.53/4.0 | Giấy khen Sinh viên Xuất sắc 3 năm liên tiếp (2023–2026).
+- **FPT IS Internship**: Development Intern (04/2026 – 07/2026) | Banking & Enterprise unit.
+  - Chủ động thiết kế và hoàn thiện dự án **eProcure Enterprise** theo stack tiêu chuẩn của phòng ban.
+  - Xây dựng RESTful API với Spring Boot & Spring Data JPA, bảo mật Keycloak JWT, quy trình công việc Camunda BPMN 2.0, kết xuất báo cáo JasperReports.
 
-### 4. Experience
-- **Development Intern — FPT IS** (04/2026 – 07/2026)
-  - Project: eProcure Enterprise
-  - 3-month backend training program
-  - Built REST APIs with Spring Boot, Spring Data JPA, PostgreSQL
-  - Keycloak auth/authorization, JasperReports, Camunda BPM workflow
-  - Delivered full-stack capstone: E-Procurement system (Spring Boot + Angular)
+### 4. Skills Section (Tối giản & Đúng trọng tâm)
+- **Primary / Core**: Java, Spring Boot, Spring Security, Spring Data JPA, PostgreSQL, Docker, Git, RESTful API
+- **Secondary / Full-stack**: C# / ASP.NET Core, React, TypeScript, MySQL, SQL Server, MongoDB, Node.js/Express, Angular
+- **Enterprise & DevOps**: Keycloak, Camunda BPM, JasperReports, Docker Compose, Jira, Postman, AI-Assisted Tools
 
-### 5. Projects (sắp xếp theo mức độ nổi bật)
-1. **eProcure Enterprise** — Enterprise Procurement System ⭐ (FPT IS internship capstone)
+### 5. Projects Section (4 Dự án Chọn Lọc)
+1. ⭐ **eProcure Enterprise** — Enterprise Procurement System (FPT IS Capstone)
    - Stack: Spring Boot, Angular, PostgreSQL, Docker, Keycloak, Camunda BPM, JasperReports
-   - Highlights: Real enterprise project, auth + BPMN workflow + reporting
-   - GitHub: github.com/KLBMinhLong/E-Procurement
-
-2. **YourSneaker** — E-Commerce Platform ⭐
-   - Stack: ASP.NET Core 8, React + TypeScript, MySQL, Docker
-   - Features: Auth, Product CRUD, Cart, Orders, Admin Dashboard, VNPay payment
-   
-3. **Student Dormitory Management** — Quản lý ký túc xá
+   - Highlights: Quản lý quy trình mua sắm doanh nghiệp, xác thực Keycloak, luồng duyệt BPMN, xuất báo cáo PDF.
+2. ⭐ **YourSneaker** — Streetwear E-Commerce Platform
+   - Stack: ASP.NET Core 8, React, TypeScript, MySQL, Docker
+   - Highlights: Đăng nhập/đăng ký JWT, giỏ hàng, đặt hàng, quản lý sản phẩm Admin, thanh toán.
+3. ⭐ **Student Dormitory Management** — Quản lý ký túc xá
    - Stack: Java, Spring Boot, PostgreSQL, Jira
-   - Role: Project Lead / Backend Developer (6 members)
-   - GitHub: github.com/KLBMinhLong/StudentDormitoryManagement
+   - Highlights: Vai trò **Project Lead / Backend Developer** (lead team 6 người), phân tích thiết kế hệ thống và quản lý tiến độ bằng Jira.
+4. ⭐ **ThiTracNghiem App & API** — Mobile Exam App
+   - Stack: Flutter (Dart), ASP.NET Core Web API, C#
+   - Highlights: Ứng dụng thi trắc nghiệm trên di động tích hợp backend API đồng bộ dữ liệu real-time.
 
-4. **Smart Test** — Online Exam Platform
-   - Stack: ASP.NET Core, SQL Server, AJAX
-   - GitHub: github.com/KLBMinhLong/DACSWebThiTracNghiem
+### 6. Certificates & Awards Section
+- 🏆 Giấy khen Sinh viên Xuất sắc HUTECH (2023–2026)
+- 🇬🇧 Bằng B2 Tiếng Anh
+- 🌐 Cisco Networking Academy: Networking Basics & Cybersecurity
+- 💻 Cisco x OpenEDG: JavaScript Essentials 1 & 2
+- 🤖 Google for Education: Gemini Certified Student & Google Certified Educator L1
 
-5. **QuizWeb** — Quiz Application
-   - Stack: Node.js, ExpressJS, MongoDB
-   - GitHub: github.com/KLBMinhLong/QuizWeb
-
-### 6. Contact
+### 7. Contact Section
 - Email: nguyenminhlongcntt@gmail.com
-- GitHub: github.com/KLBMinhLong
-- Phone: +84 377241808
-- Contact form (optional — can use Formspree or similar)
+- Phone / Zalo: 0377241808
+- LinkedIn: https://www.linkedin.com/in/minh-long-nguyễn-09984a333
+- GitHub: https://github.com/KLBMinhLong
+- YouTube: https://www.youtube.com/@KLB-MinhLong
+- Contact form đơn giản & nút Download CV (`CV_Nguyen_Minh_Long.pdf`).
 
-## Coding Conventions
-
-### General
-- Ngôn ngữ code: **English**
-- Ngôn ngữ UI: **English (default)** với toggle sang **Tiếng Việt**
-- i18n approach: React Context + JSON files (en.json, vi.json)
+## Coding Conventions & Execution Rules
+- Ngôn ngữ UI: **English (default)** với toggle button 🇺🇸 EN / 🇻🇳 VI
 - All user-facing text phải đi qua `t('key')` function — KHÔNG hardcode text
-- Component naming: PascalCase
-- File naming: PascalCase cho components, camelCase cho utilities
+- Fully responsive, glassmorphism UI, smooth scroll, high-contrast dark theme
+- Deploy Vercel với custom domain `minhlongdev.id.vn`
 
-### CSS
-- CSS Variables cho design tokens
-- Mobile-first responsive design
-- Smooth transitions và animations
-- Dark theme default (có thể toggle light mode)
-
-### TypeScript
-- Strict mode
-- Interfaces cho data types
-- Functional components only
-- No `any` type
-
-### Performance
-- Lazy load images
-- Intersection Observer cho scroll animations
-- Optimize bundle size (tree-shaking)
-- Proper meta tags cho SEO + Open Graph
-
-## SEO & Meta
-- Title: "Nguyễn Minh Long — Software Engineer"
-- Description: "Portfolio of Nguyen Minh Long — Software Engineer specializing in Java Spring Boot, ASP.NET Core, and React. HUTECH graduate with internship experience at FPT IS."
-- Open Graph tags cho social sharing
-- Favicon
-- Sitemap (optional)
-- `<html lang="en">` default, update khi toggle sang `vi`
-
-## Deploy Strategy
-- **Platform**: Vercel (free, auto-deploy from GitHub, excellent performance)
-- **Custom Domain**: Recommend mua domain riêng (e.g. `minhlong.dev`, `nguyenminhlong.dev`)
-  - Provider: Namecheap / Cloudflare (~$10-12/năm)
-  - Gắn vào Vercel chỉ mất 5 phút (add domain + update DNS)
-- **KHÔNG dùng AWS** — overkill cho static portfolio, tốn thời gian setup
-- **CI/CD**: Vercel auto-deploy mỗi lần push lên `main` branch
-- **SSL**: Vercel cấp tự động (HTTPS)
-
-## i18n Implementation
-### Cách hoạt động:
-1. `LanguageContext` lưu trạng thái ngôn ngữ hiện tại (default: `en`)
-2. `useTranslation()` hook trả về `{ t, lang, toggleLang }`
-3. `t('hero.title')` → tra cứu key trong en.json hoặc vi.json
-4. Toggle button trên navbar: 🇺🇸 EN / 🇻🇳 VI
-5. Lưu preference vào localStorage
-
-### Quy tắc:
-- Tất cả text hiển thị cho user PHẢI dùng `t('key')`
-- Key naming: `section.element` (e.g. `hero.greeting`, `about.description`, `skills.title`)
-- Chỉ translate nội dung text — technical terms (Spring Boot, React, Docker...) giữ nguyên
