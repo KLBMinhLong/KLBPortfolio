@@ -101,11 +101,13 @@ export interface LocaleContent {
     viewAll: string;
     readNote: string;
     items: Array<{
+      slug: string;
       title: string;
       summary: string;
       category: string;
       image: string;
       readTime: string;
+      sourceUrl?: string;
     }>;
   };
   education: {
@@ -149,6 +151,11 @@ export interface LocaleContent {
     notesTitle: string;
     notesIntro: string;
     notesStatus: string;
+    readOriginal: string;
+    visitBlog: string;
+    blogIntro: string;
+    noteNotFound: string;
+    keyTakeaways: string;
     notFoundTitle: string;
     notFoundIntro: string;
     skipToContent: string;
@@ -708,6 +715,7 @@ export const content: Record<Language, LocaleContent> = {
       readNote: 'Read note',
       items: [
         {
+          slug: 'tcp-vs-udp',
           title: 'TCP vs UDP through an interactive simulation',
           summary: 'Visualizing connection setup, reliability and delivery trade-offs.',
           category: 'Networking',
@@ -715,6 +723,7 @@ export const content: Record<Language, LocaleContent> = {
           readTime: '6 min',
         },
         {
+          slug: 'http-rest-java',
           title: 'HTTP and REST with Java',
           summary: 'From request structure to a small Java-backed API flow.',
           category: 'Web fundamentals',
@@ -722,11 +731,21 @@ export const content: Record<Language, LocaleContent> = {
           readTime: '8 min',
         },
         {
+          slug: 'docker-fundamentals',
           title: 'Docker fundamentals',
           summary: 'Why containers help create predictable development environments.',
           category: 'Delivery',
           image: '/assets/notes/docker-basics.jpg',
           readTime: '5 min',
+        },
+        {
+          slug: 'git-basics',
+          title: 'Git basics for a dependable developer workflow',
+          summary: 'A practical path from status and staging to branches, merges, undo decisions and safer commits.',
+          category: 'Version control',
+          image: '/assets/notes/git-basics.jpg',
+          readTime: '9 min',
+          sourceUrl: 'https://klbminhlong.github.io/posts/git-13-git-co-ban/',
         },
       ],
     },
@@ -784,6 +803,11 @@ export const content: Record<Language, LocaleContent> = {
       notesTitle: 'Engineering Notes',
       notesIntro: 'Selected foundational writing from my networking and web studies.',
       notesStatus: 'The complete notes library is being curated for the next release.',
+      readOriginal: 'Read the original article',
+      visitBlog: 'Visit MLBlog archive',
+      blogIntro: 'Want the wider networking and web-study archive? Visit my original MLBlog.',
+      noteNotFound: 'This note is not in the current library.',
+      keyTakeaways: 'Key takeaways',
       notFoundTitle: 'This route left the system map.',
       notFoundIntro: 'The page may have moved, or it was never part of this build.',
       skipToContent: 'Skip to content',
@@ -913,6 +937,7 @@ export const content: Record<Language, LocaleContent> = {
       readNote: 'Đọc bài',
       items: [
         {
+          slug: 'tcp-vs-udp',
           title: 'TCP và UDP qua mô phỏng tương tác',
           summary: 'Trực quan hóa kết nối, độ tin cậy và sự đánh đổi khi truyền dữ liệu.',
           category: 'Lập trình mạng',
@@ -920,6 +945,7 @@ export const content: Record<Language, LocaleContent> = {
           readTime: '6 phút',
         },
         {
+          slug: 'http-rest-java',
           title: 'HTTP và REST với Java',
           summary: 'Từ cấu trúc request đến một luồng API nhỏ sử dụng Java.',
           category: 'Web căn bản',
@@ -927,11 +953,21 @@ export const content: Record<Language, LocaleContent> = {
           readTime: '8 phút',
         },
         {
+          slug: 'docker-fundamentals',
           title: 'Docker căn bản',
           summary: 'Vì sao container giúp môi trường phát triển nhất quán hơn.',
           category: 'Delivery',
           image: '/assets/notes/docker-basics.jpg',
           readTime: '5 phút',
+        },
+        {
+          slug: 'git-basics',
+          title: 'Git căn bản cho quy trình làm việc đáng tin cậy',
+          summary: 'Lộ trình thực tế từ status và staging đến branch, merge, quyết định undo và commit an toàn hơn.',
+          category: 'Quản lý phiên bản',
+          image: '/assets/notes/git-basics.jpg',
+          readTime: '9 phút',
+          sourceUrl: 'https://klbminhlong.github.io/posts/git-13-git-co-ban/',
         },
       ],
     },
@@ -989,6 +1025,11 @@ export const content: Record<Language, LocaleContent> = {
       notesTitle: 'Engineering Notes',
       notesIntro: 'Các bài viết nền tảng chọn lọc từ quá trình học lập trình mạng và web.',
       notesStatus: 'Thư viện ghi chú đầy đủ đang được chọn lọc cho phiên bản tiếp theo.',
+      readOriginal: 'Đọc bài viết gốc',
+      visitBlog: 'Xem kho bài viết MLBlog',
+      blogIntro: 'Muốn xem kho bài viết về mạng và web đầy đủ hơn? Hãy ghé MLBlog cũ của mình.',
+      noteNotFound: 'Không tìm thấy ghi chú này trong thư viện hiện tại.',
+      keyTakeaways: 'Điểm chính cần nhớ',
       notFoundTitle: 'Route này đã ra ngoài system map.',
       notFoundIntro: 'Trang có thể đã được di chuyển hoặc chưa từng thuộc bản build này.',
       skipToContent: 'Bỏ qua đến nội dung chính',

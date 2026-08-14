@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -19,10 +19,16 @@ export function NotesPage() {
             <span className="notes-list__index">0{index + 1}</span>
             <img src={note.image} alt="" />
             <div><p className="eyebrow">{note.category} · {note.readTime}</p><h2>{note.title}</h2><p>{note.summary}</p></div>
-            <span className="notes-list__coming">{t.common.notesStatus}<ArrowUpRight aria-hidden="true" /></span>
+            <Link className="notes-list__read" to={`/notes/${note.slug}`}>{t.notes.readNote}<ArrowUpRight aria-hidden="true" /></Link>
           </article>
         ))}
       </div>
+      <aside className="notes-blog-callout">
+        <p>{t.common.blogIntro}</p>
+        <a className="text-link" href="https://klbminhlong.github.io/" target="_blank" rel="noreferrer">
+          {t.common.visitBlog}<ExternalLink aria-hidden="true" />
+        </a>
+      </aside>
     </section>
   );
 }
