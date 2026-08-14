@@ -135,6 +135,7 @@ export interface LocaleContent {
     statement: string;
     domainNote: string;
   };
+  resume: ResumeContent;
   common: {
     backHome: string;
     projectNotFound: string;
@@ -167,6 +168,78 @@ export interface LocaleContent {
     currentResumeVersion: string;
   };
   projects: ProjectContent[];
+}
+
+export interface ResumeSkillGroup {
+  category: string;
+  skills: string[];
+}
+
+export interface ResumeExperienceItem {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  points: string[];
+  caseStudySlug?: string;
+  caseStudyLabel?: string;
+}
+
+export interface ResumeProjectItem {
+  title: string;
+  role: string;
+  period: string;
+  tech: string[];
+  points: string[];
+  slug?: string;
+  githubUrl?: string;
+}
+
+export interface ResumeEducationItem {
+  school: string;
+  degree: string;
+  period: string;
+  points: string[];
+}
+
+export interface ResumeCertificationItem {
+  title: string;
+  issuer: string;
+  detail?: string;
+}
+
+export interface ResumeContent {
+  badge: string;
+  headline: string;
+  intro: string;
+  targetRole: string;
+  fileLabel: string;
+  fileSize: string;
+  updatedDate: string;
+  tabs: {
+    pdf: string;
+    interactive: string;
+  };
+  actions: {
+    openPdf: string;
+    downloadPdf: string;
+    copyEmail: string;
+    copiedEmail: string;
+    contactMe: string;
+  };
+  quickFacts: Array<{ label: string; value: string }>;
+  summaryTitle: string;
+  summaryText: string;
+  experienceTitle: string;
+  experienceItems: ResumeExperienceItem[];
+  projectsTitle: string;
+  projectItems: ResumeProjectItem[];
+  skillsTitle: string;
+  skillGroups: ResumeSkillGroup[];
+  educationTitle: string;
+  educationItems: ResumeEducationItem[];
+  certificationsTitle: string;
+  certificationItems: ResumeCertificationItem[];
 }
 
 const sharedTechnologies = {
@@ -787,6 +860,129 @@ export const content: Record<Language, LocaleContent> = {
       statement: 'Designed as an engineering story, built with React and TypeScript.',
       domainNote: 'KLB.dev is the personal brand of Nguyễn Minh Long.',
     },
+    resume: {
+      badge: 'Software Developer · Available for Intern & Fresher',
+      headline: 'Software Developer Résumé',
+      intro: 'Concise 1-page résumé detailing my hands-on enterprise internship at FPT IS, core software projects, technical skills, and academic record at HUTECH.',
+      targetRole: 'Software Developer | Backend & Full-stack',
+      fileLabel: 'Nguyen-Minh-Long-Resume.pdf',
+      fileSize: '1 Page · 563 KB',
+      updatedDate: 'August 2026',
+      tabs: {
+        pdf: 'PDF Document Preview',
+        interactive: 'Interactive Breakdown',
+      },
+      actions: {
+        openPdf: 'Open PDF in new tab',
+        downloadPdf: 'Download PDF',
+        copyEmail: 'Copy email',
+        copiedEmail: 'Email copied!',
+        contactMe: 'Get in touch',
+      },
+      quickFacts: [
+        { label: 'Role target', value: 'Software Developer (Backend / Full-stack)' },
+        { label: 'Experience', value: 'FPT IS · Development Intern' },
+        { label: 'Academic', value: 'HUTECH · GPA 3.53 / 4.00' },
+        { label: 'Top Capstone', value: 'eProcure Enterprise (9 Services)' },
+        { label: 'English', value: 'Aptis ESOL B2 · British Council' },
+        { label: 'Location', value: 'Ho Chi Minh City, Vietnam' },
+      ],
+      summaryTitle: 'Executive Summary',
+      summaryText: 'Final-year Software Engineering student with hands-on Development Intern experience at FPT IS, where I built an enterprise-scale procurement platform end to end. Comfortable across the stack with Java/Spring Boot, ASP.NET Core, Angular and React, and experienced integrating AI tools into the engineering workflow while retaining full ownership of code review, automated checks and testing. Seeking Software Developer Intern or Fresher roles.',
+      experienceTitle: 'Work Experience',
+      experienceItems: [
+        {
+          company: 'FPT IS',
+          role: 'Development Intern',
+          period: 'Apr 2026 – Jul 2026',
+          location: 'Ho Chi Minh City, Vietnam',
+          points: [
+            'Independently designed and delivered eProcure Enterprise, an enterprise-scale procurement platform covering the full purchase-to-pay lifecycle.',
+            'Worked directly with a technical mentor to define system architecture, coding standards and business workflows for a nine-service platform.',
+            'Integrated AI tools into research, implementation and documentation, while retaining full responsibility for code review, automated checks and functional testing.',
+          ],
+          caseStudySlug: 'eprocure',
+          caseStudyLabel: 'View eProcure Case Study',
+        },
+      ],
+      projectsTitle: 'Selected Projects',
+      projectItems: [
+        {
+          title: 'eProcure Enterprise',
+          role: 'Solo AI-assisted Engineering Capstone',
+          period: '2026',
+          tech: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Kafka', 'Redis', 'Keycloak', 'Docker'],
+          points: [
+            'Built a nine-service enterprise procurement platform with role-aware workflows for purchase requests, multi-level approvals, purchase orders, goods receipt, invoice matching and payment.',
+            'Applied Clean Architecture, event-driven service boundaries, permission-based authorization, idempotent write operations and audit-oriented data rules.',
+          ],
+          slug: 'eprocure',
+          githubUrl: 'https://github.com/KLBMinhLong/eProcure-Enterprise',
+        },
+        {
+          title: 'YourSneaker',
+          role: 'Solo Full-stack Product',
+          period: '2026',
+          tech: ['ASP.NET Core 9', 'React', 'TypeScript', 'MySQL', 'Docker', 'VNPay Sandbox'],
+          points: [
+            'Built a sneaker e-commerce product covering storefront, product discovery, cart, checkout, order tracking and administrative workflows.',
+            'Applied four-layer Clean Architecture and integrated COD and VNPay sandbox payment flows across backend, frontend and database design.',
+          ],
+          slug: 'yoursneaker',
+          githubUrl: 'https://github.com/KLBMinhLong/YourSneaker',
+        },
+        {
+          title: 'Student Dormitory Management',
+          role: 'Project Lead & Developer (6-member team)',
+          period: 'Feb 2026 – Apr 2026',
+          tech: ['Java', 'Spring Boot', 'PostgreSQL', 'Jira', 'PayOS'],
+          points: [
+            'Led a six-member team through Jira — owned task allocation and feature integration while building room/bed selection, registration, payment and monthly utility workflows.',
+          ],
+          slug: 'dormitory',
+          githubUrl: 'https://github.com/KLBMinhLong/Student-Dormitory-Management',
+        },
+      ],
+      skillsTitle: 'Technical Skills',
+      skillGroups: [
+        {
+          category: 'Backend',
+          skills: ['Java 17', 'Spring Boot', 'ASP.NET Core 9', 'RESTful APIs', 'Clean Architecture'],
+        },
+        {
+          category: 'Frontend',
+          skills: ['Angular', 'React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5 & CSS/SCSS'],
+        },
+        {
+          category: 'Data & Storage',
+          skills: ['PostgreSQL', 'MySQL', 'SQL', 'Redis'],
+        },
+        {
+          category: 'Architecture & Delivery',
+          skills: ['Microservices', 'Kafka', 'Docker', 'Keycloak (IAM)', 'Git', 'OpenAPI / Swagger'],
+        },
+      ],
+      educationTitle: 'Education & Honors',
+      educationItems: [
+        {
+          school: 'Ho Chi Minh City University of Technology (HUTECH)',
+          degree: 'Bachelor of Engineering in Software Engineering',
+          period: 'Oct 2022 – Expected Oct 2026',
+          points: [
+            'GPA: 3.53 / 4.00 (Ranked Very Good)',
+            'Outstanding Student Award for academic years 2023–2026',
+          ],
+        },
+      ],
+      certificationsTitle: 'Certifications & Languages',
+      certificationItems: [
+        {
+          title: 'Aptis ESOL B2',
+          issuer: 'British Council',
+          detail: 'CEFR B2 Level in English Communication',
+        },
+      ],
+    },
     common: {
       backHome: 'Back to portfolio',
       projectNotFound: 'This project story does not exist.',
@@ -795,11 +991,11 @@ export const content: Record<Language, LocaleContent> = {
       projectContribution: 'My contribution',
       projectEvidence: 'Product evidence',
       nextProject: 'Next project',
-      resumeTitle: 'Résumé',
-      resumeIntro: 'A concise snapshot of my education, internship and selected project work.',
-      openResume: 'Open résumé',
+      resumeTitle: 'Software Developer Résumé',
+      resumeIntro: 'One-page concise snapshot of my software engineering experience, capstone projects, technical skills, and education.',
+      openResume: 'Open PDF in new tab',
       downloadResume: 'Download PDF',
-      temporaryResume: 'This is the current résumé and will be replaced with a revised one-page version.',
+      temporaryResume: 'Software Developer (Backend & Full-stack) · 1-Page PDF',
       notesTitle: 'Engineering Notes',
       notesIntro: 'Selected personal learning notes from my networking and web studies, updated as I turn project lessons into clear explanations.',
       notesStatus: 'Personal learning notes · Updated August 2026',
@@ -816,7 +1012,7 @@ export const content: Record<Language, LocaleContent> = {
       caseStudy: 'Case study',
       transparencyNote: 'Transparency note',
       knowledgeBaseVersion: 'Personal learning notes · Updated August 2026',
-      currentResumeVersion: 'PDF · Current version',
+      currentResumeVersion: 'PDF · Updated August 2026',
     },
     projects: englishProjects,
   },
@@ -1009,6 +1205,129 @@ export const content: Record<Language, LocaleContent> = {
       statement: 'Thiết kế như một câu chuyện kỹ thuật, xây dựng bằng React và TypeScript.',
       domainNote: 'KLB.dev là thương hiệu cá nhân của Nguyễn Minh Long.',
     },
+    resume: {
+      badge: 'Software Developer · Sẵn sàng thực tập & Fresher',
+      headline: 'CV Lập trình viên Phần mềm',
+      intro: 'Bản tóm tắt 1 trang về kinh nghiệm thực tập doanh nghiệp tại FPT IS, các dự án kỹ thuật tiêu biểu, kỹ năng lập trình và thành tích học tập tại HUTECH.',
+      targetRole: 'Software Developer | Backend & Full-stack',
+      fileLabel: 'Nguyen-Minh-Long-Resume.pdf',
+      fileSize: '1 Trang · 563 KB',
+      updatedDate: 'Tháng 08/2026',
+      tabs: {
+        pdf: 'Xem file PDF',
+        interactive: 'Bản chi tiết tương tác',
+      },
+      actions: {
+        openPdf: 'Mở PDF trong tab mới',
+        downloadPdf: 'Tải file PDF',
+        copyEmail: 'Sao chép email',
+        copiedEmail: 'Đã sao chép email!',
+        contactMe: 'Liên hệ trực tiếp',
+      },
+      quickFacts: [
+        { label: 'Vị trí mục tiêu', value: 'Software Developer (Backend / Full-stack)' },
+        { label: 'Kinh nghiệm', value: 'FPT IS · Development Intern' },
+        { label: 'Học vấn', value: 'HUTECH · GPA 3.53 / 4.00' },
+        { label: 'Đồ án tiêu biểu', value: 'eProcure Enterprise (9 dịch vụ)' },
+        { label: 'Chứng chỉ ngoại ngữ', value: 'Aptis ESOL B2 · British Council' },
+        { label: 'Khu vực', value: 'TP. Hồ Chí Minh, Việt Nam' },
+      ],
+      summaryTitle: 'Tóm tắt năng lực & Mục tiêu',
+      summaryText: 'Sinh viên năm cuối ngành Kỹ thuật Phần mềm với kinh nghiệm thực tập phát triển phần mềm tại FPT IS, trực tiếp xây dựng nền tảng mua sắm doanh nghiệp từ đầu đến cuối. Thành thạo full-stack với Java/Spring Boot, ASP.NET Core, Angular và React; có kinh nghiệm ứng dụng công cụ AI vào quy trình kỹ thuật nhưng luôn nắm toàn quyền kiểm soát chất lượng qua code review, automated checks và kiểm thử chức năng. Tìm kiếm cơ hội Software Developer Intern hoặc Fresher.',
+      experienceTitle: 'Kinh nghiệm làm việc',
+      experienceItems: [
+        {
+          company: 'FPT IS',
+          role: 'Development Intern',
+          period: '04/2026 – 07/2026',
+          location: 'TP. Hồ Chí Minh, Việt Nam',
+          points: [
+            'Độc lập thiết kế và triển khai eProcure Enterprise — nền tảng quản lý mua sắm cấp doanh nghiệp bao quát toàn bộ quy trình từ yêu cầu đến thanh toán (purchase-to-pay).',
+            'Làm việc trực tiếp cùng Mentor kỹ thuật để xác lập kiến trúc hệ thống, chuẩn mực mã nguồn và quy trình nghiệp vụ cho nền tảng 9 microservices.',
+            'Tích hợp công cụ AI vào nghiên cứu giải pháp, sinh mã và tài liệu hóa, đồng thời chịu toàn bộ trách nhiệm kiểm thử tự động, code review và tính đúng đắn của phần mềm.',
+          ],
+          caseStudySlug: 'eprocure',
+          caseStudyLabel: 'Xem Case Study eProcure',
+        },
+      ],
+      projectsTitle: 'Dự án tiêu biểu',
+      projectItems: [
+        {
+          title: 'eProcure Enterprise',
+          role: 'Solo AI-assisted Engineering Capstone',
+          period: '2026',
+          tech: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Kafka', 'Redis', 'Keycloak', 'Docker'],
+          points: [
+            'Xây dựng nền tảng mua sắm doanh nghiệp gồm 9 microservices với quy trình phân quyền chặt chẽ: yêu cầu mua sắm, phê duyệt đa cấp, đơn đặt hàng, nhập kho, đối soát hóa đơn và thanh toán.',
+            'Áp dụng Clean Architecture, giao tiếp event-driven qua Kafka, phân quyền phân tán, ghi dữ liệu idempotent và lưu vết kiểm toán (audit trail).',
+          ],
+          slug: 'eprocure',
+          githubUrl: 'https://github.com/KLBMinhLong/eProcure-Enterprise',
+        },
+        {
+          title: 'YourSneaker',
+          role: 'Solo Full-stack Product',
+          period: '2026',
+          tech: ['ASP.NET Core 9', 'React', 'TypeScript', 'MySQL', 'Docker', 'VNPay Sandbox'],
+          points: [
+            'Xây dựng sản phẩm thương mại điện tử chuyên giày sneaker bao quát từ trang mua sắm, tìm kiếm sản phẩm, giỏ hàng, thanh toán, theo dõi đơn hàng đến trang quản trị.',
+            'Áp dụng Clean Architecture 4 lớp, tích hợp cổng thanh toán VNPay Sandbox và COD đồng bộ trên backend, frontend và database.',
+          ],
+          slug: 'yoursneaker',
+          githubUrl: 'https://github.com/KLBMinhLong/YourSneaker',
+        },
+        {
+          title: 'Student Dormitory Management',
+          role: 'Trưởng nhóm & Lập trình viên (Nhóm 6 thành viên)',
+          period: '02/2026 – 04/2026',
+          tech: ['Java', 'Spring Boot', 'PostgreSQL', 'Jira', 'PayOS'],
+          points: [
+            'Trưởng nhóm 6 thành viên quản lý qua Jira — phân bổ công việc, tích hợp hệ thống và trực tiếp phát triển các luồng chọn phòng/giường, đăng ký nội trú, thanh toán trực tuyến qua PayOS và chốt chỉ số điện nước định kỳ.',
+          ],
+          slug: 'dormitory',
+          githubUrl: 'https://github.com/KLBMinhLong/Student-Dormitory-Management',
+        },
+      ],
+      skillsTitle: 'Kỹ năng kỹ thuật',
+      skillGroups: [
+        {
+          category: 'Backend',
+          skills: ['Java 17', 'Spring Boot', 'ASP.NET Core 9', 'RESTful APIs', 'Clean Architecture'],
+        },
+        {
+          category: 'Frontend',
+          skills: ['Angular', 'React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5 & CSS/SCSS'],
+        },
+        {
+          category: 'Dữ liệu & Caching',
+          skills: ['PostgreSQL', 'MySQL', 'SQL', 'Redis'],
+        },
+        {
+          category: 'Kiến trúc & Công cụ',
+          skills: ['Microservices', 'Kafka', 'Docker', 'Keycloak (IAM)', 'Git', 'OpenAPI / Swagger'],
+        },
+      ],
+      educationTitle: 'Học vấn & Khen thưởng',
+      educationItems: [
+        {
+          school: 'Trường Đại học Công nghệ TP.HCM (HUTECH)',
+          degree: 'Kỹ sư Kỹ thuật Phần mềm',
+          period: '10/2022 – Dự kiến 10/2026',
+          points: [
+            'GPA: 3.53 / 4.00 (Xếp loại Giỏi)',
+            'Danh hiệu Sinh viên Tiêu biểu liên tục các năm học 2023–2026',
+          ],
+        },
+      ],
+      certificationsTitle: 'Chứng chỉ & Ngoại ngữ',
+      certificationItems: [
+        {
+          title: 'Aptis ESOL B2',
+          issuer: 'British Council',
+          detail: 'Trình độ Tiếng Anh B2 chuẩn CEFR',
+        },
+      ],
+    },
     common: {
       backHome: 'Về portfolio',
       projectNotFound: 'Không tìm thấy câu chuyện dự án này.',
@@ -1017,11 +1336,11 @@ export const content: Record<Language, LocaleContent> = {
       projectContribution: 'Đóng góp của mình',
       projectEvidence: 'Bằng chứng sản phẩm',
       nextProject: 'Dự án tiếp theo',
-      resumeTitle: 'CV',
-      resumeIntro: 'Bản tóm tắt ngắn về học vấn, kỳ thực tập và các dự án chọn lọc.',
-      openResume: 'Mở CV',
+      resumeTitle: 'CV Lập trình viên Phần mềm',
+      resumeIntro: 'Bản tóm tắt 1 trang về kinh nghiệm phát triển phần mềm, các dự án tiêu biểu, kỹ năng kỹ thuật và thành tích học vấn.',
+      openResume: 'Mở PDF trong tab mới',
       downloadResume: 'Tải PDF',
-      temporaryResume: 'Đây là CV hiện tại và sẽ được thay bằng phiên bản một trang được viết lại.',
+      temporaryResume: 'Software Developer (Backend & Full-stack) · PDF 1 trang',
       notesTitle: 'Engineering Notes',
       notesIntro: 'Các bài viết nền tảng chọn lọc từ quá trình học lập trình mạng và web.',
       notesStatus: 'Ghi chú học tập cá nhân · Cập nhật tháng 08/2026',
@@ -1038,7 +1357,7 @@ export const content: Record<Language, LocaleContent> = {
       caseStudy: 'Case study',
       transparencyNote: 'Ghi chú minh bạch',
       knowledgeBaseVersion: 'Ghi chú học tập cá nhân · Cập nhật tháng 08/2026',
-      currentResumeVersion: 'PDF · Phiên bản hiện tại',
+      currentResumeVersion: 'PDF · Cập nhật tháng 08/2026',
     },
     projects: vietnameseProjects,
   },
