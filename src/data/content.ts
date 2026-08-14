@@ -267,7 +267,7 @@ const englishProjects: ProjectContent[] = [
       },
     ],
     disclosure:
-      'Independently developed during the FPT IS internship as a learning capstone aligned with the banking unit’s technology focus. This is not a production FPT IS product.',
+      'Independently developed during the FPT IS internship as a learning capstone aligned with the banking unit’s technology focus. This is not a production FPT IS product; the screenshots and demo use learning/demo data only.',
   },
   {
     slug: 'your-sneaker',
@@ -491,7 +491,7 @@ vietnameseProjects[0] = {
     },
   ],
   disclosure:
-    'Được phát triển độc lập trong kỳ thực tập FPT IS như một capstone học tập theo định hướng công nghệ của phòng ban ngân hàng. Đây không phải sản phẩm production của FPT IS.',
+    'Được phát triển độc lập trong kỳ thực tập FPT IS như một capstone học tập theo định hướng công nghệ của phòng ban ngân hàng. Đây không phải sản phẩm production của FPT IS; ảnh và video demo chỉ sử dụng dữ liệu học tập/minh họa.',
 };
 
 vietnameseProjects[1] = {
@@ -633,7 +633,7 @@ export const content: Record<Language, LocaleContent> = {
       { label: 'Academic', value: 'GPA 3.53 / 4.00' },
       { label: 'Selected work', value: '3 complete project stories' },
       { label: 'Recognition', value: 'Outstanding Student · 2023–2026' },
-      { label: 'English', value: 'Aptis ESOL · CEFR B2' },
+      { label: 'English', value: 'Aptis ESOL B2 · British Council' },
     ],
     work: {
       eyebrow: '01 · Selected work',
@@ -801,8 +801,8 @@ export const content: Record<Language, LocaleContent> = {
       downloadResume: 'Download PDF',
       temporaryResume: 'This is the current résumé and will be replaced with a revised one-page version.',
       notesTitle: 'Engineering Notes',
-      notesIntro: 'Selected foundational writing from my networking and web studies.',
-      notesStatus: 'The complete notes library is being curated for the next release.',
+      notesIntro: 'Selected personal learning notes from my networking and web studies, updated as I turn project lessons into clear explanations.',
+      notesStatus: 'Personal learning notes · Updated August 2026',
       readOriginal: 'Read the original article',
       visitBlog: 'Visit MLBlog archive',
       blogIntro: 'Want the wider networking and web-study archive? Visit my original MLBlog.',
@@ -815,7 +815,7 @@ export const content: Record<Language, LocaleContent> = {
       profileHighlights: 'Profile highlights',
       caseStudy: 'Case study',
       transparencyNote: 'Transparency note',
-      knowledgeBaseVersion: 'Knowledge base · v0.1',
+      knowledgeBaseVersion: 'Personal learning notes · Updated August 2026',
       currentResumeVersion: 'PDF · Current version',
     },
     projects: englishProjects,
@@ -855,7 +855,7 @@ export const content: Record<Language, LocaleContent> = {
       { label: 'Học tập', value: 'GPA 3.53 / 4.00' },
       { label: 'Dự án chọn lọc', value: '3 câu chuyện sản phẩm' },
       { label: 'Thành tích', value: 'Sinh viên xuất sắc · 2023–2026' },
-      { label: 'Tiếng Anh', value: 'Aptis ESOL · CEFR B2' },
+      { label: 'Tiếng Anh', value: 'Aptis ESOL B2 · British Council' },
     ],
     work: {
       eyebrow: '01 · Dự án chọn lọc',
@@ -932,7 +932,7 @@ export const content: Record<Language, LocaleContent> = {
       eyebrow: '05 · Engineering notes',
       title: 'Học bằng cách giải thích.',
       intro:
-        'Một số ghi chú nền tảng từ quá trình học lập trình mạng và web. Thư viện sẽ tiếp tục bổ sung bằng bài học từ dự án.',
+        'Các ghi chú học tập cá nhân được chọn lọc từ quá trình học lập trình mạng và web, rồi tiếp tục cập nhật bằng bài học rút ra từ dự án.',
       viewAll: 'Xem tất cả ghi chú',
       readNote: 'Đọc bài',
       items: [
@@ -1024,7 +1024,7 @@ export const content: Record<Language, LocaleContent> = {
       temporaryResume: 'Đây là CV hiện tại và sẽ được thay bằng phiên bản một trang được viết lại.',
       notesTitle: 'Engineering Notes',
       notesIntro: 'Các bài viết nền tảng chọn lọc từ quá trình học lập trình mạng và web.',
-      notesStatus: 'Thư viện ghi chú đầy đủ đang được chọn lọc cho phiên bản tiếp theo.',
+      notesStatus: 'Ghi chú học tập cá nhân · Cập nhật tháng 08/2026',
       readOriginal: 'Đọc bài viết gốc',
       visitBlog: 'Xem kho bài viết MLBlog',
       blogIntro: 'Muốn xem kho bài viết về mạng và web đầy đủ hơn? Hãy ghé MLBlog cũ của mình.',
@@ -1037,7 +1037,7 @@ export const content: Record<Language, LocaleContent> = {
       profileHighlights: 'Thông tin nổi bật',
       caseStudy: 'Case study',
       transparencyNote: 'Ghi chú minh bạch',
-      knowledgeBaseVersion: 'Kho kiến thức · v0.1',
+      knowledgeBaseVersion: 'Ghi chú học tập cá nhân · Cập nhật tháng 08/2026',
       currentResumeVersion: 'PDF · Phiên bản hiện tại',
     },
     projects: vietnameseProjects,
