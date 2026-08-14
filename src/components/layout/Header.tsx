@@ -34,7 +34,8 @@ export function Header() {
     <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''}`}>
       <div className="site-header__inner shell">
         <Link className="brand-link" to="/" aria-label="KLB.dev home" onClick={() => setMenuOpen(false)}>
-          <img src="/assets/brand/klb-horizontal.svg" alt="KLB.dev" />
+          <img src="/assets/brand/klb-mark.png" alt="" aria-hidden="true" />
+          <span>KLB<strong>.dev</strong></span>
         </Link>
 
         <button
