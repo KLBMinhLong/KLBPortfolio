@@ -67,6 +67,8 @@ export interface LocaleContent {
     viewCaseStudy: string;
     sourceCode: string;
     watchDemo: string;
+    featured: string;
+    preview: string;
   };
   workflow: {
     eyebrow: string;
@@ -634,6 +636,8 @@ export const content: Record<Language, LocaleContent> = {
       viewCaseStudy: 'View case study',
       sourceCode: 'Source code',
       watchDemo: 'Watch demo',
+      featured: 'Featured',
+      preview: 'Interface preview',
     },
     workflow: {
       eyebrow: '02 · How I work',
@@ -837,6 +841,8 @@ export const content: Record<Language, LocaleContent> = {
       viewCaseStudy: 'Xem case study',
       sourceCode: 'Mã nguồn',
       watchDemo: 'Xem demo',
+      featured: 'N\u1ed5i b\u1eadt',
+      preview: 'Xem tr\u01b0\u1edbc giao di\u1ec7n',
     },
     workflow: {
       eyebrow: '02 · Cách mình làm việc',
