@@ -665,7 +665,7 @@ export const content: Record<Language, LocaleContent> = {
     },
     experience: {
       eyebrow: '03 · Experience',
-      title: 'Applied learning inside a real engineering environment.',
+      title: 'Learning in a real engineering environment.',
       role: 'Development Intern',
       company: 'FPT IS',
       period: 'April 2026 — July 2026',
@@ -887,7 +887,7 @@ export const content: Record<Language, LocaleContent> = {
     },
     experience: {
       eyebrow: '03 · Kinh nghiệm',
-      title: 'Học và áp dụng trong môi trường kỹ thuật thực tế.',
+      title: 'Học trong môi trường kỹ thuật thực tế.',
       role: 'Development Intern',
       company: 'FPT IS',
       period: 'Tháng 04/2026 — Tháng 07/2026',
