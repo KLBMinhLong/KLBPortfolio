@@ -140,7 +140,7 @@ The initial release should support these routes:
 ```text
 /
 /work/eprocure
-/work/yoursneaker
+/work/your-sneaker
 /work/student-dormitory
 /notes
 /resume

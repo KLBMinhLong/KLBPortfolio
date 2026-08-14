@@ -4,9 +4,9 @@ The long-term personal portfolio of **Nguyễn Minh Long**, branded as **KLB.dev
 
 ## Current status
 
-The discovery and planning phase is complete. This branch contains the approved source of truth for the next implementation phase.
+The first production-ready implementation is complete on React, Vite and TypeScript. It includes the bilingual homepage, three detailed project routes, Engineering Notes, résumé access, responsive navigation, metadata and Vercel SPA routing.
 
-No production application has been scaffolded yet. The next phase will build the React/Vite site from the specifications in:
+The implementation follows the approved source of truth in:
 
 - [Agent.md](./Agent.md) - identity, content, case studies, technical constraints and deployment rules
 - [DESIGN.md](./DESIGN.md) - visual system, layouts, components, motion and accessibility
@@ -59,7 +59,7 @@ Six-member team project in which Long managed Jira and task distribution while c
 
 The site must avoid generic purple gradients, excessive glassmorphism, particles, typewriter titles, fake terminals and skill percentage bars.
 
-## Planned stack
+## Stack
 
 | Concern | Choice |
 |---|---|
@@ -68,7 +68,7 @@ The site must avoid generic purple gradients, excessive glassmorphism, particles
 | Motion | Framer Motion, used selectively |
 | Icons | Lucide React |
 | Languages | English default, Vietnamese secondary |
-| Content | Typed data plus Markdown/MDX-compatible case studies and notes |
+| Content | Typed bilingual data for case studies and notes |
 | Hosting | Vercel |
 | Domain | `minhlongdev.id.vn` |
 
@@ -93,13 +93,17 @@ Do not change DNS until the Vercel deployment has been verified.
 - The old blog becomes a curated Engineering Notes section.
 - The current résumé is temporary and will be replaced after the portfolio content stabilizes.
 
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Run `npm run lint` and `npm run build` before deployment.
+
 ## Next phase
 
-The implementation phase should begin by:
-
-1. Scaffolding the Vite/React/TypeScript application.
-2. Creating design tokens and the responsive shell.
-3. Building typed bilingual content data.
-4. Implementing the homepage in the approved section order.
-5. Adding the three project case-study routes.
-6. Running build, accessibility, responsive and visual verification.
+1. Review the final copy and replace the temporary résumé.
+2. Deploy a Vercel preview and verify every public route.
+3. Connect `minhlongdev.id.vn` only after the preview is accepted.
