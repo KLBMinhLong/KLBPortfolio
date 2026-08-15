@@ -92,33 +92,53 @@ export const noteArticles: Record<Language, Record<string, NoteArticle>> = {
       takeaways: ['Images are definitions; containers are running instances.', 'Compose makes multi-service local setup repeatable.', 'Reproducibility still needs migrations, health checks and secure configuration.'],
     },
     'git-basics': {
-      intro: 'Git is a distributed version-control system for preserving change history, collaborating safely and recovering from mistakes. This note condenses the workflow from my original MLBlog article.',
+      intro: 'Git is a distributed version-control system for preserving change history, collaborating safely and recovering from mistakes. This guide consolidates essential daily commands and best practices for modern development workflows.',
       sections: [
         {
-          title: 'Three places to understand first',
+          title: '1. Three core areas & repository inspection',
           paragraphs: [
-            'Your working directory contains files you are editing. The staging area is a deliberate selection of changes for the next snapshot. A commit records that snapshot in repository history.',
-            'That middle stage is valuable: it lets one focused commit contain only the changes that belong together, even when several files are in progress.',
+            'Git manages code across three distinct zones: the Working Directory (active local files), the Staging Area / Index (deliberate snapshot preparation), and the Repository (permanent committed history).',
+            'Before making any changes, always inspect the state of your project. Using status and diff prevents accidentally committing unintended edits or debugging leftovers.',
           ],
-          code: 'git status\ngit add src/feature.ts\ngit commit -m "feat: add request validation"\ngit log --oneline',
+          code: '# Initialize a new repository or clone an existing project\ngit init\ngit clone https://github.com/user/project.git\n\n# Check status of modified and untracked files in short format\ngit status -s\n\n# Inspect exact line-by-line differences before staging\ngit diff',
         },
         {
-          title: 'Work in branches, not on hope',
+          title: '2. Staging & disciplined atomic commits',
           paragraphs: [
-            'A branch isolates a feature or fix from the main line. It makes review and rollback easier because the intention is visible in both the branch name and the commit history.',
-            'When integrating, first understand the target branch and any conflicts. A clean merge is a result of small, focused changes more than a command to memorize.',
+            'Avoid grouping unrelated changes into a single mega-commit. Staging allows you to craft atomic, focused commits where each commit represents one logical change or bugfix.',
+            'Follow Conventional Commits format (feat:, fix:, refactor:, docs:, test:, chore:) with concise, imperative descriptions to keep team logs clean and readable.',
           ],
-          code: 'git switch -c feature/request-search\n# make focused commits\ngit switch main\ngit merge feature/request-search',
+          code: '# Stage a specific file or all modified files\ngit add src/services/auth.ts\ngit add .\n\n# Commit with a clear, conventional message\ngit commit -m "feat(auth): implement JWT token refresh mechanism"\n\n# Amend recent commit with forgotten changes or updated message (unpushed)\ngit commit --amend -m "feat(auth): complete JWT authentication and token refresh"\n\n# View concise graphical commit history\ngit log --oneline --graph --decorate --all -n 10',
         },
         {
-          title: 'Undo deliberately',
+          title: '3. Branching, stashing & clean merging',
           paragraphs: [
-            'Before using a destructive command, ask where the change currently lives: unstaged, staged, committed locally or already shared. The correct recovery action depends on that answer.',
-            'For shared history, prefer a new corrective commit or revert. Commands such as reset --hard can discard work permanently and should never be the first reflex.',
+            'Never commit directly to production or main branches. Create dedicated feature branches to isolate development, make code reviews easier, and allow safe rollback.',
+            'When an urgent fix requires switching branches before your current task is done, use stash to park in-progress edits temporarily without creating half-baked commits.',
           ],
+          code: '# Create and switch to a new feature branch\ngit switch -c feature/search-filter\n\n# Temporarily stash uncommitted changes to switch context\ngit stash\n# ... switch branches or pull updates ...\n# Restore stashed changes back to working tree\ngit stash pop\n\n# Switch back to main and merge feature branch\ngit switch main\ngit merge feature/search-filter\n\n# Safely delete merged branch\ngit branch -d feature/search-filter',
+        },
+        {
+          title: '4. Remote collaboration & synchronization',
+          paragraphs: [
+            'Collaborating with teams requires synchronizing local branches with the remote origin. Understanding the difference between fetch (download metadata without altering local work) and pull (fetch + merge) prevents unexpected merge conflicts.',
+          ],
+          code: '# Verify connected remote repositories\ngit remote -v\n\n# Fetch latest remote changes without auto-merging\ngit fetch origin\n\n# Pull and merge remote updates into current branch\ngit pull origin main\n\n# Push local branch to remote and configure upstream tracking\ngit push -u origin feature/search-filter',
+        },
+        {
+          title: '5. Safe undo & recovery decision tree',
+          paragraphs: [
+            'Mistakes happen in development. Before reaching for destructive commands, identify where the error is: in the working directory, in staging, committed locally, or already pushed to remote.',
+            'For shared remote history, always create a new compensating commit using revert instead of rewriting history. Save soft resets for local adjustments before pushing.',
+          ],
+          code: '# 1. Discard uncommitted changes in working directory (clean file)\ngit restore src/app.ts\n\n# 2. Unstage a file without losing its modifications\ngit restore --staged src/app.ts\n\n# 3. Undo last local commit while keeping all changes staged\ngit reset --soft HEAD~1\n\n# 4. Safely invert a commit that was already pushed to remote\ngit revert <commit-hash>',
         },
       ],
-      takeaways: ['Use status frequently to know where each change is.', 'Create small, clear commits on focused branches.', 'Choose undo commands from the state of the change, not from panic.'],
+      takeaways: [
+        'Check git status frequently to maintain clear visibility across the 3 working areas.',
+        'Create atomic, well-described commits with Conventional Commit conventions on isolated branches.',
+        'Use git stash for quick context switches and rely on non-destructive commands like git revert and git restore for safe recovery.',
+      ],
     },
   },
   vi: {
@@ -150,13 +170,53 @@ export const noteArticles: Record<Language, Record<string, NoteArticle>> = {
       takeaways: ['Image là định nghĩa; container là instance đang chạy.', 'Compose giúp local multi-service setup tái lập.', 'Tái lập vẫn cần migration, health check và cấu hình an toàn.'],
     },
     'git-basics': {
-      intro: 'Git là hệ thống quản lý phiên bản phân tán, giúp lưu lịch sử thay đổi, cộng tác an toàn và khôi phục khi xảy ra lỗi. Ghi chú này cô đọng từ bài viết gốc trên MLBlog của mình.',
+      intro: 'Git là hệ thống quản lý phiên bản phân tán, giúp lưu lịch sử thay đổi, cộng tác an toàn và khôi phục khi xảy ra lỗi. Ghi chú này tổng hợp các câu lệnh thông dụng cùng phương pháp thực hành hiệu quả trong phát triển phần mềm.',
       sections: [
-        { title: 'Ba nơi cần hiểu trước', paragraphs: ['Working directory chứa file đang chỉnh sửa. Staging area là phần thay đổi được chủ động chọn cho snapshot kế tiếp. Commit ghi lại snapshot đó vào lịch sử repository.', 'Staging area có giá trị vì một commit tập trung chỉ chứa các thay đổi thuộc cùng một ý định, ngay cả khi bạn đang làm nhiều file.'], code: 'git status\ngit add src/feature.ts\ngit commit -m "feat: add request validation"\ngit log --oneline' },
-        { title: 'Làm việc trên branch, không làm việc bằng hy vọng', paragraphs: ['Branch cô lập feature hoặc fix khỏi main line. Nó giúp review và rollback dễ hơn vì ý định thể hiện cả ở tên branch lẫn lịch sử commit.', 'Khi tích hợp, hãy hiểu target branch và conflict trước. Merge sạch là kết quả của thay đổi nhỏ, tập trung, không chỉ là một lệnh cần nhớ.'], code: 'git switch -c feature/request-search\n# make focused commits\ngit switch main\ngit merge feature/request-search' },
-        { title: 'Undo có chủ đích', paragraphs: ['Trước lệnh có tính phá hủy, hãy hỏi thay đổi đang ở đâu: chưa stage, đã stage, đã commit local hay đã chia sẻ. Cách khôi phục đúng phụ thuộc vào câu trả lời.', 'Với lịch sử đã chia sẻ, ưu tiên commit sửa hoặc revert. reset --hard có thể làm mất vĩnh viễn thay đổi và không nên là phản xạ đầu tiên.'] },
+        {
+          title: '1. Ba không gian làm việc cốt lõi & Khởi tạo',
+          paragraphs: [
+            'Git quản lý mã nguồn qua ba khu vực: Working Directory (thư mục chứa file đang chỉnh sửa thực tế), Staging Area / Index (khu vực chuẩn bị snapshot cho commit), và Repository (lịch sử commit đã lưu trữ chính thức).',
+            'Trước và sau mỗi thao tác, hãy luôn dùng git status và git diff để kiểm tra chính xác trạng thái và tránh commit nhầm các file tạm hoặc debug.',
+          ],
+          code: '# Khởi tạo repository mới hoặc nhân bản từ GitHub/GitLab\ngit init\ngit clone https://github.com/user/project.git\n\n# Kiểm tra trạng thái các file (untracked, modified, staged) dạng rút gọn\ngit status -s\n\n# So sánh chi tiết từng dòng code thay đổi trước khi đưa vào staging\ngit diff',
+        },
+        {
+          title: '2. Staging & Commit nguyên tử có kỷ luật',
+          paragraphs: [
+            'Không nên gộp mọi thay đổi không liên quan vào một commit khổng lồ. Staging Area cho phép bạn gom các thay đổi thuộc cùng một ý định thành một commit nguyên tử (atomic commit).',
+            'Áp dụng quy chuẩn Conventional Commits (feat:, fix:, refactor:, docs:, test:, chore:) với câu mô tả ngắn gọn, rõ ràng ở thể mệnh lệnh.',
+          ],
+          code: '# Đưa file cụ thể hoặc toàn bộ thư mục vào Staging\ngit add src/services/auth.ts\ngit add .\n\n# Tạo commit với thông điệp rõ ràng theo chuẩn Conventional Commits\ngit commit -m "feat(auth): thêm cơ chế xác thực JWT và refresh token"\n\n# Bổ sung file sót hoặc chỉnh sửa thông điệp của commit gần nhất (chưa push)\ngit commit --amend -m "feat(auth): hoàn thiện xác thực JWT và refresh token"\n\n# Xem lịch sử commit dạng cây trực quan, rút gọn 1 dòng\ngit log --oneline --graph --decorate --all -n 10',
+        },
+        {
+          title: '3. Phân nhánh, cất giữ tạm thời & Hợp nhất nhánh',
+          paragraphs: [
+            'Tuyệt đối không code trực tiếp trên nhánh chính (main/master). Tạo các nhánh tính năng (feature/) để cô lập rủi ro, giúp việc code review và rollback dễ dàng hơn.',
+            'Khi đang code dở mà cần chuyển nhánh gấp để fix bug, hãy dùng git stash để cất giữ thay đổi tạm thời mà không cần tạo commit rác.',
+          ],
+          code: '# Tạo và chuyển ngay sang nhánh tính năng mới\ngit switch -c feature/search-filter\n\n# Cất giữ tạm thời code đang làm dở để chuyển nhánh khẩn cấp\ngit stash\n# ... chuyển nhánh khác hoặc pull code mới ...\n# Lấy lại code đã cất giữ và xóa khỏi danh sách stash\ngit stash pop\n\n# Chuyển về nhánh main và hợp nhất code từ nhánh tính năng\ngit switch main\ngit merge feature/search-filter\n\n# Xóa nhánh an toàn sau khi đã merge thành công\ngit branch -d feature/search-filter',
+        },
+        {
+          title: '4. Làm việc với Remote & Đồng bộ hóa',
+          paragraphs: [
+            'Làm việc nhóm đòi hỏi đồng bộ liên tục với remote repository. Cần phân biệt rõ giữa fetch (tải metadata và nhánh mới từ remote về máy mà không tự gộp) và pull (fetch + merge thẳng vào nhánh hiện tại).',
+          ],
+          code: '# Xem danh sách và URL của các remote repository\ngit remote -v\n\n# Lấy dữ liệu mới nhất từ remote về nhưng chưa tự động merge\ngit fetch origin\n\n# Kéo và hợp nhất code mới từ remote về nhánh hiện tại\ngit pull origin main\n\n# Đẩy nhánh local lên remote lần đầu và thiết lập upstream tracking\ngit push -u origin feature/search-filter',
+        },
+        {
+          title: '5. Chiến lược hoàn tác an toàn khi gặp sự cố',
+          paragraphs: [
+            'Khi gặp lỗi, hãy bình tĩnh xác định vị trí của thay đổi: chưa stage, đã stage, đã commit local, hay đã push lên remote. Tránh lạm dụng các lệnh phá hủy như reset --hard.',
+            'Đối với commit đã chia sẻ lên remote của cả nhóm, luôn dùng git revert để tạo commit đảo ngược an toàn thay vì ghi đè lịch sử.',
+          ],
+          code: '# 1. Hủy thay đổi của file trong Working Directory (chưa stage)\ngit restore src/app.ts\n\n# 2. Đưa file từ Staging trở lại Working Directory (unstage)\ngit restore --staged src/app.ts\n\n# 3. Hủy commit gần nhất nhưng GIỮ NGUYÊN toàn bộ code ở Staging để sửa lại\ngit reset --soft HEAD~1\n\n# 4. Tạo commit đảo ngược an toàn cho commit ĐÃ PUSH lên remote\ngit revert <commit-hash>',
+        },
       ],
-      takeaways: ['Dùng status thường xuyên để biết mỗi thay đổi đang ở đâu.', 'Tạo commit nhỏ, rõ ràng trên branch tập trung.', 'Chọn lệnh undo theo trạng thái thay đổi, không theo hoảng hốt.'],
+      takeaways: [
+        'Luôn kiểm tra git status thường xuyên để nắm rõ trạng thái trên 3 khu vực làm việc.',
+        'Tạo commit nhỏ, có mục đích rõ ràng theo chuẩn Conventional Commits trên từng nhánh tính năng riêng biệt.',
+        'Dùng git stash khi cần chuyển đổi ngữ cảnh nhanh và ưu tiên git revert, git restore thay vì các lệnh phá hủy.',
+      ],
     },
   },
 };

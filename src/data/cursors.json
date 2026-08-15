@@ -1,0 +1,167 @@
+[
+  {
+    "file": "color-pixels-electric-blue-pack.png",
+    "id": "electric-blue",
+    "name": "Electric Blue Pixel",
+    "viName": "Pixel Xanh Điện",
+    "icon": "⚡",
+    "defaultHotspot": [
+      0,
+      1
+    ],
+    "pointerHotspot": [
+      7,
+      0
+    ]
+  },
+  {
+    "file": "pack984.png",
+    "id": "vietnam-flag",
+    "name": "Vietnam Flag",
+    "viName": "Cờ Việt Nam",
+    "icon": "🇻🇳",
+    "defaultHotspot": [
+      16,
+      0
+    ],
+    "pointerHotspot": [
+      2,
+      0
+    ]
+  },
+  {
+    "file": "pack2662.png",
+    "id": "cat-paw",
+    "name": "Cute Cat Paw",
+    "viName": "Bàn Chân Mèo",
+    "icon": "🐾",
+    "defaultHotspot": [
+      2,
+      1
+    ],
+    "pointerHotspot": [
+      4,
+      1
+    ]
+  },
+  {
+    "file": "bugcat-tired-coffee-machine-pack.png",
+    "id": "bugcat-coffee",
+    "name": "Bugcat & Coffee",
+    "viName": "Bugcat Cà Phê",
+    "icon": "☕",
+    "defaultHotspot": [
+      1,
+      1
+    ],
+    "pointerHotspot": [
+      3,
+      0
+    ]
+  },
+  {
+    "file": "Chrome-Dino-T-Rex.png",
+    "id": "chrome-dino",
+    "name": "Chrome Dino T-Rex",
+    "viName": "Khủng Long Dino",
+    "icon": "🦖",
+    "defaultHotspot": [
+      9,
+      0
+    ],
+    "pointerHotspot": [
+      2,
+      0
+    ]
+  },
+  {
+    "file": "BrazilDogDanceMeme.png",
+    "id": "brazil-dog",
+    "name": "Dancing Dog Meme",
+    "viName": "Chó Nhảy Meme",
+    "icon": "🐕",
+    "defaultHotspot": [
+      28,
+      0
+    ],
+    "pointerHotspot": [
+      6,
+      0
+    ]
+  },
+  {
+    "file": "meme-malow-cat-pack.png",
+    "id": "malow-cat",
+    "name": "Marshmallow Cat",
+    "viName": "Mèo Malow Béo",
+    "icon": "🐱",
+    "defaultHotspot": [
+      10,
+      1
+    ],
+    "pointerHotspot": [
+      10,
+      1
+    ]
+  },
+  {
+    "file": "3d-pixel-blue-and-gold-macaw-parrot-pack.png",
+    "id": "pixel-parrot",
+    "name": "3D Pixel Macaw",
+    "viName": "Vẹt Macaw Pixel",
+    "icon": "🦜",
+    "defaultHotspot": [
+      0,
+      1
+    ],
+    "pointerHotspot": [
+      15,
+      1
+    ]
+  },
+  {
+    "file": "pixel-jellyfish-pack.png",
+    "id": "pixel-jellyfish",
+    "name": "Pixel Jellyfish",
+    "viName": "Sứa Biển Pixel",
+    "icon": "🪼",
+    "defaultHotspot": [
+      3,
+      1
+    ],
+    "pointerHotspot": [
+      6,
+      1
+    ]
+  },
+  {
+    "file": "anime-ttigraas-slime-rimuru-tempest-pack.png",
+    "id": "rimuru-slime",
+    "name": "Rimuru Tempest Slime",
+    "viName": "Slime Rimuru",
+    "icon": "💧",
+    "defaultHotspot": [
+      21,
+      0
+    ],
+    "pointerHotspot": [
+      2,
+      0
+    ]
+  },
+  {
+    "file": "flowers-cherry-flowers-pack.png",
+    "id": "cherry-blossom",
+    "name": "Cherry Blossom",
+    "viName": "Hoa Anh Đào",
+    "icon": "🌸",
+    "defaultHotspot": [
+      2,
+      1
+    ],
+    "pointerHotspot": [
+      6,
+      1
+    ]
+  }
+]
