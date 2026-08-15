@@ -45,7 +45,7 @@ When content conflicts, use this file as the portfolio source of truth. Do not r
 - GPA: 3.53/4.00
 - Expected graduation: October 2026
 - Recognition: Outstanding Student Recognition, awarded annually from 2023 through 2026
-- English: Aptis ESOL, CEFR B2, British Council
+- English: CEFR B1, Trung tâm Tin học - Ngoại ngữ - Kĩ năng
 
 ### Current career position
 
@@ -215,7 +215,7 @@ Show concise facts, not vanity metrics:
 - GPA 3.53/4.00
 - 3 selected projects
 - Outstanding Student Recognition 2023-2026
-- Aptis ESOL B2
+- CEFR B1 · Trung tâm Tin học - Ngoại ngữ - Kĩ năng
 
 ### 6.4 Selected Work
 
@@ -256,7 +256,7 @@ Do not migrate every old article for the first release.
 
 ### 6.9 Education and Recognition
 
-Include education, GPA, expected graduation, annual recognition and Aptis ESOL B2. Certificates should support the profile but not dominate the page.
+Include education, GPA, expected graduation, annual recognition and CEFR B1 certificate. Certificates should support the profile but not dominate the page.
 
 ### 6.10 About Outside Code
 
