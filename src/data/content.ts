@@ -134,6 +134,14 @@ export interface LocaleContent {
   footer: {
     statement: string;
     domainNote: string;
+    easterEgg: {
+      ariaLabel: string;
+      tooltipInactive: string;
+      tooltipActive: string;
+      toastActive: string;
+      toastInactive: string;
+      badgeText: string;
+    };
   };
   resume: ResumeContent;
   common: {
@@ -859,6 +867,14 @@ export const content: Record<Language, LocaleContent> = {
     footer: {
       statement: 'Designed as an engineering story, built with React and TypeScript.',
       domainNote: 'KLB.dev is the personal brand of Nguyễn Minh Long.',
+      easterEgg: {
+        ariaLabel: 'Toggle Electric Blue pixel cursor Easter Egg',
+        tooltipInactive: 'Easter Egg: Switch to Electric Blue pixel cursor',
+        tooltipActive: 'Pixel cursor active · Click to return to default',
+        toastActive: '⚡ Electric Blue Pixel Cursor Activated!',
+        toastInactive: 'Standard cursor restored',
+        badgeText: 'Pixel Mode',
+      },
     },
     resume: {
       badge: 'Software Developer · Available for Intern & Fresher',
@@ -1204,6 +1220,14 @@ export const content: Record<Language, LocaleContent> = {
     footer: {
       statement: 'Thiết kế như một câu chuyện kỹ thuật, xây dựng bằng React và TypeScript.',
       domainNote: 'KLB.dev là thương hiệu cá nhân của Nguyễn Minh Long.',
+      easterEgg: {
+        ariaLabel: 'Bật/tắt Easter Egg con trỏ pixel Electric Blue',
+        tooltipInactive: 'Easter Egg: Chuyển sang con trỏ pixel Electric Blue',
+        tooltipActive: 'Đang bật con trỏ pixel · Bấm để quay về mặc định',
+        toastActive: '⚡ Đã kích hoạt con trỏ Electric Blue Pixel!',
+        toastInactive: 'Đã khôi phục con trỏ mặc định',
+        badgeText: 'Chế độ Pixel',
+      },
     },
     resume: {
       badge: 'Software Developer · Sẵn sàng thực tập & Fresher',
