@@ -796,6 +796,15 @@ export const content: Record<Language, LocaleContent> = {
       readNote: 'Read note',
       items: [
         {
+          slug: 'git-basics',
+          title: 'Git basics for a dependable developer workflow',
+          summary: 'A practical guide to essential Git commands: staging, branching, merging, remote sync and safe undo workflows.',
+          category: 'Version control',
+          image: '/assets/notes/git-basics.jpg',
+          readTime: '10 min',
+          sourceUrl: 'https://klbminhlong.github.io/posts/git-13-git-co-ban/',
+        },
+        {
           slug: 'tcp-vs-udp',
           title: 'TCP vs UDP through an interactive simulation',
           summary: 'Visualizing connection setup, reliability and delivery trade-offs.',
@@ -818,15 +827,6 @@ export const content: Record<Language, LocaleContent> = {
           category: 'Delivery',
           image: '/assets/notes/docker-basics.jpg',
           readTime: '5 min',
-        },
-        {
-          slug: 'git-basics',
-          title: 'Git basics for a dependable developer workflow',
-          summary: 'A practical path from status and staging to branches, merges, undo decisions and safer commits.',
-          category: 'Version control',
-          image: '/assets/notes/git-basics.jpg',
-          readTime: '9 min',
-          sourceUrl: 'https://klbminhlong.github.io/posts/git-13-git-co-ban/',
         },
       ],
     },
@@ -1149,6 +1149,15 @@ export const content: Record<Language, LocaleContent> = {
       readNote: 'Đọc bài',
       items: [
         {
+          slug: 'git-basics',
+          title: 'Git căn bản cho quy trình phát triển chuyên nghiệp',
+          summary: 'Tổng hợp các câu lệnh Git thông dụng: staging, phân nhánh, đồng bộ remote và kỹ thuật hoàn tác an toàn.',
+          category: 'Quản lý phiên bản',
+          image: '/assets/notes/git-basics.jpg',
+          readTime: '10 phút',
+          sourceUrl: 'https://klbminhlong.github.io/posts/git-13-git-co-ban/',
+        },
+        {
           slug: 'tcp-vs-udp',
           title: 'TCP và UDP qua mô phỏng tương tác',
           summary: 'Trực quan hóa kết nối, độ tin cậy và sự đánh đổi khi truyền dữ liệu.',
@@ -1171,15 +1180,6 @@ export const content: Record<Language, LocaleContent> = {
           category: 'Delivery',
           image: '/assets/notes/docker-basics.jpg',
           readTime: '5 phút',
-        },
-        {
-          slug: 'git-basics',
-          title: 'Git căn bản cho quy trình làm việc đáng tin cậy',
-          summary: 'Lộ trình thực tế từ status và staging đến branch, merge, quyết định undo và commit an toàn hơn.',
-          category: 'Quản lý phiên bản',
-          image: '/assets/notes/git-basics.jpg',
-          readTime: '9 phút',
-          sourceUrl: 'https://klbminhlong.github.io/posts/git-13-git-co-ban/',
         },
       ],
     },
