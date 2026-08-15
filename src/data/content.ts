@@ -714,7 +714,7 @@ export const content: Record<Language, LocaleContent> = {
       { label: 'Academic', value: 'GPA 3.53 / 4.00' },
       { label: 'Selected work', value: '3 complete project stories' },
       { label: 'Recognition', value: 'Outstanding Student · 2023–2026' },
-      { label: 'English', value: 'Aptis ESOL B2 · British Council' },
+      { label: 'English', value: 'CEFR B1 · Center of Foreign Languages & Skills' },
     ],
     work: {
       eyebrow: '01 · Selected work',
@@ -839,7 +839,7 @@ export const content: Record<Language, LocaleContent> = {
       facts: [
         { label: 'Current GPA', value: '3.53 / 4.00' },
         { label: 'Recognition', value: 'Outstanding Student, awarded annually 2023–2026' },
-        { label: 'English', value: 'Aptis ESOL B2 · British Council' },
+        { label: 'English', value: 'CEFR B1 · Center of Informatics, Foreign Languages & Skills' },
       ],
     },
     about: {
@@ -900,7 +900,7 @@ export const content: Record<Language, LocaleContent> = {
         { label: 'Experience', value: 'FPT IS · Development Intern' },
         { label: 'Academic', value: 'HUTECH · GPA 3.53 / 4.00' },
         { label: 'Top Capstone', value: 'eProcure Enterprise (9 Services)' },
-        { label: 'English', value: 'Aptis ESOL B2 · British Council' },
+        { label: 'English', value: 'CEFR B1 · Center of Informatics, Foreign Languages & Skills' },
         { label: 'Location', value: 'Ho Chi Minh City, Vietnam' },
       ],
       summaryTitle: 'Executive Summary',
@@ -993,9 +993,9 @@ export const content: Record<Language, LocaleContent> = {
       certificationsTitle: 'Certifications & Languages',
       certificationItems: [
         {
-          title: 'Aptis ESOL B2',
-          issuer: 'British Council',
-          detail: 'CEFR B2 Level in English Communication',
+          title: 'CEFR B1 English Certificate',
+          issuer: 'Center of Informatics, Foreign Languages & Skills',
+          detail: 'CEFR B1 Level in English Proficiency',
         },
       ],
     },
@@ -1067,7 +1067,7 @@ export const content: Record<Language, LocaleContent> = {
       { label: 'Học tập', value: 'GPA 3.53 / 4.00' },
       { label: 'Dự án chọn lọc', value: '3 câu chuyện sản phẩm' },
       { label: 'Thành tích', value: 'Sinh viên xuất sắc · 2023–2026' },
-      { label: 'Tiếng Anh', value: 'Aptis ESOL B2 · British Council' },
+      { label: 'Tiếng Anh', value: 'CEFR B1 · Trung tâm Tin học - Ngoại ngữ - Kĩ năng' },
     ],
     work: {
       eyebrow: '01 · Dự án chọn lọc',
@@ -1192,7 +1192,7 @@ export const content: Record<Language, LocaleContent> = {
       facts: [
         { label: 'GPA hiện tại', value: '3.53 / 4.00' },
         { label: 'Thành tích', value: 'Sinh viên xuất sắc, nhận hàng năm 2023–2026' },
-        { label: 'Tiếng Anh', value: 'Aptis ESOL B2 · British Council' },
+        { label: 'Tiếng Anh', value: 'CEFR B1 · Trung tâm Tin học - Ngoại ngữ - Kĩ năng' },
       ],
     },
     about: {
@@ -1253,7 +1253,7 @@ export const content: Record<Language, LocaleContent> = {
         { label: 'Kinh nghiệm', value: 'FPT IS · Development Intern' },
         { label: 'Học vấn', value: 'HUTECH · GPA 3.53 / 4.00' },
         { label: 'Đồ án tiêu biểu', value: 'eProcure Enterprise (9 dịch vụ)' },
-        { label: 'Chứng chỉ ngoại ngữ', value: 'Aptis ESOL B2 · British Council' },
+        { label: 'Chứng chỉ ngoại ngữ', value: 'CEFR B1 · Trung tâm Tin học - Ngoại ngữ - Kĩ năng' },
         { label: 'Khu vực', value: 'TP. Hồ Chí Minh, Việt Nam' },
       ],
       summaryTitle: 'Tóm tắt năng lực & Mục tiêu',
@@ -1346,9 +1346,9 @@ export const content: Record<Language, LocaleContent> = {
       certificationsTitle: 'Chứng chỉ & Ngoại ngữ',
       certificationItems: [
         {
-          title: 'Aptis ESOL B2',
-          issuer: 'British Council',
-          detail: 'Trình độ Tiếng Anh B2 chuẩn CEFR',
+          title: 'Chứng chỉ Tiếng Anh CEFR B1',
+          issuer: 'Trung tâm Tin học - Ngoại ngữ - Kĩ năng',
+          detail: 'Trình độ Tiếng Anh B1 chuẩn CEFR',
         },
       ],
     },
