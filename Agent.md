@@ -2,7 +2,7 @@
 
 ## 1. Project mission
 
-`KLBPortfolio` is the long-term personal portfolio of **Nguyễn Minh Long**, a final-year Software Engineering student at HUTECH.
+`KLBPortfolio` is the long-term personal portfolio of **Nguyễn Minh Long**, a Software Engineer at Viemind who graduated in Software Engineering from HUTECH in October 2026.
 
 The site is primarily for recruiters and engineering interviewers evaluating Long for:
 
@@ -33,6 +33,10 @@ When content conflicts, use this file as the portfolio source of truth. Do not r
 - GitHub: `https://github.com/KLBMinhLong`
 - LinkedIn: `https://www.linkedin.com/in/minh-long-nguyễn-09984a333`
 - YouTube: `https://www.youtube.com/@KLB-MinhLong`
+- X: `https://x.com/l7_minh`
+- Threads: `https://www.threads.com/@tynidino_`
+- TikTok: `https://www.tiktok.com/@klbdevkhocnhe`
+- All public profiles live in `src/data/socials.ts`: `work` profiles (GitHub, LinkedIn) appear in the hero and lead the contact band; `content` channels (YouTube, TikTok, X, Threads) follow them and sit in the footer.
 - Phone: `+84 377241808`, but do not expose it on the website; keep it in the résumé only.
 
 `KLB.dev` is a brand label, not the owned domain. All logo links, canonical metadata and public URLs must point to `minhlongdev.id.vn`. Never imply ownership of `klb.dev`.
@@ -41,19 +45,21 @@ When content conflicts, use this file as the portfolio source of truth. Do not r
 
 - School: Ho Chi Minh City University of Technology (HUTECH)
 - Major: Software Engineering
-- Study period: October 2022 to present
-- GPA: 3.53/4.00
-- Expected graduation: October 2026
+- Study period: October 2022 to October 2026
+- Final GPA: 3.54/4.00
+- Graduated: 6 October 2026
 - Recognition: Outstanding Student Recognition, awarded annually from 2023 through 2026
 - English: CEFR B1, Trung tâm Tin học - Ngoại ngữ - Kĩ năng
 
 ### Current career position
 
-- Public title: Software Developer
-- Availability: Open to Software Developer Intern and Fresher opportunities
-- Direction: Backend and full-stack development with equal emphasis
-- Initial target: Companies in Vietnam
-- Future direction: International companies and freelance work after gaining experience and improving professional English
+- Public title: Software Engineer (backend and full-stack)
+- Current role: Fresher Software Engineer at Viemind since September 2026: internal tools and AI-agent
+  integrations for the company's e-commerce business (TypeScript, Hono, React, Cloudflare Workers, MCP).
+- **Never name Viemind's internal projects publicly** (owner's rule, 22/10/2026). Describe them generically:
+  "product catalog tool", "AI comment-handling system (in pilot)", "the company's live storefront".
+- Previous: Development Intern at FPT IS, April to July 2026.
+- Do not show an "open to Intern / Fresher" availability line any more.
 
 ### Interests
 
@@ -209,21 +215,19 @@ Do not use:
 
 ### 6.3 Quick proof strip
 
-Show concise facts, not vanity metrics:
-
-- FPT IS - Development Intern
-- GPA 3.53/4.00
-- 3 selected projects
-- Outstanding Student Recognition 2023-2026
-- CEFR B1 · Trung tâm Tin học - Ngoại ngữ - Kĩ năng
+Replaced in October 2026 by the hero ledger ("Things you can check"): four claims, each with the place a
+reader can verify it. Every number must trace to a source listed in `D:\KLB Studio\Career\CV\README.md`.
 
 ### 6.4 Selected Work
 
-Show exactly three featured projects in this order:
+Show two featured projects plus one open-source contribution (updated October 2026):
 
 1. eProcure Enterprise
-2. YourSneaker
-3. Student Dormitory Management
+2. Student Dormitory Management
+3. Open-source: storytold/photocraft#7478, merged 18/10/2026
+
+YourSneaker keeps its case-study route but is no longer featured; the owner dropped it from the CV as a weak
+project (two-day build, no tests).
 
 Use differentiated editorial layouts rather than three identical glass cards.
 

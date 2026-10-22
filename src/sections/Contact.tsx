@@ -1,27 +1,40 @@
-import { ArrowUpRight, Code2, Mail, Network, Video } from 'lucide-react';
-import { Reveal } from '../components/ui/Reveal';
+import { Mail } from 'lucide-react';
+import { SocialIcon } from '../components/ui/SocialIcon';
+import { socialLinks } from '../data/socials';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export function Contact() {
   const { t } = useLanguage();
+  const groups = [
+    { label: t.contact.workLabel, links: socialLinks.filter((link) => link.kind === 'work') },
+    { label: t.contact.contentLabel, links: socialLinks.filter((link) => link.kind === 'content') },
+  ];
 
   return (
-    <section className="section contact-section" id="contact">
-      <div className="shell">
-        <Reveal className="contact-panel">
-          <p className="eyebrow">{t.contact.eyebrow}</p>
-          <h2>{t.contact.title}</h2>
-          <p>{t.contact.intro}</p>
-          <a className="button button--primary" href="mailto:nguyenminhlongcntt@gmail.com">
-            <Mail aria-hidden="true" />{t.contact.emailCta}<ArrowUpRight aria-hidden="true" />
-          </a>
-          <div className="contact-socials">
-            <span>{t.contact.socialLabel}</span>
-            <a href="https://github.com/KLBMinhLong" target="_blank" rel="noreferrer"><Code2 aria-hidden="true" />GitHub</a>
-            <a href="https://www.linkedin.com/in/minh-long-nguyễn-09984a333" target="_blank" rel="noreferrer"><Network aria-hidden="true" />LinkedIn</a>
-            <a href="https://www.youtube.com/@KLB-MinhLong" target="_blank" rel="noreferrer"><Video aria-hidden="true" />YouTube</a>
-          </div>
-        </Reveal>
+    <section className="contact" id="contact" aria-labelledby="contact-title">
+      <div className="shell contact__inner">
+        <h2 id="contact-title">{t.contact.title}</h2>
+        <p>{t.contact.intro}</p>
+        <a className="button button--on-ink" href="mailto:nguyenminhlongcntt@gmail.com">
+          <Mail aria-hidden="true" />{t.contact.emailCta}
+        </a>
+        <p className="contact__address">nguyenminhlongcntt@gmail.com</p>
+        <div className="contact__socials">
+          {groups.map((group) => (
+            <div className="contact__group" key={group.label}>
+              <span>{group.label}</span>
+              <ul>
+                {group.links.map((link) => (
+                  <li key={link.id}>
+                    <a href={link.href} target="_blank" rel="noreferrer">
+                      <SocialIcon id={link.id} />{link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

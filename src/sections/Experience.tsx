@@ -1,6 +1,5 @@
-import { ArrowUpRight, Building2, CalendarDays } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Reveal } from '../components/ui/Reveal';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -8,25 +7,30 @@ export function Experience() {
   const { t } = useLanguage();
 
   return (
-    <section className="section shell" id="experience">
-      <Reveal>
-        <SectionHeading eyebrow={t.experience.eyebrow} title={t.experience.title} />
-      </Reveal>
-      <Reveal className="experience-card">
-        <div className="experience-card__meta">
-          <span><Building2 aria-hidden="true" />{t.experience.company}</span>
-          <span><CalendarDays aria-hidden="true" />{t.experience.period}</span>
-        </div>
-        <div className="experience-card__content">
-          <div><p className="eyebrow">{t.experience.company}</p><h3>{t.experience.role}</h3><p>{t.experience.summary}</p></div>
-          <ul className="evidence-list evidence-list--large">
-            {t.experience.points.map((point) => <li key={point}>{point}</li>)}
-          </ul>
-        </div>
-        <Link className="text-link text-link--strong" to="/work/eprocure">
-          {t.experience.caseStudyLink}<ArrowUpRight aria-hidden="true" />
-        </Link>
-      </Reveal>
+    <section className="section shell" id="experience" aria-labelledby="experience-title">
+      <SectionHeading id="experience-title" title={t.experience.title} />
+      <ol className="timeline">
+        {t.experience.items.map((item) => (
+          <li className="timeline__item" key={item.company}>
+            <div className="timeline__when">
+              <p className="timeline__period">{item.period}</p>
+              <p className="timeline__company">{item.company}</p>
+            </div>
+            <div className="timeline__body">
+              <h3>{item.role}</h3>
+              <p className="timeline__summary">{item.summary}</p>
+              <ul className="evidence-list">
+                {item.points.map((point) => <li key={point}>{point}</li>)}
+              </ul>
+              {item.link && (
+                <Link className="text-link" to={item.link.to}>
+                  {item.link.label}<ArrowUpRight aria-hidden="true" />
+                </Link>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }

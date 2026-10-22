@@ -1,12 +1,14 @@
-import { Languages, Menu, X } from 'lucide-react';
+import { Languages, Menu, Moon, Sun, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../i18n/LanguageContext';
 
-const sectionIds = ['work', 'experience', 'capabilities', 'notes', 'about'] as const;
+const sectionIds = ['experience', 'work', 'capabilities', 'notes', 'about'] as const;
 
 export function Header() {
   const { language, toggleLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -28,26 +30,38 @@ export function Header() {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const labels = [t.nav.work, t.nav.experience, t.nav.capabilities, t.nav.notes, t.nav.about];
+  const labels = [t.nav.experience, t.nav.work, t.nav.capabilities, t.nav.notes, t.nav.about];
 
   return (
     <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''}`}>
       <div className="site-header__inner shell">
         <Link className="brand-link" to="/" aria-label="KLB.dev home" onClick={() => setMenuOpen(false)}>
-          <img src="/assets/brand/klb-mark.png" alt="" aria-hidden="true" />
-          <span>KLB<strong>.dev</strong></span>
+          {/* The standard KLB logo is drawn on black, so it sits in its own dark tile on both themes. */}
+          <img className="brand-link__logo" src="/assets/brand/klb-logo.png" alt="" aria-hidden="true" width="36" height="36" />
+          <span>KLB<span className="brand-link__tld">.dev</span></span>
         </Link>
 
-        <button
-          className="icon-button mobile-menu-button"
-          type="button"
-          aria-label={menuOpen ? t.nav.close : t.nav.menu}
-          aria-expanded={menuOpen}
-          aria-controls="primary-navigation"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </button>
+        <div className="header-actions">
+          <button
+            className="icon-button"
+            type="button"
+            aria-label={theme === 'dark' ? t.nav.toLightTheme : t.nav.toDarkTheme}
+            title={theme === 'dark' ? t.nav.toLightTheme : t.nav.toDarkTheme}
+            onClick={toggleTheme}
+          >
+            {theme === 'dark' ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
+          </button>
+          <button
+            className="icon-button mobile-menu-button"
+            type="button"
+            aria-label={menuOpen ? t.nav.close : t.nav.menu}
+            aria-expanded={menuOpen}
+            aria-controls="primary-navigation"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          </button>
+        </div>
 
         <nav
           id="primary-navigation"

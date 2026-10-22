@@ -1,15 +1,13 @@
 interface SectionHeadingProps {
-  eyebrow: string;
   title: string;
   intro?: string;
-  align?: 'left' | 'center';
+  id?: string;
 }
 
-export function SectionHeading({ eyebrow, title, intro, align = 'left' }: SectionHeadingProps) {
+export function SectionHeading({ title, intro, id }: SectionHeadingProps) {
   return (
-    <header className={`section-heading section-heading--${align}`}>
-      <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
+    <header className="section-heading">
+      <h2 id={id}>{title}</h2>
       {intro && <p className="section-intro">{intro}</p>}
     </header>
   );
