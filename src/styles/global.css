@@ -1,5 +1,5 @@
 /*
-  KLB.dev, 2026-10 redesign: cobalt ink on porcelain ("men lam").
+  KLB Studio portfolio, 2026-10 redesign: cobalt ink on porcelain ("men lam").
   - Blue comes from the KLB logo and matches the résumé, so the site, CV and LinkedIn read as one identity.
   - Be Vietnam Pro only: it is drawn for Vietnamese diacritics and is the résumé's face too.
   - One memorable element: the hero ledger, where every claim names where to check it.
@@ -168,7 +168,7 @@ main { display: block; }
 
 .brand-link { display: inline-flex; gap: 10px; align-items: center; color: var(--ink); font-size: 1.0625rem; font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
 .brand-link__logo { width: 36px; height: 36px; background: #000; border-radius: 9px; }
-.brand-link__tld { color: var(--ink-3); font-weight: 500; }
+.brand-link__sub { color: var(--ink-3); font-weight: 500; }
 
 .primary-nav { display: flex; gap: 4px; align-items: center; margin-left: auto; }
 .header-actions { display: flex; gap: 8px; align-items: center; order: 2; }

@@ -35,10 +35,10 @@ export function Header() {
   return (
     <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''}`}>
       <div className="site-header__inner shell">
-        <Link className="brand-link" to="/" aria-label="KLB.dev home" onClick={() => setMenuOpen(false)}>
+        <Link className="brand-link" to="/" aria-label="KLB Studio home" onClick={() => setMenuOpen(false)}>
           {/* The standard KLB logo is drawn on black, so it sits in its own dark tile on both themes. */}
           <img className="brand-link__logo" src="/assets/brand/klb-logo.png" alt="" aria-hidden="true" width="36" height="36" />
-          <span>KLB<span className="brand-link__tld">.dev</span></span>
+          <span>KLB <span className="brand-link__sub">Studio</span></span>
         </Link>
 
         <div className="header-actions">

@@ -13,7 +13,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 export function HomePage() {
   const { language } = useLanguage();
   useDocumentMeta({
-    title: 'Nguyễn Minh Long | Software Engineer | KLB.dev',
+    title: 'Nguyễn Minh Long | Software Engineer | KLB Studio',
     description:
       language === 'en'
         ? 'Portfolio of Nguyễn Minh Long, a Software Engineer at Viemind working on backend systems, full-stack products and AI-agent integrations.'

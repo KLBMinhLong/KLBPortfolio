@@ -121,7 +121,6 @@ export interface LocaleContent {
   };
   footer: {
     statement: string;
-    domainNote: string;
     easterEgg: {
       ariaLabel: string;
       tooltipInactive: string;
@@ -879,7 +878,6 @@ export const content: Record<Language, LocaleContent> = {
     },
     footer: {
       statement: 'Built with React and TypeScript, set in Be Vietnam Pro.',
-      domainNote: 'KLB.dev is the personal brand of Nguyễn Minh Long.',
       easterEgg: {
         ariaLabel: 'Toggle Electric Blue pixel cursor Easter Egg',
         tooltipInactive: 'Easter Egg: Switch to Electric Blue pixel cursor',
@@ -1244,7 +1242,6 @@ export const content: Record<Language, LocaleContent> = {
     },
     footer: {
       statement: 'Xây bằng React và TypeScript, dùng font Be Vietnam Pro.',
-      domainNote: 'KLB.dev là thương hiệu cá nhân của Nguyễn Minh Long.',
       easterEgg: {
         ariaLabel: 'Bật/tắt Easter Egg con trỏ pixel Electric Blue',
         tooltipInactive: 'Easter Egg: Chuyển sang con trỏ pixel Electric Blue',

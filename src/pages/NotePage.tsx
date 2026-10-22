@@ -11,7 +11,7 @@ export function NotePage() {
   const article = slug ? noteArticles[language][slug] : undefined;
 
   useDocumentMeta({
-    title: note ? `${note.title} — KLB.dev` : `${t.common.notesTitle} — KLB.dev`,
+    title: note ? `${note.title} | KLB Studio` : `${t.common.notesTitle} | KLB Studio`,
     description: note?.summary ?? t.common.notesIntro,
     path: slug ? `/notes/${slug}` : '/notes',
   });

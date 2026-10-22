@@ -5,7 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 
 export function NotesPage() {
   const { t } = useLanguage();
-  useDocumentMeta({ title: `${t.common.notesTitle} — KLB.dev`, description: t.common.notesIntro, path: '/notes' });
+  useDocumentMeta({ title: `${t.common.notesTitle} | KLB Studio`, description: t.common.notesIntro, path: '/notes' });
 
   return (
     <section className="standalone-page shell page-enter">

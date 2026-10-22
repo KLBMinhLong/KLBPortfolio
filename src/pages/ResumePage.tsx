@@ -36,7 +36,7 @@ export function ResumePage() {
   const resumePath = `/assets/documents/${resume.fileLabel}`;
 
   useDocumentMeta({
-    title: `${resume.headline} — Nguyễn Minh Long`,
+    title: `${resume.headline} | Nguyễn Minh Long`,
     description: resume.intro,
     path: '/resume',
   });
