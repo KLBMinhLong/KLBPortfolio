@@ -1,58 +1,60 @@
-import { ArrowUpRight, Code2, Play } from 'lucide-react';
+import { ArrowUpRight, Code2, GitPullRequest, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Reveal } from '../components/ui/Reveal';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { useLanguage } from '../i18n/LanguageContext';
 
+// YourSneaker keeps its case-study route but is no longer featured on the home page.
+const featuredSlugs = ['eprocure', 'student-dormitory'];
+
 export function SelectedWork() {
   const { t } = useLanguage();
+  const projects = t.projects.filter((project) => featuredSlugs.includes(project.slug));
 
   return (
-    <section className="section section--work shell" id="work">
-      <Reveal>
-        <SectionHeading eyebrow={t.work.eyebrow} title={t.work.title} intro={t.work.intro} />
-      </Reveal>
+    <section className="section shell" id="work" aria-labelledby="work-title">
+      <SectionHeading id="work-title" title={t.work.title} intro={t.work.intro} />
 
       <div className="project-list">
-        {t.projects.map((project, index) => (
-          <Reveal className={`project-feature project-feature--${index + 1}`} key={project.slug}>
-            <Link className="project-feature__media" to={`/work/${project.slug}`} aria-label={`${t.work.viewCaseStudy}: ${project.title}`}>
-              <span className="project-frame__bar">
-                <i /><i /><i />
-                <span>{project.title} - {t.work.preview}</span>
-              </span>
-              <span className="project-frame__viewport">
-                <img src={project.cover} alt={project.coverAlt} loading={index === 0 ? 'eager' : 'lazy'} />
-              </span>
+        {projects.map((project, index) => (
+          <article className={`project ${index === 0 ? 'project--lead' : ''}`} key={project.slug}>
+            <Link className="project__media" to={`/work/${project.slug}`} tabIndex={-1} aria-hidden="true">
+              <img src={project.cover} alt="" loading={index === 0 ? 'eager' : 'lazy'} />
             </Link>
-            <div className="project-feature__copy">
-              <div className="project-feature__meta">
-                <span>{project.index}</span>
-                {index === 0 && <strong>{t.work.featured}</strong>}
-              </div>
-              <p className="project-label">{project.label}</p>
-              <h3>{project.title}</h3>
+            <div className="project__copy">
+              <p className="project__label">{project.label}</p>
+              <h3>
+                <Link to={`/work/${project.slug}`}>{project.title}</Link>
+              </h3>
               <p>{project.summary}</p>
-              <div className="tech-line" aria-label="Technologies">
-                {project.technologies.slice(0, 3).map((technology) => <span key={technology}>{technology}</span>)}
-              </div>
-              <div className="project-actions">
-                <Link className="text-link text-link--strong" to={`/work/${project.slug}`}>
+              <p className="project__stack">{project.technologies.join(', ')}</p>
+              <div className="project__actions">
+                <Link className="text-link" to={`/work/${project.slug}`}>
                   {t.work.viewCaseStudy}<ArrowUpRight aria-hidden="true" />
                 </Link>
-                <a className="text-link" href={project.sourceUrl} target="_blank" rel="noreferrer">
+                <a className="text-link text-link--quiet" href={project.sourceUrl} target="_blank" rel="noreferrer">
                   <Code2 aria-hidden="true" />{t.work.sourceCode}
                 </a>
                 {project.demoUrl && (
-                  <a className="text-link" href={project.demoUrl} target="_blank" rel="noreferrer">
+                  <a className="text-link text-link--quiet" href={project.demoUrl} target="_blank" rel="noreferrer">
                     <Play aria-hidden="true" />{t.work.watchDemo}
                   </a>
                 )}
               </div>
             </div>
-          </Reveal>
+          </article>
         ))}
       </div>
+
+      <aside className="oss-note">
+        <GitPullRequest className="oss-note__icon" aria-hidden="true" />
+        <div>
+          <h3>{t.work.oss.title}</h3>
+          <p>{t.work.oss.text}</p>
+          <a className="text-link" href={t.work.oss.href} target="_blank" rel="noreferrer">
+            {t.work.oss.linkLabel}<ArrowUpRight aria-hidden="true" />
+          </a>
+        </div>
+      </aside>
     </section>
   );
 }

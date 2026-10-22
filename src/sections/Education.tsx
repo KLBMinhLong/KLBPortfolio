@@ -1,26 +1,25 @@
-import { Award, BookOpen, Languages } from 'lucide-react';
-import { Reveal } from '../components/ui/Reveal';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { useLanguage } from '../i18n/LanguageContext';
-
-const factIcons = [BookOpen, Award, Languages];
 
 export function Education() {
   const { t } = useLanguage();
 
   return (
-    <section className="section section--education">
-      <div className="shell education-grid">
-        <Reveal><SectionHeading eyebrow={t.education.eyebrow} title={t.education.title} /></Reveal>
-        <Reveal className="education-card">
-          <div className="education-card__school"><p className="eyebrow">{t.education.period}</p><h3>{t.education.school}</h3><p>{t.education.degree}</p></div>
-          <div className="education-facts">
-            {t.education.facts.map((fact, index) => {
-              const Icon = factIcons[index];
-              return <div key={fact.label}>{Icon && <Icon aria-hidden="true" />}<span>{fact.label}</span><strong>{fact.value}</strong></div>;
-            })}
-          </div>
-        </Reveal>
+    <section className="section shell" aria-labelledby="education-title">
+      <div className="split">
+        <SectionHeading id="education-title" title={t.education.title} />
+        <div className="education">
+          <h3>{t.education.school}</h3>
+          <p className="education__degree">{t.education.degree}, {t.education.period}</p>
+          <dl className="facts">
+            {t.education.facts.map((fact) => (
+              <div key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </section>
   );

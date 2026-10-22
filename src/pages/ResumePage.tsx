@@ -145,7 +145,7 @@ export function ResumePage() {
           <div className="resume-pdf-toolbar">
             <div className="resume-pdf-toolbar__info">
               <span className="resume-pdf-toolbar__name">{resume.fileLabel}</span>
-              <span className="resume-pdf-toolbar__meta">{resume.fileSize} · {resume.updatedDate}</span>
+              <span className="resume-pdf-toolbar__meta">{resume.fileSize}, {resume.updatedDate}</span>
             </div>
             <div className="resume-pdf-toolbar__controls">
               <a

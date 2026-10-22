@@ -32,7 +32,7 @@ export function NotePage() {
         <Link className="back-link" to="/notes"><ArrowLeft aria-hidden="true" />{t.common.notesTitle}</Link>
         <div className="note-article__hero-grid">
           <div>
-            <p className="eyebrow">{note.category} · {note.readTime}</p>
+            <p className="eyebrow">{note.category}, {note.readTime}</p>
             <h1>{note.title}</h1>
             <p className="note-article__intro">{article.intro}</p>
           </div>

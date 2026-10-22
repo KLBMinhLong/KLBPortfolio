@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 
-const sectionIds = ['work', 'experience', 'capabilities', 'notes', 'about'] as const;
+const sectionIds = ['experience', 'work', 'capabilities', 'notes', 'about'] as const;
 
 export function Header() {
   const { language, toggleLanguage, t } = useLanguage();
@@ -28,14 +28,15 @@ export function Header() {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const labels = [t.nav.work, t.nav.experience, t.nav.capabilities, t.nav.notes, t.nav.about];
+  const labels = [t.nav.experience, t.nav.work, t.nav.capabilities, t.nav.notes, t.nav.about];
 
   return (
     <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''}`}>
       <div className="site-header__inner shell">
         <Link className="brand-link" to="/" aria-label="KLB.dev home" onClick={() => setMenuOpen(false)}>
-          <img src="/assets/brand/klb-mark.png" alt="" aria-hidden="true" />
-          <span>KLB<strong>.dev</strong></span>
+          {/* The mark's white K needs a dark chip to stay visible on the light page. */}
+          <span className="brand-link__chip"><img src="/assets/brand/klb-mark.png" alt="" aria-hidden="true" /></span>
+          <span>KLB<span className="brand-link__tld">.dev</span></span>
         </Link>
 
         <button

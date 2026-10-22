@@ -14,11 +14,10 @@ export function NotesPage() {
       <h1>{t.common.notesTitle}</h1>
       <p className="standalone-page__intro">{t.common.notesIntro}</p>
       <div className="notes-list">
-        {t.notes.items.map((note, index) => (
+        {t.notes.items.map((note) => (
           <article key={note.title}>
-            <span className="notes-list__index">0{index + 1}</span>
             <img src={note.image} alt="" />
-            <div><p className="eyebrow">{note.category} · {note.readTime}</p><h2>{note.title}</h2><p>{note.summary}</p></div>
+            <div><p className="eyebrow">{note.category}, {note.readTime}</p><h2>{note.title}</h2><p>{note.summary}</p></div>
             <Link className="notes-list__read" to={`/notes/${note.slug}`}>{t.notes.readNote}<ArrowUpRight aria-hidden="true" /></Link>
           </article>
         ))}

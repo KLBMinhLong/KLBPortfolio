@@ -21,7 +21,7 @@ export function ProjectPage() {
   if (!project) {
     return (
       <section className="standalone-page shell page-enter">
-        <p className="eyebrow">404 · Project</p>
+        <p className="error-code">404</p>
         <h1>{t.common.projectNotFound}</h1>
         <Link className="button button--primary" to="/"><ArrowLeft aria-hidden="true" />{t.common.backHome}</Link>
       </section>
@@ -34,7 +34,7 @@ export function ProjectPage() {
         <Link className="back-link" to="/#work"><ArrowLeft aria-hidden="true" />{t.common.backHome}</Link>
         <div className="case-hero__grid">
           <div className="case-hero__copy">
-            <p className="eyebrow">{t.common.caseStudy} · {project.index}</p>
+            <p className="eyebrow">{t.common.caseStudy}</p>
             <p className="project-label">{project.label}</p>
             <h1>{project.title}</h1>
             <p className="case-hero__summary">{project.summary}</p>

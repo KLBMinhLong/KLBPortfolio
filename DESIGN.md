@@ -1,14 +1,21 @@
-# DESIGN.md - KLB.dev Engineering Blueprint
+# DESIGN.md - KLB.dev, cobalt ink on porcelain
 
 ## 1. Creative direction
 
-The visual direction is **Engineering Blueprint on Graphite**.
+The visual direction is **cobalt ink on porcelain** ("men lam"), adopted in October 2026. It replaced the
+earlier "Engineering Blueprint on Graphite" (near-black with electric mint), which clashed with the blue KLB
+logo and read as a generic dark developer template.
 
-The site should feel like a thoughtful engineer's working system: precise, structured and evidence-led, with a small amount of personal energy from gaming and sport. It must not look like a generic purple-gradient developer template, a fake terminal or a gaming dashboard.
+Why this direction:
+
+- The KLB logo is blue and cyan, so blue is the brand colour, not mint.
+- The one-page résumé (`D:\KLB Studio\Career\CV`) uses the same navy and cobalt and the same typeface, so the
+  site, the CV and LinkedIn read as one identity.
+- Recruiters in Vietnam scan on light pages; a dark mode still follows `prefers-color-scheme`.
 
 Core visual sentence:
 
-> Graphite surfaces, electric-mint signals, editorial project storytelling and subtle system traces.
+> Porcelain pages, cobalt ink, and every claim next to the place you can check it.
 
 ## 2. Design principles
 
@@ -41,58 +48,40 @@ Minimum clear space around the wordmark: approximately the width of the letter `
 
 ## 4. Color system
 
-### Core palette
+Tokens live at the top of `src/styles/global.css`. The old `--color-*` names remain as aliases because
+`resume.css` and `easter-eggs.css` use them.
 
-| Token | Value | Purpose |
-|---|---:|---|
-| `--color-bg-canvas` | `#080B0D` | Page canvas |
-| `--color-bg-surface` | `#0E1316` | Primary sections and cards |
-| `--color-bg-elevated` | `#141B1F` | Elevated controls and hover surfaces |
-| `--color-bg-soft` | `#192226` | Quiet grouped content |
-| `--color-text-primary` | `#F2F6F4` | Main headings and essential copy |
-| `--color-text-secondary` | `#A9B6B1` | Body copy |
-| `--color-text-muted` | `#6F7D78` | Metadata and captions |
-| `--color-accent` | `#55F2B0` | Primary electric-mint signal |
-| `--color-accent-strong` | `#29D98C` | Active and pressed states |
-| `--color-accent-soft` | `rgba(85, 242, 176, 0.12)` | Selected surfaces |
-| `--color-border` | `rgba(210, 236, 226, 0.12)` | Default borders |
-| `--color-border-strong` | `rgba(85, 242, 176, 0.42)` | Active/focus borders |
-| `--color-danger` | `#FF6B6B` | Error states only |
-| `--color-warning` | `#F5B94C` | Warning states only |
+| Token | Light | Dark | Purpose |
+|---|---|---|---|
+| `--paper` | `#F4F7FB` | `#0C1830` | Page canvas |
+| `--surface` | `#FFFFFF` | `#11213F` | Framed objects (project media, notes callouts) |
+| `--surface-2` | `#E9EFF8` | `#162A4D` | Tinted section (workflow), tags |
+| `--ink` | `#0F2547` | `#E8EEF8` | Headings and primary text |
+| `--ink-2` | `#3F5068` | `#B4C1D5` | Body copy |
+| `--ink-3` | `#5B6B82` | `#8F9FB8` | Metadata |
+| `--cobalt` | `#1D4FB5` | `#8FB3FF` | Name, links, primary action |
+| `--jade` | `#1F7A5A` | `#63D0A5` | "Verified" marks in the hero ledger only |
+| `--line` | `#D5DFEC` | `#233A62` | Hairlines |
+| `--band` | `#0F2547` | `#081122` | Contact band |
 
-The palette must remain graphite and mint. Do not introduce purple gradients, multiple neon colors or brand-colored skill badges.
-
-### Contrast
-
-- Primary text must meet WCAG AA on canvas and surfaces.
-- Muted text must not be used for essential content.
-- Electric mint should usually appear on graphite, not as large text on white.
+The cursor and music modals keep a night-navy deck with the logo cyan `#40C4FF` in both themes.
+Do not bring back mint, purple gradients or several accent colours.
 
 ## 5. Typography
 
-Recommended families:
+One family: **Be Vietnam Pro** (400 to 800), loaded in `index.html`. It is drawn for Vietnamese diacritics and is
+the résumé's typeface. A monospace face is used only inside code blocks (`--font-code`).
 
-```css
---font-display: "Space Grotesk", sans-serif;
---font-body: "Inter", sans-serif;
---font-mono: "JetBrains Mono", monospace;
-```
-
-Use the mono font only for metadata, technical labels, project identifiers and trace annotations. Do not render the whole site like a terminal.
-
-### Fluid scale
-
-| Role | Suggested size |
+| Role | Size |
 |---|---|
-| Hero display | `clamp(3rem, 8vw, 6.75rem)` |
-| Page title | `clamp(2.5rem, 6vw, 5rem)` |
-| Section heading | `clamp(2rem, 4vw, 3.5rem)` |
-| Project title | `clamp(1.75rem, 3vw, 2.75rem)` |
-| Lead copy | `clamp(1.125rem, 1.8vw, 1.375rem)` |
-| Body | `clamp(1rem, 1.2vw, 1.125rem)` |
-| Metadata | `0.8125rem` to `0.9375rem` |
+| Hero name | `clamp(3.25rem, 9.5vw, 7rem)`, weight 800, tracking -0.045em, cobalt |
+| Page and contact titles | `clamp(2.5rem, 5vw, 3.75rem)` |
+| Section heading | `clamp(1.875rem, 3.4vw, 2.625rem)` |
+| Body | `1.0625rem`, line-height 1.65 |
+| Metadata | `0.875rem` |
 
-Line length for body copy should usually remain between 55 and 75 characters.
+Sentence case everywhere. No uppercase eyebrows, no numbered section labels; numbers appear only where the
+content is a sequence (the six workflow steps).
 
 ## 6. Spacing and layout
 
@@ -158,6 +147,13 @@ Prefer fine borders and tonal contrast over strong drop shadows.
 Glass effects may appear only in the sticky navigation or small overlays. Do not apply glassmorphism to every section.
 
 ## 8. Signature visual language
+
+The one memorable element is the **hero ledger** ("Things you can check"): each claim sits next to its source
+(repository, pull request) or says plainly that it is internal. Only the ledger animates, once on load, and
+reduced-motion turns that off. Sections no longer fade in (`Reveal` renders a plain `div`).
+
+### Earlier language (kept for reference)
+
 
 ### System trace
 

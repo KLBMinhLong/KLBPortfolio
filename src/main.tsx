@@ -6,6 +6,8 @@ import { CustomCursorProvider } from './context/CustomCursorContext';
 import { MusicProvider } from './context/MusicContext';
 import { LanguageProvider } from './i18n/LanguageContext';
 import './styles/global.css';
+import './styles/resume.css';
+import './styles/easter-eggs.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

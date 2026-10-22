@@ -5,7 +5,6 @@ import { Education } from '../sections/Education';
 import { Experience } from '../sections/Experience';
 import { Hero } from '../sections/Hero';
 import { NotesPreview } from '../sections/NotesPreview';
-import { ProofStrip } from '../sections/ProofStrip';
 import { SelectedWork } from '../sections/SelectedWork';
 import { Workflow } from '../sections/Workflow';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
@@ -14,20 +13,19 @@ import { useLanguage } from '../i18n/LanguageContext';
 export function HomePage() {
   const { language } = useLanguage();
   useDocumentMeta({
-    title: 'Nguyễn Minh Long — Software Developer | KLB.dev',
+    title: 'Nguyễn Minh Long | Software Engineer | KLB.dev',
     description:
       language === 'en'
-        ? 'Portfolio of Nguyễn Minh Long, a Software Developer building backend systems and full-stack products with an AI-first, verification-driven workflow.'
-        : 'Portfolio của Nguyễn Minh Long, Software Developer phát triển backend system và sản phẩm full-stack theo quy trình AI-first, verification-driven.',
+        ? 'Portfolio of Nguyễn Minh Long, a Software Engineer at Viemind working on backend systems, full-stack products and AI-agent integrations.'
+        : 'Portfolio của Nguyễn Minh Long, Software Engineer tại Viemind, làm backend, sản phẩm full-stack và tích hợp AI agent.',
   });
 
   return (
     <div className="page-enter">
       <Hero />
-      <ProofStrip />
+      <Experience />
       <SelectedWork />
       <Workflow />
-      <Experience />
       <Capabilities />
       <NotesPreview />
       <Education />

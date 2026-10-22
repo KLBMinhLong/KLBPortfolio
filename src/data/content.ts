@@ -42,36 +42,25 @@ export interface LocaleContent {
     close: string;
   };
   hero: {
-    eyebrow: string;
     role: string;
-    headline: string;
     intro: string;
-    availability: string;
     primaryCta: string;
     secondaryCta: string;
     location: string;
-    graduation: string;
     portraitAlt: string;
-    systemMap: {
-      eyebrow: string;
-      title: string;
-      nodes: string[];
-      footer: string;
-    };
+    ledgerTitle: string;
+    /** Each claim names where a reader can check it; internal work has no link. */
+    ledger: Array<{ claim: string; source: string; href?: string }>;
   };
-  proof: Array<{ label: string; value: string }>;
   work: {
-    eyebrow: string;
     title: string;
     intro: string;
     viewCaseStudy: string;
     sourceCode: string;
     watchDemo: string;
-    featured: string;
-    preview: string;
+    oss: { title: string; text: string; linkLabel: string; href: string };
   };
   workflow: {
-    eyebrow: string;
     title: string;
     intro: string;
     steps: Array<{ title: string; description: string }>;
@@ -79,23 +68,22 @@ export interface LocaleContent {
     responsibility: string;
   };
   experience: {
-    eyebrow: string;
     title: string;
-    role: string;
-    company: string;
-    period: string;
-    summary: string;
-    points: string[];
-    caseStudyLink: string;
+    items: Array<{
+      company: string;
+      role: string;
+      period: string;
+      summary: string;
+      points: string[];
+      link?: { label: string; to: string };
+    }>;
   };
   capabilities: {
-    eyebrow: string;
     title: string;
     intro: string;
     groups: Array<{ title: string; description: string; skills: string[] }>;
   };
   notes: {
-    eyebrow: string;
     title: string;
     intro: string;
     viewAll: string;
@@ -111,7 +99,6 @@ export interface LocaleContent {
     }>;
   };
   education: {
-    eyebrow: string;
     title: string;
     school: string;
     degree: string;
@@ -119,13 +106,11 @@ export interface LocaleContent {
     facts: Array<{ label: string; value: string }>;
   };
   about: {
-    eyebrow: string;
     title: string;
     paragraphs: string[];
     cards: Array<{ label: string; value: string }>;
   };
   contact: {
-    eyebrow: string;
     title: string;
     intro: string;
     emailCta: string;
@@ -270,7 +255,7 @@ const englishProjects: ProjectContent[] = [
     slug: 'eprocure',
     index: '01',
     title: 'eProcure Enterprise',
-    label: 'Solo AI-first engineering project · FPT IS internship capstone',
+    label: 'Solo AI-first engineering project, FPT IS internship capstone',
     summary:
       'An enterprise procurement platform covering purchase requests, multi-level approvals, purchase orders, goods receipt, invoice matching and payment workflows.',
     cover: '/assets/projects/eprocure/DashBoard.png',
@@ -428,7 +413,7 @@ const englishProjects: ProjectContent[] = [
     slug: 'student-dormitory',
     index: '03',
     title: 'Student Dormitory Management',
-    label: 'Project Lead & Developer · 6-member team',
+    label: 'Project Lead & Developer, 6-member team',
     summary:
       'A dormitory operations system covering room selection, registration, contracts, monthly utilities, invoices and payment workflows.',
     cover: '/assets/projects/dormitory/06-student-portal.png',
@@ -500,7 +485,7 @@ const vietnameseProjects: ProjectContent[] = englishProjects.map((project) => ({
 
 vietnameseProjects[0] = {
   ...englishProjects[0],
-  label: 'Dự án kỹ thuật AI-first cá nhân · Capstone trong kỳ thực tập FPT IS',
+  label: 'Dự án kỹ thuật AI-first cá nhân, Capstone trong kỳ thực tập FPT IS',
   summary:
     'Nền tảng quản lý mua sắm doanh nghiệp bao phủ yêu cầu mua sắm, phê duyệt nhiều cấp, đơn mua hàng, nhận hàng, đối soát hóa đơn và thanh toán.',
   contribution: [
@@ -621,7 +606,7 @@ vietnameseProjects[1] = {
 
 vietnameseProjects[2] = {
   ...englishProjects[2],
-  label: 'Project Lead & Developer · Nhóm 6 thành viên',
+  label: 'Project Lead & Developer, Nhóm 6 thành viên',
   summary:
     'Hệ thống vận hành ký túc xá bao phủ chọn phòng, đăng ký, hợp đồng, điện nước hàng tháng, hóa đơn và thanh toán.',
   contribution: [
@@ -691,44 +676,50 @@ export const content: Record<Language, LocaleContent> = {
       close: 'Close menu',
     },
     hero: {
-      eyebrow: 'Software Developer · Ho Chi Minh City',
-      role: 'Backend systems. Full-stack products.',
-      headline: 'Building reliable systems, from backend logic to complete product experiences.',
+      role: 'Software Engineer, backend and full-stack',
       intro:
-        'I’m Nguyễn Minh Long, a final-year Software Engineering student with internship experience at FPT IS. I build with Java/Spring Boot, .NET, Angular and React through an AI-first, verification-driven workflow.',
-      availability: 'Open to Software Developer Intern & Fresher opportunities.',
-      primaryCta: 'Explore my work',
-      secondaryCta: 'View résumé',
-      location: 'Thu Duc, Ho Chi Minh City',
-      graduation: 'Expected graduation · Oct 2026',
+        'I build internal tools and AI-agent integrations with TypeScript on Cloudflare Workers at Viemind. Before that, during my FPT IS internship, I built a nine-service procurement platform with Java and Spring Boot.',
+      primaryCta: 'See my work',
+      secondaryCta: 'Open résumé',
+      location: 'Ho Chi Minh City',
       portraitAlt: 'Portrait of Nguyễn Minh Long',
-      systemMap: {
-        eyebrow: 'Engineering system map',
-        title: 'From intent to verified software',
-        nodes: ['Backend API', 'Product UI', 'AI assist', 'Test gate'],
-        footer: 'Human-reviewed · Evidence-driven',
-      },
+      ledgerTitle: 'Things you can check',
+      ledger: [
+        {
+          claim: 'Nine Spring Boot services, 13 architecture decision records and 104 backend test files',
+          source: 'E-Procurement on GitHub',
+          href: 'https://github.com/KLBMinhLong/E-Procurement',
+        },
+        {
+          claim: 'A pull request merged into PhotoCraft, an open-source photo editor with more than 70,000 stars',
+          source: 'storytold/photocraft#7478',
+          href: 'https://github.com/storytold/photocraft/pull/7478',
+        },
+        {
+          claim: '1,341 backend and 637 frontend tests on an AI comment-handling system at Viemind, now in pilot',
+          source: 'Internal project, happy to walk through it in an interview',
+        },
+        {
+          claim: 'Graduated in Software Engineering from HUTECH with a GPA of 3.54 / 4.00',
+          source: 'October 2026',
+        },
+      ],
     },
-    proof: [
-      { label: 'Experience', value: 'FPT IS · Development Intern' },
-      { label: 'Academic', value: 'GPA 3.53 / 4.00' },
-      { label: 'Selected work', value: '3 complete project stories' },
-      { label: 'Recognition', value: 'Outstanding Student · 2023–2026' },
-      { label: 'English', value: 'CEFR B1 · Center of Foreign Languages & Skills' },
-    ],
     work: {
-      eyebrow: '01 · Selected work',
-      title: 'Proof over promises.',
+      title: 'Selected work',
       intro:
-        'Three projects, three different kinds of responsibility: orchestrating an AI-assisted enterprise build, shipping a solo full-stack product and leading a six-person team.',
-      viewCaseStudy: 'View case study',
+        'Two projects with public source code and one merged open-source contribution. My work at Viemind is internal, so it is described under experience without screenshots.',
+      viewCaseStudy: 'Read the case study',
       sourceCode: 'Source code',
       watchDemo: 'Watch demo',
-      featured: 'Featured',
-      preview: 'Interface preview',
+      oss: {
+        title: 'Open-source contribution',
+        text: 'Fixed the Enable Gestures preference in PhotoCraft so that turning it off also ignores touch-screen pinch and twist, with three unit tests. Merged on 18 October 2026.',
+        linkLabel: 'View pull request #7478',
+        href: 'https://github.com/storytold/photocraft/pull/7478',
+      },
     },
     workflow: {
-      eyebrow: '02 · How I work',
       title: 'AI-first. Verification-driven.',
       intro:
         'I use AI across the engineering lifecycle, but I do not delegate responsibility for the result.',
@@ -745,35 +736,55 @@ export const content: Record<Language, LocaleContent> = {
         'My responsibility is to define the constraints, challenge generated solutions and keep iterating until the architecture and business behavior agree.',
     },
     experience: {
-      eyebrow: '03 · Experience',
-      title: 'Learning in a real engineering environment.',
-      role: 'Development Intern',
-      company: 'FPT IS',
-      period: 'April 2026 — July 2026',
-      summary:
-        'Completed a backend-focused internship and independently developed an AI-assisted e-procurement capstone aligned with technologies relevant to the banking unit.',
-      points: [
-        'Applied Java, Spring Boot, Angular, PostgreSQL and containerized infrastructure to a multi-service procurement system.',
-        'Defined architecture and coding constraints, reviewed AI-generated implementations and iterated through automated and functional testing.',
-        'Validated purchase request, approval, procurement and invoice-matching workflows.',
-        'Documented architecture decisions, API conventions and project workflows.',
+      title: 'Where I have worked',
+      items: [
+        {
+          company: 'Viemind',
+          role: 'Fresher Software Engineer',
+          period: 'Sep 2026 – present',
+          summary:
+            'Internal tools and AI-agent integrations for the company’s e-commerce business, built with TypeScript, Hono, React and Cloudflare Workers.',
+          points: [
+            'Built a product catalog tool on my own, from the product requirements to version 1.14: a web app, a CLI and an MCP server with 28 tools that keep 379 products in sync with the production CMS.',
+            'Every write to the CMS is read back and checked, with snapshots for rollback. A full audit of 313 products runs at a median of 0.5–0.6 s against a 15 s target.',
+            'Building an AI system that classifies and drafts replies to Facebook and TikTok comments, with a nine-rule safety gate, PII masking and human approval of every reply. It is in pilot, with 1,341 backend and 637 frontend tests.',
+            'Contributed to the company’s live storefront (Astro 5 on Cloudflare Workers): mobile layout, a Vietnamese and English interface, the product variant picker and structured data for search.',
+          ],
+        },
+        {
+          company: 'FPT IS',
+          role: 'Development Intern',
+          period: 'Apr 2026 – Jul 2026',
+          summary:
+            'Completed a backend-focused internship and independently developed an AI-assisted e-procurement capstone aligned with technologies relevant to the banking unit.',
+          points: [
+            'Applied Java, Spring Boot, Angular, PostgreSQL and containerized infrastructure to a multi-service procurement system.',
+            'Defined architecture and coding constraints, reviewed AI-generated implementations and iterated through automated and functional testing.',
+            'Validated purchase request, approval, procurement and invoice-matching workflows.',
+            'Documented architecture decisions, API conventions and project workflows.',
+          ],
+          link: { label: 'Read the eProcure case study', to: '/work/eprocure' },
+        },
       ],
-      caseStudyLink: 'See the eProcure evidence',
     },
     capabilities: {
-      eyebrow: '04 · Capabilities',
-      title: 'A balanced backend and product toolkit.',
-      intro: 'Grouped by how I use the technology, not by arbitrary proficiency percentages.',
+      title: 'Tools I use, grouped by how I use them',
+      intro: 'No percentages or star ratings. Each group lists what I have used in the work above.',
       groups: [
         {
           title: 'Backend & systems',
           description: 'API design, business rules, security and data.',
-          skills: ['Java', 'Spring Boot', 'ASP.NET Core', 'REST API', 'Spring Security', 'MyBatis / JPA', 'PostgreSQL', 'MySQL'],
+          skills: ['Java', 'Spring Boot', 'TypeScript (Node.js)', 'ASP.NET Core', 'REST API', 'Spring Security', 'MyBatis / JPA', 'PostgreSQL', 'MySQL', 'SQLite'],
         },
         {
           title: 'Frontend & product',
           description: 'Turning backend capability into usable workflows.',
-          skills: ['Angular', 'React', 'TypeScript', 'HTML', 'CSS / SCSS', 'Responsive UI', 'API integration'],
+          skills: ['React', 'Angular', 'Astro', 'TypeScript', 'TanStack Query', 'HTML', 'CSS / SCSS', 'Responsive UI'],
+        },
+        {
+          title: 'Edge, AI & automation',
+          description: 'Running services at the edge and putting language models behind safety checks.',
+          skills: ['Cloudflare Workers', 'D1 / R2 / Cron', 'Hono', 'MCP servers', 'LLM integration (Gemini, OpenAI-compatible APIs)', 'Chrome DevTools Protocol', 'Vitest', 'Playwright'],
         },
         {
           title: 'Architecture & delivery',
@@ -788,7 +799,6 @@ export const content: Record<Language, LocaleContent> = {
       ],
     },
     notes: {
-      eyebrow: '05 · Engineering notes',
       title: 'Learning by explaining.',
       intro:
         'A curated set of foundational notes from my earlier networking and web studies. The library will grow with project lessons.',
@@ -831,41 +841,38 @@ export const content: Record<Language, LocaleContent> = {
       ],
     },
     education: {
-      eyebrow: '06 · Education & recognition',
-      title: 'A strong academic foundation, still in progress.',
+      title: 'Education',
       school: 'Ho Chi Minh City University of Technology (HUTECH)',
       degree: 'Software Engineering',
-      period: 'October 2022 — Expected October 2026',
+      period: 'October 2022 – October 2026, graduated',
       facts: [
-        { label: 'Current GPA', value: '3.53 / 4.00' },
-        { label: 'Recognition', value: 'Outstanding Student, awarded annually 2023–2026' },
-        { label: 'English', value: 'CEFR B1 · Center of Informatics, Foreign Languages & Skills' },
+        { label: 'Final GPA', value: '3.54 / 4.00' },
+        { label: 'Recognition', value: 'Outstanding Student, awarded every year from 2023 to 2026' },
+        { label: 'English', value: 'CEFR B1, Center of Informatics, Foreign Languages & Skills' },
       ],
     },
     about: {
-      eyebrow: '07 · Outside the code',
       title: 'Curious in systems. Competitive on the court.',
       paragraphs: [
         'I enjoy working across backend systems and full-stack product development, from designing APIs and business workflows to building the interface users interact with.',
         'Outside software, films help me slow down, badminton keeps me moving and games give me another kind of system to understand.',
       ],
       cards: [
-        { label: 'Current role', value: 'Software Developer' },
-        { label: 'Current quest', value: 'First Intern / Fresher opportunity' },
-        { label: 'Off-screen', value: 'Badminton · Films · Games' },
+        { label: 'Current role', value: 'Software Engineer at Viemind' },
+        { label: 'Next goal', value: 'Grow into a backend engineer strong in system design and automated testing' },
+        { label: 'Off-screen', value: 'Badminton, films and games' },
         { label: 'Based in', value: 'Ho Chi Minh City' },
       ],
     },
     contact: {
-      eyebrow: '08 · Contact',
       title: 'Have a role, project or engineering problem in mind?',
       intro:
-        'I’m open to Intern and Fresher Software Developer opportunities where I can contribute, learn quickly and grow across backend and full-stack work.',
-      emailCta: 'Start a conversation',
-      socialLabel: 'Find me elsewhere',
+        'Email reaches me fastest. I am glad to talk about backend, full-stack and AI-agent work.',
+      emailCta: 'Write an email',
+      socialLabel: 'Also on',
     },
     footer: {
-      statement: 'Designed as an engineering story, built with React and TypeScript.',
+      statement: 'Built with React and TypeScript, set in Be Vietnam Pro.',
       domainNote: 'KLB.dev is the personal brand of Nguyễn Minh Long.',
       easterEgg: {
         ariaLabel: 'Toggle Electric Blue pixel cursor Easter Egg',
@@ -877,13 +884,13 @@ export const content: Record<Language, LocaleContent> = {
       },
     },
     resume: {
-      badge: 'Software Developer · Available for Intern & Fresher',
-      headline: 'Software Developer Résumé',
-      intro: 'Concise 1-page résumé detailing my hands-on enterprise internship at FPT IS, core software projects, technical skills, and academic record at HUTECH.',
-      targetRole: 'Software Developer | Backend & Full-stack',
+      badge: 'Software Engineer, backend and full-stack',
+      headline: 'Résumé',
+      intro: 'A one-page résumé in Vietnamese covering my work at Viemind, the FPT IS internship, selected projects and education. The interactive tab has the same content in English.',
+      targetRole: 'Software Engineer (Backend / Full-stack)',
       fileLabel: 'Nguyen-Minh-Long-Resume.pdf',
-      fileSize: '1 Page · 563 KB',
-      updatedDate: 'August 2026',
+      fileSize: '1 page, Vietnamese',
+      updatedDate: 'October 2026',
       tabs: {
         pdf: 'PDF Document Preview',
         interactive: 'Interactive Breakdown',
@@ -896,97 +903,106 @@ export const content: Record<Language, LocaleContent> = {
         contactMe: 'Get in touch',
       },
       quickFacts: [
-        { label: 'Role target', value: 'Software Developer (Backend / Full-stack)' },
-        { label: 'Experience', value: 'FPT IS · Development Intern' },
-        { label: 'Academic', value: 'HUTECH · GPA 3.53 / 4.00' },
-        { label: 'Top Capstone', value: 'eProcure Enterprise (9 Services)' },
-        { label: 'English', value: 'CEFR B1 · Center of Informatics, Foreign Languages & Skills' },
+        { label: 'Role', value: 'Software Engineer (Backend / Full-stack)' },
+        { label: 'Now', value: 'Fresher Software Engineer at Viemind' },
+        { label: 'Before', value: 'Development Intern at FPT IS' },
+        { label: 'Education', value: 'HUTECH, graduated with GPA 3.54 / 4.00' },
+        { label: 'English', value: 'CEFR B1' },
         { label: 'Location', value: 'Ho Chi Minh City, Vietnam' },
       ],
-      summaryTitle: 'Executive Summary',
-      summaryText: 'Final-year Software Engineering student with hands-on Development Intern experience at FPT IS, where I built an enterprise-scale procurement platform end to end. Comfortable across the stack with Java/Spring Boot, ASP.NET Core, Angular and React, and experienced integrating AI tools into the engineering workflow while retaining full ownership of code review, automated checks and testing. Seeking Software Developer Intern or Fresher roles.',
-      experienceTitle: 'Work Experience',
+      summaryTitle: 'Summary',
+      summaryText: 'Software Engineer focused on backend and full-stack work. At Viemind I build internal tools and AI-agent integrations with TypeScript on Cloudflare Workers; during my FPT IS internship I built a nine-service procurement capstone with Java and Spring Boot. I use AI throughout development and stay responsible for code review, automated tests and functional checks. Next goal: grow into a backend engineer strong in system design and automated testing.',
+      experienceTitle: 'Work experience',
       experienceItems: [
+        {
+          company: 'Viemind',
+          role: 'Fresher Software Engineer',
+          period: 'Sep 2026 – present',
+          location: 'Ho Chi Minh City, Vietnam',
+          points: [
+            'Built a product catalog tool from requirements to version 1.14 (web app, CLI and an MCP server with 28 tools) that keeps 379 products in sync with the production CMS; every write is read back and checked, with snapshots for rollback.',
+            'Building an AI system that classifies and drafts replies to Facebook and TikTok comments, with a nine-rule safety gate, PII masking and human approval of every reply (in pilot; 1,341 backend and 637 frontend tests).',
+            'Contributed to the company’s live storefront on Astro 5 and Cloudflare Workers: mobile layout, Vietnamese and English interface, product variant picker and structured data.',
+          ],
+        },
         {
           company: 'FPT IS',
           role: 'Development Intern',
           period: 'Apr 2026 – Jul 2026',
           location: 'Ho Chi Minh City, Vietnam',
           points: [
-            'Independently designed and delivered eProcure Enterprise, an enterprise-scale procurement platform covering the full purchase-to-pay lifecycle.',
-            'Worked directly with a technical mentor to define system architecture, coding standards and business workflows for a nine-service platform.',
-            'Integrated AI tools into research, implementation and documentation, while retaining full responsibility for code review, automated checks and functional testing.',
+            'Independently built eProcure Enterprise, a nine-service procurement capstone covering the purchase-to-pay workflow.',
+            'Worked with a technical mentor on system architecture, coding standards and procurement business workflows.',
+            'Used AI tools for research, implementation and documentation, while keeping responsibility for code review, automated checks and functional testing.',
           ],
           caseStudySlug: 'eprocure',
-          caseStudyLabel: 'View eProcure Case Study',
+          caseStudyLabel: 'Read the eProcure case study',
         },
       ],
-      projectsTitle: 'Selected Projects',
+      projectsTitle: 'Selected projects',
       projectItems: [
         {
           title: 'eProcure Enterprise',
-          role: 'Solo AI-assisted Engineering Capstone',
+          role: 'Solo AI-assisted internship capstone',
           period: '2026',
           tech: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Kafka', 'Redis', 'Keycloak', 'Docker'],
           points: [
-            'Built a nine-service enterprise procurement platform with role-aware workflows for purchase requests, multi-level approvals, purchase orders, goods receipt, invoice matching and payment.',
-            'Applied Clean Architecture, event-driven service boundaries, permission-based authorization, idempotent write operations and audit-oriented data rules.',
+            'Nine services covering purchase requests, multi-level approvals, purchase orders, goods receipt, invoice matching and payment.',
+            'Clean Architecture, event-driven service boundaries, permission-based authorization and idempotent writes; 56 Flyway migrations, 13 ADRs, 9 OpenAPI specs and 104 backend test files.',
           ],
           slug: 'eprocure',
           githubUrl: 'https://github.com/KLBMinhLong/E-Procurement',
         },
         {
-          title: 'YourSneaker',
-          role: 'Solo Full-stack Product',
-          period: '2026',
-          tech: ['ASP.NET Core 9', 'React', 'TypeScript', 'MySQL', 'Docker', 'VNPay Sandbox'],
-          points: [
-            'Built a sneaker e-commerce product covering storefront, product discovery, cart, checkout, order tracking and administrative workflows.',
-            'Applied four-layer Clean Architecture and integrated COD and VNPay sandbox payment flows across backend, frontend and database design.',
-          ],
-          slug: 'yoursneaker',
-          githubUrl: 'https://github.com/KLBMinhLong/YourSneaker',
-        },
-        {
           title: 'Student Dormitory Management',
-          role: 'Project Lead & Developer (6-member team)',
+          role: 'Team lead, six-member team',
           period: 'Feb 2026 – Apr 2026',
-          tech: ['Java', 'Spring Boot', 'PostgreSQL', 'Jira', 'PayOS'],
+          tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'JWT', 'PayOS', 'Jira'],
           points: [
-            'Led a six-member team through Jira — owned task allocation and feature integration while building room/bed selection, registration, payment and monthly utility workflows.',
+            'Split and tracked the team’s work in Jira and integrated features; built room and bed selection, registration, PayOS payment links and webhooks, and monthly utilities (81 of the repository’s 89 commits).',
           ],
-          slug: 'dormitory',
+          slug: 'student-dormitory',
           githubUrl: 'https://github.com/KLBMinhLong/StudentDormitoryManagement',
         },
+        {
+          title: 'PhotoCraft (open source)',
+          role: 'Contributor',
+          period: 'Oct 2026',
+          tech: ['Rust'],
+          points: [
+            'Pull request #7478 merged: the Enable Gestures preference now also ignores touch-screen pinch and twist when turned off, with three unit tests.',
+          ],
+          githubUrl: 'https://github.com/storytold/photocraft/pull/7478',
+        },
       ],
-      skillsTitle: 'Technical Skills',
+      skillsTitle: 'Technical skills',
       skillGroups: [
         {
           category: 'Backend',
-          skills: ['Java 17', 'Spring Boot', 'ASP.NET Core 9', 'RESTful APIs', 'Clean Architecture'],
+          skills: ['Java', 'Spring Boot', 'TypeScript (Node.js, Hono)', 'ASP.NET Core', 'REST API', 'Kafka', 'Redis', 'Keycloak'],
         },
         {
           category: 'Frontend',
-          skills: ['Angular', 'React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5 & CSS/SCSS'],
+          skills: ['React', 'Angular', 'Astro', 'TanStack Query', 'HTML / CSS'],
         },
         {
-          category: 'Data & Storage',
-          skills: ['PostgreSQL', 'MySQL', 'SQL', 'Redis'],
+          category: 'Data',
+          skills: ['PostgreSQL', 'MySQL', 'SQLite', 'Cloudflare D1'],
         },
         {
-          category: 'Architecture & Delivery',
-          skills: ['Microservices', 'Kafka', 'Docker', 'Keycloak (IAM)', 'Git', 'OpenAPI / Swagger'],
+          category: 'Edge, AI & testing',
+          skills: ['Cloudflare Workers', 'MCP servers', 'LLM integration', 'Chrome DevTools Protocol', 'Vitest', 'Playwright', 'Docker', 'Git'],
         },
       ],
-      educationTitle: 'Education & Honors',
+      educationTitle: 'Education & honors',
       educationItems: [
         {
           school: 'Ho Chi Minh City University of Technology (HUTECH)',
           degree: 'Bachelor of Engineering in Software Engineering',
-          period: 'Oct 2022 – Expected Oct 2026',
+          period: 'Oct 2022 – Oct 2026, graduated',
           points: [
-            'GPA: 3.53 / 4.00 (Ranked Very Good)',
-            'Outstanding Student Award for academic years 2023–2026',
+            'Final GPA: 3.54 / 4.00',
+            'Outstanding Student Award every academic year from 2023 to 2026',
           ],
         },
       ],
@@ -1007,28 +1023,28 @@ export const content: Record<Language, LocaleContent> = {
       projectContribution: 'My contribution',
       projectEvidence: 'Product evidence',
       nextProject: 'Next project',
-      resumeTitle: 'Software Developer Résumé',
-      resumeIntro: 'One-page concise snapshot of my software engineering experience, capstone projects, technical skills, and education.',
+      resumeTitle: 'Résumé',
+      resumeIntro: 'A one-page résumé covering my work experience, selected projects, technical skills and education.',
       openResume: 'Open PDF in new tab',
       downloadResume: 'Download PDF',
-      temporaryResume: 'Software Developer (Backend & Full-stack) · 1-Page PDF',
+      temporaryResume: 'Software Engineer (Backend / Full-stack), one-page PDF',
       notesTitle: 'Engineering Notes',
       notesIntro: 'Selected personal learning notes from my networking and web studies, updated as I turn project lessons into clear explanations.',
-      notesStatus: 'Personal learning notes · Updated August 2026',
+      notesStatus: 'Personal learning notes, updated August 2026',
       readOriginal: 'Read the original article',
       visitBlog: 'Visit MLBlog archive',
       blogIntro: 'Want the wider networking and web-study archive? Visit my original MLBlog.',
       noteNotFound: 'This note is not in the current library.',
       keyTakeaways: 'Key takeaways',
-      notFoundTitle: 'This route left the system map.',
-      notFoundIntro: 'The page may have moved, or it was never part of this build.',
+      notFoundTitle: 'This page is not here.',
+      notFoundIntro: 'It may have moved, or it was never part of this site.',
       skipToContent: 'Skip to content',
       primaryNavigation: 'Primary navigation',
-      profileHighlights: 'Profile highlights',
+      profileHighlights: 'Things you can check',
       caseStudy: 'Case study',
       transparencyNote: 'Transparency note',
-      knowledgeBaseVersion: 'Personal learning notes · Updated August 2026',
-      currentResumeVersion: 'PDF · Updated August 2026',
+      knowledgeBaseVersion: 'Personal learning notes, updated August 2026',
+      currentResumeVersion: 'PDF, updated October 2026',
     },
     projects: englishProjects,
   },
@@ -1044,44 +1060,50 @@ export const content: Record<Language, LocaleContent> = {
       close: 'Đóng menu',
     },
     hero: {
-      eyebrow: 'Software Developer · TP. Hồ Chí Minh',
-      role: 'Backend system. Sản phẩm full-stack.',
-      headline: 'Xây dựng hệ thống đáng tin cậy, từ logic backend đến trải nghiệm sản phẩm hoàn chỉnh.',
+      role: 'Software Engineer, backend và full-stack',
       intro:
-        'Mình là Nguyễn Minh Long, sinh viên năm cuối ngành Kỹ thuật Phần mềm, vừa hoàn thành kỳ thực tập tại FPT IS. Mình phát triển với Java/Spring Boot, .NET, Angular và React theo quy trình AI-first, verification-driven.',
-      availability: 'Sẵn sàng cho cơ hội Software Developer Intern và Fresher.',
-      primaryCta: 'Khám phá dự án',
-      secondaryCta: 'Xem CV',
-      location: 'Thủ Đức, TP. Hồ Chí Minh',
-      graduation: 'Dự kiến tốt nghiệp · 10/2026',
+        'Mình xây công cụ nội bộ và tích hợp AI agent bằng TypeScript trên Cloudflare Workers tại Viemind. Trước đó, trong kỳ thực tập ở FPT IS, mình làm một nền tảng mua sắm gồm 9 service bằng Java và Spring Boot.',
+      primaryCta: 'Xem việc mình đã làm',
+      secondaryCta: 'Mở CV',
+      location: 'TP. Hồ Chí Minh',
       portraitAlt: 'Chân dung Nguyễn Minh Long',
-      systemMap: {
-        eyebrow: 'Bản đồ kỹ thuật',
-        title: 'Từ yêu cầu đến phần mềm đã kiểm chứng',
-        nodes: ['Backend API', 'Product UI', 'AI hỗ trợ', 'Cổng kiểm thử'],
-        footer: 'Con người kiểm duyệt · Dựa trên bằng chứng',
-      },
+      ledgerTitle: 'Những điều bạn có thể kiểm chứng',
+      ledger: [
+        {
+          claim: '9 service Spring Boot, 13 bản ghi quyết định kiến trúc (ADR) và 104 file test backend',
+          source: 'E-Procurement trên GitHub',
+          href: 'https://github.com/KLBMinhLong/E-Procurement',
+        },
+        {
+          claim: 'Pull request được merge vào PhotoCraft, trình sửa ảnh mã nguồn mở hơn 70 nghìn sao',
+          source: 'storytold/photocraft#7478',
+          href: 'https://github.com/storytold/photocraft/pull/7478',
+        },
+        {
+          claim: '1.341 test backend và 637 test frontend cho hệ thống AI xử lý bình luận tại Viemind, đang pilot',
+          source: 'Dự án nội bộ, mình sẵn sàng trình bày khi phỏng vấn',
+        },
+        {
+          claim: 'Tốt nghiệp Kỹ thuật Phần mềm tại HUTECH với GPA 3.54 / 4.00',
+          source: 'Tháng 10/2026',
+        },
+      ],
     },
-    proof: [
-      { label: 'Kinh nghiệm', value: 'FPT IS · Development Intern' },
-      { label: 'Học tập', value: 'GPA 3.53 / 4.00' },
-      { label: 'Dự án chọn lọc', value: '3 câu chuyện sản phẩm' },
-      { label: 'Thành tích', value: 'Sinh viên xuất sắc · 2023–2026' },
-      { label: 'Tiếng Anh', value: 'CEFR B1 · Trung tâm Tin học - Ngoại ngữ - Kĩ năng' },
-    ],
     work: {
-      eyebrow: '01 · Dự án chọn lọc',
-      title: 'Bằng chứng thay cho lời hứa.',
+      title: 'Dự án chọn lọc',
       intro:
-        'Ba dự án, ba loại trách nhiệm: điều phối một enterprise build có AI hỗ trợ, tự hoàn thiện sản phẩm full-stack và dẫn dắt nhóm sáu người.',
-      viewCaseStudy: 'Xem case study',
+        'Hai dự án có mã nguồn công khai và một đóng góp mã nguồn mở đã được merge. Việc ở Viemind là dự án nội bộ nên chỉ được mô tả ở phần kinh nghiệm, không kèm ảnh.',
+      viewCaseStudy: 'Đọc case study',
       sourceCode: 'Mã nguồn',
       watchDemo: 'Xem demo',
-      featured: 'N\u1ed5i b\u1eadt',
-      preview: 'Xem tr\u01b0\u1edbc giao di\u1ec7n',
+      oss: {
+        title: 'Đóng góp mã nguồn mở',
+        text: 'Sửa tùy chọn Enable Gestures của PhotoCraft để khi tắt thì cử chỉ pinch và twist trên màn hình cảm ứng cũng bị bỏ qua, kèm 3 unit test. Được merge ngày 18/10/2026.',
+        linkLabel: 'Xem pull request #7478',
+        href: 'https://github.com/storytold/photocraft/pull/7478',
+      },
     },
     workflow: {
-      eyebrow: '02 · Cách mình làm việc',
       title: 'AI-first. Xác minh đến cùng.',
       intro:
         'Mình sử dụng AI trong toàn bộ engineering lifecycle nhưng không chuyển giao trách nhiệm về kết quả.',
@@ -1098,35 +1120,55 @@ export const content: Record<Language, LocaleContent> = {
         'Vai trò của mình là đặt ràng buộc, phản biện giải pháp được tạo và tiếp tục lặp cho đến khi kiến trúc khớp với hành vi nghiệp vụ.',
     },
     experience: {
-      eyebrow: '03 · Kinh nghiệm',
-      title: 'Học trong môi trường kỹ thuật thực tế.',
-      role: 'Development Intern',
-      company: 'FPT IS',
-      period: 'Tháng 04/2026 — Tháng 07/2026',
-      summary:
-        'Hoàn thành kỳ thực tập tập trung vào backend và độc lập phát triển capstone e-procurement có AI hỗ trợ, bám theo nhóm công nghệ liên quan đến định hướng của phòng ban ngân hàng.',
-      points: [
-        'Ứng dụng Java, Spring Boot, Angular, PostgreSQL và hạ tầng container vào hệ thống procurement gồm nhiều service.',
-        'Xác định ràng buộc kiến trúc/coding, đọc lại phần triển khai do AI tạo và lặp qua kiểm thử tự động lẫn chức năng.',
-        'Xác minh luồng yêu cầu mua sắm, phê duyệt, procurement và đối soát hóa đơn.',
-        'Tài liệu hóa quyết định kiến trúc, quy ước API và quy trình dự án.',
+      title: 'Nơi mình đã làm việc',
+      items: [
+        {
+          company: 'Viemind',
+          role: 'Fresher Software Engineer',
+          period: '09/2026 – nay',
+          summary:
+            'Công cụ nội bộ và tích hợp AI agent cho mảng thương mại điện tử của công ty, viết bằng TypeScript, Hono, React trên Cloudflare Workers.',
+          points: [
+            'Tự xây công cụ quản lý catalog sản phẩm từ PRD đến bản 1.14: web app, CLI và MCP server 28 tool, giữ 379 sản phẩm đồng bộ với CMS production.',
+            'Mọi lần ghi lên CMS đều được đọc lại để xác minh, có snapshot để khôi phục. Kiểm toàn kho 313 sản phẩm đạt p50 0,5–0,6 s so với mục tiêu 15 s.',
+            'Đang xây hệ thống AI phân loại và soạn trả lời bình luận Facebook, TikTok, có cổng an toàn 9 luật, che PII và người duyệt từng câu trả lời. Hệ thống đang pilot, có 1.341 test backend và 637 test frontend.',
+            'Tham gia website thương mại điện tử đang chạy của công ty (Astro 5 trên Cloudflare Workers): giao diện mobile, song ngữ Việt và Anh, bộ chọn biến thể sản phẩm và structured data cho SEO.',
+          ],
+        },
+        {
+          company: 'FPT IS',
+          role: 'Development Intern',
+          period: '04/2026 – 07/2026',
+          summary:
+            'Hoàn thành kỳ thực tập tập trung vào backend và độc lập phát triển capstone e-procurement có AI hỗ trợ, bám theo nhóm công nghệ liên quan đến định hướng của phòng ban ngân hàng.',
+          points: [
+            'Ứng dụng Java, Spring Boot, Angular, PostgreSQL và hạ tầng container vào hệ thống procurement gồm nhiều service.',
+            'Xác định ràng buộc kiến trúc và coding, đọc lại phần triển khai do AI tạo và lặp qua kiểm thử tự động lẫn kiểm thử chức năng.',
+            'Xác minh luồng yêu cầu mua sắm, phê duyệt, procurement và đối soát hóa đơn.',
+            'Tài liệu hóa quyết định kiến trúc, quy ước API và quy trình dự án.',
+          ],
+          link: { label: 'Đọc case study eProcure', to: '/work/eprocure' },
+        },
       ],
-      caseStudyLink: 'Xem bằng chứng eProcure',
     },
     capabilities: {
-      eyebrow: '04 · Năng lực',
-      title: 'Bộ công cụ cân bằng giữa backend và sản phẩm.',
-      intro: 'Được nhóm theo cách mình áp dụng, không theo phần trăm năng lực tự đánh giá.',
+      title: 'Công cụ mình dùng, nhóm theo cách dùng',
+      intro: 'Không có phần trăm hay số sao. Mỗi nhóm chỉ ghi những gì mình đã dùng trong các việc ở trên.',
       groups: [
         {
           title: 'Backend & systems',
           description: 'Thiết kế API, nghiệp vụ, bảo mật và dữ liệu.',
-          skills: ['Java', 'Spring Boot', 'ASP.NET Core', 'REST API', 'Spring Security', 'MyBatis / JPA', 'PostgreSQL', 'MySQL'],
+          skills: ['Java', 'Spring Boot', 'TypeScript (Node.js)', 'ASP.NET Core', 'REST API', 'Spring Security', 'MyBatis / JPA', 'PostgreSQL', 'MySQL', 'SQLite'],
         },
         {
           title: 'Frontend & product',
           description: 'Biến năng lực backend thành workflow sử dụng được.',
-          skills: ['Angular', 'React', 'TypeScript', 'HTML', 'CSS / SCSS', 'Responsive UI', 'API integration'],
+          skills: ['React', 'Angular', 'Astro', 'TypeScript', 'TanStack Query', 'HTML', 'CSS / SCSS', 'Responsive UI'],
+        },
+        {
+          title: 'Edge, AI & tự động hóa',
+          description: 'Chạy dịch vụ ở edge và đặt mô hình ngôn ngữ sau các lớp kiểm tra an toàn.',
+          skills: ['Cloudflare Workers', 'D1 / R2 / Cron', 'Hono', 'MCP server', 'Tích hợp LLM (Gemini, API tương thích OpenAI)', 'Chrome DevTools Protocol', 'Vitest', 'Playwright'],
         },
         {
           title: 'Architecture & delivery',
@@ -1141,7 +1183,6 @@ export const content: Record<Language, LocaleContent> = {
       ],
     },
     notes: {
-      eyebrow: '05 · Engineering notes',
       title: 'Học bằng cách giải thích.',
       intro:
         'Các ghi chú học tập cá nhân được chọn lọc từ quá trình học lập trình mạng và web, rồi tiếp tục cập nhật bằng bài học rút ra từ dự án.',
@@ -1184,41 +1225,38 @@ export const content: Record<Language, LocaleContent> = {
       ],
     },
     education: {
-      eyebrow: '06 · Học vấn & thành tích',
-      title: 'Nền tảng học tập tốt và vẫn đang tiếp tục.',
+      title: 'Học vấn',
       school: 'Đại học Công nghệ TP.HCM (HUTECH)',
       degree: 'Kỹ thuật Phần mềm',
-      period: '10/2022 — Dự kiến 10/2026',
+      period: '10/2022 – 10/2026, đã tốt nghiệp',
       facts: [
-        { label: 'GPA hiện tại', value: '3.53 / 4.00' },
-        { label: 'Thành tích', value: 'Sinh viên xuất sắc, nhận hàng năm 2023–2026' },
-        { label: 'Tiếng Anh', value: 'CEFR B1 · Trung tâm Tin học - Ngoại ngữ - Kĩ năng' },
+        { label: 'GPA tốt nghiệp', value: '3.54 / 4.00' },
+        { label: 'Thành tích', value: 'Sinh viên Xuất sắc các năm 2023–2026' },
+        { label: 'Tiếng Anh', value: 'CEFR B1, Trung tâm Tin học - Ngoại ngữ - Kỹ năng' },
       ],
     },
     about: {
-      eyebrow: '07 · Ngoài code',
       title: 'Tò mò với hệ thống. Cạnh tranh trên sân cầu.',
       paragraphs: [
         'Mình thích làm việc với cả backend system và phát triển sản phẩm full-stack, từ thiết kế API, workflow nghiệp vụ đến giao diện người dùng trực tiếp tương tác.',
         'Ngoài phần mềm, phim giúp mình chậm lại, cầu lông giúp mình vận động và game cho mình một kiểu hệ thống khác để khám phá.',
       ],
       cards: [
-        { label: 'Vai trò hiện tại', value: 'Software Developer' },
-        { label: 'Nhiệm vụ hiện tại', value: 'Cơ hội Intern / Fresher đầu tiên' },
-        { label: 'Ngoài màn hình', value: 'Cầu lông · Phim · Game' },
+        { label: 'Vai trò hiện tại', value: 'Software Engineer tại Viemind' },
+        { label: 'Mục tiêu tiếp theo', value: 'Trở thành Backend Engineer vững về thiết kế hệ thống và kiểm thử tự động' },
+        { label: 'Ngoài màn hình', value: 'Cầu lông, phim và game' },
         { label: 'Đang ở', value: 'TP. Hồ Chí Minh' },
       ],
     },
     contact: {
-      eyebrow: '08 · Liên hệ',
-      title: 'Bạn có vị trí, dự án hay bài toán kỹ thuật phù hợp?',
+      title: 'Bạn có vị trí, dự án hay bài toán kỹ thuật cần trao đổi?',
       intro:
-        'Mình đang tìm cơ hội Software Developer Intern và Fresher để đóng góp, học nhanh và phát triển ở cả backend lẫn full-stack.',
-      emailCta: 'Bắt đầu trò chuyện',
-      socialLabel: 'Kết nối ở nền tảng khác',
+        'Email là cách nhanh nhất để liên hệ với mình. Mình sẵn lòng trao đổi về backend, full-stack và tích hợp AI agent.',
+      emailCta: 'Viết email',
+      socialLabel: 'Mình cũng ở',
     },
     footer: {
-      statement: 'Thiết kế như một câu chuyện kỹ thuật, xây dựng bằng React và TypeScript.',
+      statement: 'Xây bằng React và TypeScript, dùng font Be Vietnam Pro.',
       domainNote: 'KLB.dev là thương hiệu cá nhân của Nguyễn Minh Long.',
       easterEgg: {
         ariaLabel: 'Bật/tắt Easter Egg con trỏ pixel Electric Blue',
@@ -1230,13 +1268,13 @@ export const content: Record<Language, LocaleContent> = {
       },
     },
     resume: {
-      badge: 'Software Developer · Sẵn sàng thực tập & Fresher',
-      headline: 'CV Lập trình viên Phần mềm',
-      intro: 'Bản tóm tắt 1 trang về kinh nghiệm thực tập doanh nghiệp tại FPT IS, các dự án kỹ thuật tiêu biểu, kỹ năng lập trình và thành tích học tập tại HUTECH.',
-      targetRole: 'Software Developer | Backend & Full-stack',
+      badge: 'Software Engineer, backend và full-stack',
+      headline: 'CV',
+      intro: 'CV một trang bằng tiếng Việt: công việc tại Viemind, kỳ thực tập FPT IS, dự án tiêu biểu và học vấn.',
+      targetRole: 'Software Engineer (Backend / Full-stack)',
       fileLabel: 'Nguyen-Minh-Long-Resume.pdf',
-      fileSize: '1 Trang · 563 KB',
-      updatedDate: 'Tháng 08/2026',
+      fileSize: '1 trang, tiếng Việt',
+      updatedDate: 'Tháng 10/2026',
       tabs: {
         pdf: 'Xem file PDF',
         interactive: 'Bản chi tiết tương tác',
@@ -1245,101 +1283,110 @@ export const content: Record<Language, LocaleContent> = {
         openPdf: 'Mở PDF trong tab mới',
         downloadPdf: 'Tải file PDF',
         copyEmail: 'Sao chép email',
-        copiedEmail: 'Đã sao chép email!',
+        copiedEmail: 'Đã sao chép email',
         contactMe: 'Liên hệ trực tiếp',
       },
       quickFacts: [
-        { label: 'Vị trí mục tiêu', value: 'Software Developer (Backend / Full-stack)' },
-        { label: 'Kinh nghiệm', value: 'FPT IS · Development Intern' },
-        { label: 'Học vấn', value: 'HUTECH · GPA 3.53 / 4.00' },
-        { label: 'Đồ án tiêu biểu', value: 'eProcure Enterprise (9 dịch vụ)' },
-        { label: 'Chứng chỉ ngoại ngữ', value: 'CEFR B1 · Trung tâm Tin học - Ngoại ngữ - Kĩ năng' },
+        { label: 'Vị trí', value: 'Software Engineer (Backend / Full-stack)' },
+        { label: 'Hiện tại', value: 'Fresher Software Engineer tại Viemind' },
+        { label: 'Trước đó', value: 'Thực tập sinh phát triển phần mềm tại FPT IS' },
+        { label: 'Học vấn', value: 'HUTECH, tốt nghiệp với GPA 3.54 / 4.00' },
+        { label: 'Tiếng Anh', value: 'CEFR B1' },
         { label: 'Khu vực', value: 'TP. Hồ Chí Minh, Việt Nam' },
       ],
-      summaryTitle: 'Tóm tắt năng lực & Mục tiêu',
-      summaryText: 'Sinh viên năm cuối ngành Kỹ thuật Phần mềm với kinh nghiệm thực tập phát triển phần mềm tại FPT IS, trực tiếp xây dựng nền tảng mua sắm doanh nghiệp từ đầu đến cuối. Thành thạo full-stack với Java/Spring Boot, ASP.NET Core, Angular và React; có kinh nghiệm ứng dụng công cụ AI vào quy trình kỹ thuật nhưng luôn nắm toàn quyền kiểm soát chất lượng qua code review, automated checks và kiểm thử chức năng. Tìm kiếm cơ hội Software Developer Intern hoặc Fresher.',
+      summaryTitle: 'Mục tiêu nghề nghiệp',
+      summaryText: 'Hiện xây công cụ nội bộ và tích hợp AI agent bằng TypeScript trên Cloudflare Workers tại Viemind, có nền tảng Java Spring Boot từ kỳ thực tập tại FPT IS. Mình dùng AI trong suốt quá trình phát triển và tự chịu trách nhiệm review code, test tự động và kiểm thử chức năng. Mục tiêu 1–2 năm tới: trở thành Backend Engineer vững về thiết kế hệ thống và kiểm thử tự động.',
       experienceTitle: 'Kinh nghiệm làm việc',
       experienceItems: [
         {
+          company: 'Viemind',
+          role: 'Fresher Software Engineer',
+          period: '09/2026 – nay',
+          location: 'TP. Hồ Chí Minh, Việt Nam',
+          points: [
+            'Tự xây công cụ quản lý catalog sản phẩm từ PRD đến bản 1.14 (web app, CLI và MCP server 28 tool), giữ 379 sản phẩm đồng bộ với CMS production; mọi lần ghi đều được đọc lại để xác minh, có snapshot để khôi phục.',
+            'Đang xây hệ thống AI phân loại và soạn trả lời bình luận Facebook, TikTok, có cổng an toàn 9 luật, che PII và người duyệt từng câu (đang pilot; 1.341 test backend, 637 test frontend).',
+            'Tham gia website thương mại điện tử đang chạy của công ty trên Astro 5 và Cloudflare Workers: giao diện mobile, song ngữ Việt và Anh, bộ chọn biến thể sản phẩm, structured data.',
+          ],
+        },
+        {
           company: 'FPT IS',
-          role: 'Development Intern',
+          role: 'Thực tập sinh phát triển phần mềm',
           period: '04/2026 – 07/2026',
           location: 'TP. Hồ Chí Minh, Việt Nam',
           points: [
-            'Độc lập thiết kế và triển khai eProcure Enterprise — nền tảng quản lý mua sắm cấp doanh nghiệp bao quát toàn bộ quy trình từ yêu cầu đến thanh toán (purchase-to-pay).',
-            'Làm việc trực tiếp cùng Mentor kỹ thuật để xác lập kiến trúc hệ thống, chuẩn mực mã nguồn và quy trình nghiệp vụ cho nền tảng 9 microservices.',
-            'Tích hợp công cụ AI vào nghiên cứu giải pháp, sinh mã và tài liệu hóa, đồng thời chịu toàn bộ trách nhiệm kiểm thử tự động, code review và tính đúng đắn của phần mềm.',
+            'Độc lập xây eProcure Enterprise, capstone mua sắm gồm 9 service bao trọn quy trình từ đề nghị mua hàng đến thanh toán.',
+            'Trao đổi với mentor kỹ thuật về kiến trúc hệ thống, coding convention và nghiệp vụ mua sắm.',
+            'Dùng công cụ AI cho nghiên cứu, triển khai và viết tài liệu, đồng thời tự chịu trách nhiệm review code, kiểm tra tự động và kiểm thử chức năng.',
           ],
           caseStudySlug: 'eprocure',
-          caseStudyLabel: 'Xem Case Study eProcure',
+          caseStudyLabel: 'Đọc case study eProcure',
         },
       ],
       projectsTitle: 'Dự án tiêu biểu',
       projectItems: [
         {
           title: 'eProcure Enterprise',
-          role: 'Solo AI-assisted Engineering Capstone',
+          role: 'Capstone thực tập, làm một mình theo quy trình AI-assisted',
           period: '2026',
           tech: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Kafka', 'Redis', 'Keycloak', 'Docker'],
           points: [
-            'Xây dựng nền tảng mua sắm doanh nghiệp gồm 9 microservices với quy trình phân quyền chặt chẽ: yêu cầu mua sắm, phê duyệt đa cấp, đơn đặt hàng, nhập kho, đối soát hóa đơn và thanh toán.',
-            'Áp dụng Clean Architecture, giao tiếp event-driven qua Kafka, phân quyền phân tán, ghi dữ liệu idempotent và lưu vết kiểm toán (audit trail).',
+            '9 service bao trọn đề nghị mua hàng, duyệt nhiều cấp, đơn đặt hàng, nhận hàng, đối chiếu hóa đơn và thanh toán.',
+            'Clean Architecture, giao tiếp event-driven, phân quyền theo permission, ghi idempotent; 56 Flyway migration, 13 ADR, 9 đặc tả OpenAPI và 104 file test backend.',
           ],
           slug: 'eprocure',
           githubUrl: 'https://github.com/KLBMinhLong/E-Procurement',
         },
         {
-          title: 'YourSneaker',
-          role: 'Solo Full-stack Product',
-          period: '2026',
-          tech: ['ASP.NET Core 9', 'React', 'TypeScript', 'MySQL', 'Docker', 'VNPay Sandbox'],
+          title: 'Student Dormitory Management',
+          role: 'Trưởng nhóm, nhóm 6 người',
+          period: '02/2026 – 04/2026',
+          tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'JWT', 'PayOS', 'Jira'],
           points: [
-            'Xây dựng sản phẩm thương mại điện tử chuyên giày sneaker bao quát từ trang mua sắm, tìm kiếm sản phẩm, giỏ hàng, thanh toán, theo dõi đơn hàng đến trang quản trị.',
-            'Áp dụng Clean Architecture 4 lớp, tích hợp cổng thanh toán VNPay Sandbox và COD đồng bộ trên backend, frontend và database.',
+            'Chia việc và theo dõi tiến độ qua Jira, tích hợp tính năng; trực tiếp viết luồng chọn phòng/giường, đăng ký, thanh toán PayOS (payment link và webhook) và tiện ích hàng tháng (81/89 commit của repo).',
           ],
-          slug: 'yoursneaker',
-          githubUrl: 'https://github.com/KLBMinhLong/YourSneaker',
+          slug: 'student-dormitory',
+          githubUrl: 'https://github.com/KLBMinhLong/StudentDormitoryManagement',
         },
         {
-          title: 'Student Dormitory Management',
-          role: 'Trưởng nhóm & Lập trình viên (Nhóm 6 thành viên)',
-          period: '02/2026 – 04/2026',
-          tech: ['Java', 'Spring Boot', 'PostgreSQL', 'Jira', 'PayOS'],
+          title: 'PhotoCraft (mã nguồn mở)',
+          role: 'Người đóng góp',
+          period: '10/2026',
+          tech: ['Rust'],
           points: [
-            'Trưởng nhóm 6 thành viên quản lý qua Jira — phân bổ công việc, tích hợp hệ thống và trực tiếp phát triển các luồng chọn phòng/giường, đăng ký nội trú, thanh toán trực tuyến qua PayOS và chốt chỉ số điện nước định kỳ.',
+            'Pull request #7478 đã được merge: khi tắt Enable Gestures thì cử chỉ pinch và twist trên màn hình cảm ứng cũng bị bỏ qua, kèm 3 unit test.',
           ],
-          slug: 'dormitory',
-          githubUrl: 'https://github.com/KLBMinhLong/StudentDormitoryManagement',
+          githubUrl: 'https://github.com/storytold/photocraft/pull/7478',
         },
       ],
       skillsTitle: 'Kỹ năng kỹ thuật',
       skillGroups: [
         {
           category: 'Backend',
-          skills: ['Java 17', 'Spring Boot', 'ASP.NET Core 9', 'RESTful APIs', 'Clean Architecture'],
+          skills: ['Java', 'Spring Boot', 'TypeScript (Node.js, Hono)', 'ASP.NET Core', 'REST API', 'Kafka', 'Redis', 'Keycloak'],
         },
         {
           category: 'Frontend',
-          skills: ['Angular', 'React', 'TypeScript', 'JavaScript (ES6+)', 'HTML5 & CSS/SCSS'],
+          skills: ['React', 'Angular', 'Astro', 'TanStack Query', 'HTML / CSS'],
         },
         {
-          category: 'Dữ liệu & Caching',
-          skills: ['PostgreSQL', 'MySQL', 'SQL', 'Redis'],
+          category: 'Dữ liệu',
+          skills: ['PostgreSQL', 'MySQL', 'SQLite', 'Cloudflare D1'],
         },
         {
-          category: 'Kiến trúc & Công cụ',
-          skills: ['Microservices', 'Kafka', 'Docker', 'Keycloak (IAM)', 'Git', 'OpenAPI / Swagger'],
+          category: 'Edge, AI & kiểm thử',
+          skills: ['Cloudflare Workers', 'MCP server', 'Tích hợp LLM', 'Chrome DevTools Protocol', 'Vitest', 'Playwright', 'Docker', 'Git'],
         },
       ],
-      educationTitle: 'Học vấn & Khen thưởng',
+      educationTitle: 'Học vấn & khen thưởng',
       educationItems: [
         {
           school: 'Trường Đại học Công nghệ TP.HCM (HUTECH)',
           degree: 'Kỹ sư Kỹ thuật Phần mềm',
-          period: '10/2022 – Dự kiến 10/2026',
+          period: '10/2022 – 10/2026, đã tốt nghiệp',
           points: [
-            'GPA: 3.53 / 4.00 (Xếp loại Giỏi)',
-            'Danh hiệu Sinh viên Tiêu biểu liên tục các năm học 2023–2026',
+            'GPA tốt nghiệp: 3.54 / 4.00',
+            'Sinh viên Xuất sắc các năm học 2023–2026',
           ],
         },
       ],
@@ -1360,28 +1407,28 @@ export const content: Record<Language, LocaleContent> = {
       projectContribution: 'Đóng góp của mình',
       projectEvidence: 'Bằng chứng sản phẩm',
       nextProject: 'Dự án tiếp theo',
-      resumeTitle: 'CV Lập trình viên Phần mềm',
-      resumeIntro: 'Bản tóm tắt 1 trang về kinh nghiệm phát triển phần mềm, các dự án tiêu biểu, kỹ năng kỹ thuật và thành tích học vấn.',
+      resumeTitle: 'CV',
+      resumeIntro: 'CV một trang về kinh nghiệm làm việc, dự án tiêu biểu, kỹ năng kỹ thuật và học vấn.',
       openResume: 'Mở PDF trong tab mới',
       downloadResume: 'Tải PDF',
-      temporaryResume: 'Software Developer (Backend & Full-stack) · PDF 1 trang',
+      temporaryResume: 'Software Engineer (Backend / Full-stack), PDF một trang',
       notesTitle: 'Engineering Notes',
       notesIntro: 'Các bài viết nền tảng chọn lọc từ quá trình học lập trình mạng và web.',
-      notesStatus: 'Ghi chú học tập cá nhân · Cập nhật tháng 08/2026',
+      notesStatus: 'Ghi chú học tập cá nhân, cập nhật tháng 08/2026',
       readOriginal: 'Đọc bài viết gốc',
       visitBlog: 'Xem kho bài viết MLBlog',
       blogIntro: 'Muốn xem kho bài viết về mạng và web đầy đủ hơn? Hãy ghé MLBlog cũ của mình.',
       noteNotFound: 'Không tìm thấy ghi chú này trong thư viện hiện tại.',
       keyTakeaways: 'Điểm chính cần nhớ',
-      notFoundTitle: 'Route này đã ra ngoài system map.',
-      notFoundIntro: 'Trang có thể đã được di chuyển hoặc chưa từng thuộc bản build này.',
+      notFoundTitle: 'Trang này không có ở đây.',
+      notFoundIntro: 'Có thể trang đã được chuyển đi, hoặc chưa từng có trên site này.',
       skipToContent: 'Bỏ qua đến nội dung chính',
       primaryNavigation: 'Điều hướng chính',
-      profileHighlights: 'Thông tin nổi bật',
+      profileHighlights: 'Những điều bạn có thể kiểm chứng',
       caseStudy: 'Case study',
       transparencyNote: 'Ghi chú minh bạch',
-      knowledgeBaseVersion: 'Ghi chú học tập cá nhân · Cập nhật tháng 08/2026',
-      currentResumeVersion: 'PDF · Cập nhật tháng 08/2026',
+      knowledgeBaseVersion: 'Ghi chú học tập cá nhân, cập nhật tháng 08/2026',
+      currentResumeVersion: 'PDF, cập nhật tháng 10/2026',
     },
     projects: vietnameseProjects,
   },
