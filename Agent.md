@@ -535,11 +535,15 @@ Do not use the old grayscale generated profile images if they do not accurately 
 
 ## 11. Résumé policy
 
-Temporary download source:
+The one-page CV has two editions, built from `D:\KLB Studio\Career\CV` (see its README for sources):
 
-- `Infomation/CV_Nguyen_Minh_Long.pdf`
+- Vietnamese: `public/assets/documents/Nguyen-Minh-Long-Resume.pdf`
+- English: `public/assets/documents/Nguyen-Minh-Long-Resume-EN.pdf`
 
-The current PDF has layout and content issues but may be used temporarily. Do not silently rewrite it during portfolio implementation. Replace it later with a new one-page résumé derived from the same content source as this site.
+`/resume` serves the edition that matches the site language (`resume.fileLabel` in `content.ts`), and its
+interactive tab mirrors the CV text. The owner asked for the CV to avoid granular counts (test numbers,
+versions, commit counts) and to leave out the single-PR open-source entry; keep the résumé page in line with
+that. The major is "Công nghệ phần mềm" in Vietnamese and "Software Engineering" in English.
 
 ## 12. Technical implementation constraints
 

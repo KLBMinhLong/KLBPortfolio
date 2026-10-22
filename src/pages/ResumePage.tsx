@@ -24,7 +24,6 @@ import { Reveal } from '../components/ui/Reveal';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const resumePath = '/assets/documents/Nguyen-Minh-Long-Resume.pdf';
 const emailAddress = 'nguyenminhlongcntt@gmail.com';
 
 export function ResumePage() {
@@ -33,6 +32,8 @@ export function ResumePage() {
   const [copied, setCopied] = useState(false);
 
   const resume = t.resume;
+  // Each language has its own one-page PDF; fileLabel is the file name under public/assets/documents.
+  const resumePath = `/assets/documents/${resume.fileLabel}`;
 
   useDocumentMeta({
     title: `${resume.headline} — Nguyễn Minh Long`,
@@ -88,7 +89,7 @@ export function ResumePage() {
           <a
             className="button button--secondary"
             href={resumePath}
-            download="Nguyen-Minh-Long-Resume.pdf"
+            download={resume.fileLabel}
           >
             <Download aria-hidden="true" />
             {resume.actions.downloadPdf}
@@ -161,7 +162,7 @@ export function ResumePage() {
               <a
                 className="resume-toolbar-action"
                 href={resumePath}
-                download="Nguyen-Minh-Long-Resume.pdf"
+                download={resume.fileLabel}
                 title={resume.actions.downloadPdf}
               >
                 <Download size={16} aria-hidden="true" />
@@ -172,6 +173,7 @@ export function ResumePage() {
 
           <div className="resume-pdf-viewer">
             <object
+              key={resumePath}
               data={`${resumePath}#toolbar=0&navpanes=0`}
               type="application/pdf"
               className="resume-pdf-object"
@@ -194,7 +196,7 @@ export function ResumePage() {
                     <ExternalLink aria-hidden="true" />
                     {resume.actions.openPdf}
                   </a>
-                  <a className="button button--secondary" href={resumePath} download>
+                  <a className="button button--secondary" href={resumePath} download={resume.fileLabel}>
                     <Download aria-hidden="true" />
                     {resume.actions.downloadPdf}
                   </a>
@@ -415,7 +417,7 @@ export function ResumePage() {
                 <Mail aria-hidden="true" />
                 {emailAddress}
               </a>
-              <a className="button button--secondary" href={resumePath} download>
+              <a className="button button--secondary" href={resumePath} download={resume.fileLabel}>
                 <Download aria-hidden="true" />
                 {resume.actions.downloadPdf}
               </a>
