@@ -14,7 +14,7 @@ export const socialLinks: SocialLink[] = [
   { id: 'github', label: 'GitHub', href: 'https://github.com/KLBMinhLong', kind: 'work' },
   { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/minh-long-nguyễn-09984a333', kind: 'work' },
   { id: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/@KLB-MinhLong', kind: 'content' },
-  // TikTok: add { id: 'tiktok', label: 'TikTok', href: 'https://www.tiktok.com/@…', kind: 'content' } once the handle is confirmed.
+  { id: 'tiktok', label: 'TikTok', href: 'https://www.tiktok.com/@klbdevkhocnhe', kind: 'content' },
   { id: 'x', label: 'X', href: 'https://x.com/l7_minh', kind: 'content' },
   { id: 'threads', label: 'Threads', href: 'https://www.threads.com/@tynidino_', kind: 'content' },
 ];
