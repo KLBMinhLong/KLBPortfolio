@@ -12,7 +12,7 @@ export function ProjectPage() {
   const nextProject = t.projects[(projectIndex + 1) % t.projects.length];
 
   useDocumentMeta({
-    title: project ? `${project.title} — Nguyễn Minh Long` : `${t.common.projectNotFound} — KLB.dev`,
+    title: project ? `${project.title} | Nguyễn Minh Long` : `${t.common.projectNotFound} | KLB Studio`,
     description: project?.summary ?? t.common.projectNotFound,
     path: project ? `/work/${project.slug}` : '/work/not-found',
     image: project ? `https://minhlongdev.id.vn${project.cover}` : undefined,

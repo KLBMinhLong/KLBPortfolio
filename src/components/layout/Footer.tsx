@@ -20,12 +20,11 @@ export function Footer() {
     <footer className="site-footer">
       <div className="shell site-footer__grid">
         <div>
-          <Link className="footer-brand" to="/">KLB.dev</Link>
+          <Link className="footer-brand" to="/">KLB Studio</Link>
           <p>{t.footer.statement}</p>
         </div>
         <div className="footer-meta">
           <p>© {year} Nguyễn Minh Long</p>
-          <p>{t.footer.domainNote}</p>
           <div className="social-links social-links--footer">
             {socialLinks.map((link) => (
               <a href={link.href} target="_blank" rel="noreferrer" aria-label={link.label} title={link.label} key={link.id}>

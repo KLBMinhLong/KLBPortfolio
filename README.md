@@ -1,4 +1,4 @@
-# KLB.dev — Engineering Portfolio
+# KLB Studio | Engineering Portfolio
 
 > An evidence-driven, bilingual software engineering portfolio built with **React 19**, **TypeScript**, and **Vite**. Designed following the **Engineering Blueprint on Graphite** design system.
 
@@ -11,7 +11,7 @@
 
 ## Overview
 
-**KLB.dev** is the personal engineering portfolio of **Nguyễn Minh Long**, a Software Developer focused on backend systems and full-stack product engineering.
+The personal engineering portfolio of **Nguyễn Minh Long** (site label: **KLB Studio**), a Software Engineer focused on backend systems and full-stack product engineering, live at https://minhlongdev.id.vn.
 
 The portfolio is built with the principle of **Evidence Before Decoration**: prioritizing technical decisions, system architecture narratives, measurable facts, and product workflows over generic developer templates.
 

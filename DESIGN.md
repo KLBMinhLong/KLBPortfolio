@@ -1,4 +1,4 @@
-# DESIGN.md - KLB.dev, cobalt ink on porcelain
+# DESIGN.md - KLB Studio portfolio, cobalt ink on porcelain
 
 ## 1. Creative direction
 
@@ -31,7 +31,7 @@ Core visual sentence:
 
 ### Brand name
 
-- Display: `KLB.dev`
+- Display: `KLB Studio`, as a label only. Never `KLB.dev` (`klb.dev` is someone else's domain), and no wording that claims the name as exclusive, since others use it too.
 - Owned website: `minhlongdev.id.vn`
 - Logo links must always point to the owned website.
 
@@ -199,7 +199,7 @@ Do not use XP bars, pixel fonts, achievements, levels or game HUD panels site-wi
 
 - Sticky, compact and semi-opaque after scrolling.
 - Dark background with subtle blur and bottom border.
-- Horizontal `KLB.dev` mark on the left.
+- Brush logo tile and `KLB Studio` wordmark on the left.
 - Links and language control on the right.
 - Maximum one visually dominant action.
 - Mobile menu must occupy only the space it needs and preserve focus management.
@@ -433,7 +433,7 @@ Do not implement:
 
 The design is ready when:
 
-- `KLB.dev` is recognizable without being confused with the owned domain.
+- `KLB Studio` is recognizable and never presented as a domain name.
 - Graphite and electric mint dominate consistently.
 - eProcure is unmistakably the flagship project.
 - Project evidence is more visually prominent than the skill list.

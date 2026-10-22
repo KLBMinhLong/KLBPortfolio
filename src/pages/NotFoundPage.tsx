@@ -5,7 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 
 export function NotFoundPage() {
   const { t } = useLanguage();
-  useDocumentMeta({ title: `404 — KLB.dev`, description: t.common.notFoundIntro, path: '/404' });
+  useDocumentMeta({ title: `404 | KLB Studio`, description: t.common.notFoundIntro, path: '/404' });
 
   return (
     <section className="standalone-page standalone-page--404 shell page-enter">

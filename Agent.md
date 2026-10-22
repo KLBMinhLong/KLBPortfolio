@@ -26,7 +26,7 @@ When content conflicts, use this file as the portfolio source of truth. Do not r
 
 - Full name: Nguyễn Minh Long
 - Display name in both languages: Nguyễn Minh Long
-- Brand: `KLB.dev`
+- Brand: `KLB Studio`
 - Canonical website: `https://minhlongdev.id.vn`
 - Location: Thu Duc, Ho Chi Minh City, Vietnam
 - Email: `nguyenminhlongcntt@gmail.com`
@@ -39,7 +39,12 @@ When content conflicts, use this file as the portfolio source of truth. Do not r
 - All public profiles live in `src/data/socials.ts`: `work` profiles (GitHub, LinkedIn) appear in the hero and lead the contact band; `content` channels (YouTube, TikTok, X, Threads) follow them and sit in the footer.
 - Phone: `+84 377241808`, but do not expose it on the website; keep it in the résumé only.
 
-`KLB.dev` is a brand label, not the owned domain. All logo links, canonical metadata and public URLs must point to `minhlongdev.id.vn`. Never imply ownership of `klb.dev`.
+The site is labelled **KLB Studio** (owner's choice, 22/10/2026). Two rules:
+
+- Do not write `KLB.dev` anywhere: the domain `klb.dev` belongs to someone else, and a name with a TLD reads as a claim to it.
+- Do not present KLB Studio as exclusive or owned (no "personal brand of", "trademark", "official"): other people use the same name. Use it only as a label (wordmark, page-title suffix, `og:site_name`).
+
+All logo links, canonical metadata and public URLs point to the owned domain `minhlongdev.id.vn`.
 
 ### Education and recognition
 
@@ -182,7 +187,7 @@ Do not put Skills and About before Selected Work. Evidence must appear early.
 
 ### 6.1 Navigation
 
-- Show the compact `KLB.dev` horizontal logo.
+- Show the brush logo tile with the `KLB Studio` wordmark.
 - Clicking the logo navigates to `/` on `minhlongdev.id.vn`.
 - Keep navigation compact and recruiter-oriented.
 - Add active section state only when it remains visually quiet.
@@ -613,7 +618,7 @@ Project metadata, social links, capabilities and experience must live in typed d
 
 Canonical metadata:
 
-- Title: `Nguyễn Minh Long - Software Developer | KLB.dev`
+- Title: `Nguyễn Minh Long | Software Engineer | KLB Studio`
 - Canonical URL: `https://minhlongdev.id.vn`
 - Description: `Portfolio of Nguyễn Minh Long, a Software Developer working across backend systems and full-stack products with Java, Spring Boot, .NET, Angular and React.`
 
