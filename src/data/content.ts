@@ -892,10 +892,10 @@ export const content: Record<Language, LocaleContent> = {
     resume: {
       badge: 'Software Engineer, backend and full-stack',
       headline: 'Résumé',
-      intro: 'A one-page résumé in Vietnamese covering my work at Viemind, the FPT IS internship, selected projects and education. The interactive tab has the same content in English.',
+      intro: 'A one-page résumé covering my work at Viemind, the FPT IS internship, an academic project and education. Switch the site to VI for the Vietnamese version.',
       targetRole: 'Software Engineer (Backend / Full-stack)',
-      fileLabel: 'Nguyen-Minh-Long-Resume.pdf',
-      fileSize: '1 page, Vietnamese',
+      fileLabel: 'Nguyen-Minh-Long-Resume-EN.pdf',
+      fileSize: '1 page, English',
       updatedDate: 'October 2026',
       tabs: {
         pdf: 'PDF Document Preview',
@@ -917,7 +917,7 @@ export const content: Record<Language, LocaleContent> = {
         { label: 'Location', value: 'Ho Chi Minh City, Vietnam' },
       ],
       summaryTitle: 'Summary',
-      summaryText: 'Software Engineer focused on backend and full-stack work. At Viemind I build internal tools and AI-agent integrations with TypeScript on Cloudflare Workers; during my FPT IS internship I built a nine-service procurement capstone with Java and Spring Boot. I use AI throughout development and stay responsible for code review, automated tests and functional checks. Next goal: grow into a backend engineer strong in system design and automated testing.',
+      summaryText: 'I build internal tools and AI-agent integrations with TypeScript on Cloudflare Workers at Viemind, with a Java Spring Boot foundation from my internship at FPT IS. Goal for the next 1–2 years: become a backend engineer strong in system design and automated testing, and bring AI into real products in a controlled way.',
       experienceTitle: 'Work experience',
       experienceItems: [
         {
@@ -926,59 +926,37 @@ export const content: Record<Language, LocaleContent> = {
           period: 'Sep 2026 – present',
           location: 'Ho Chi Minh City, Vietnam',
           points: [
-            'Built a product catalog tool from requirements to version 1.14 (web app, CLI and an MCP server with 28 tools) that keeps 379 products in sync with the production CMS; every write is read back and checked, with snapshots for rollback.',
-            'Building an AI system that classifies and drafts replies to Facebook and TikTok comments, with a nine-rule safety gate, PII masking and human approval of every reply (in pilot; 1,341 backend and 637 frontend tests).',
-            'Contributed to the company’s live storefront on Astro 5 and Cloudflare Workers: mobile layout, Vietnamese and English interface, product variant picker and structured data.',
+            'Product catalog management and sync tool: an internal web app, CLI and MCP server for automated product-photo editing and for syncing 370+ products to the CMS, with read-back checks after every write, backups and restore.',
+            'AI-assisted comment handling system (in pilot): a Cloudflare Workers service (Hono, D1, Cron) that drives Chrome over CDP and uses an LLM to classify Facebook/TikTok comments and suggest replies, with a PII filter and manual approval.',
+            'Company e-commerce website (Astro 5 SSR on Cloudflare Workers): mobile UI, the Vietnamese/English interface, the product variant picker and structured data for SEO.',
           ],
         },
         {
           company: 'FPT IS',
-          role: 'Development Intern',
+          role: 'Software Development Intern',
           period: 'Apr 2026 – Jul 2026',
           location: 'Ho Chi Minh City, Vietnam',
           points: [
-            'Independently built eProcure Enterprise, a nine-service procurement capstone covering the purchase-to-pay workflow.',
-            'Worked with a technical mentor on system architecture, coding standards and procurement business workflows.',
-            'Used AI tools for research, implementation and documentation, while keeping responsibility for code review, automated checks and functional testing.',
+            'eProcure Enterprise (individual internship project): a procurement system of 9 microservices covering purchase requests, multi-level approvals, purchase orders, goods receipt, invoice matching and payment.',
+            'Clean Architecture, event-driven messaging over Kafka, RBAC with Keycloak, idempotent writes, Flyway migrations and OpenAPI specifications with automated tests.',
           ],
           caseStudySlug: 'eprocure',
           caseStudyLabel: 'Read the eProcure case study',
         },
       ],
-      projectsTitle: 'Selected projects',
+      projectsTitle: 'Academic project',
       projectItems: [
         {
-          title: 'eProcure Enterprise',
-          role: 'Solo AI-assisted internship capstone',
-          period: '2026',
-          tech: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Kafka', 'Redis', 'Keycloak', 'Docker'],
-          points: [
-            'Nine services covering purchase requests, multi-level approvals, purchase orders, goods receipt, invoice matching and payment.',
-            'Clean Architecture, event-driven service boundaries, permission-based authorization and idempotent writes; 56 Flyway migrations, 13 ADRs, 9 OpenAPI specs and 104 backend test files.',
-          ],
-          slug: 'eprocure',
-          githubUrl: 'https://github.com/KLBMinhLong/E-Procurement',
-        },
-        {
           title: 'Student Dormitory Management',
-          role: 'Team lead, six-member team',
+          role: 'Team lead, team of 6',
           period: 'Feb 2026 – Apr 2026',
           tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'JWT', 'PayOS', 'Jira'],
           points: [
-            'Split and tracked the team’s work in Jira and integrated features; built room and bed selection, registration, PayOS payment links and webhooks, and monthly utilities (81 of the repository’s 89 commits).',
+            'Split the work, tracked progress and integrated the team’s features through Jira.',
+            'Designed the database and built the core flows: room/bed selection, residence registration, monthly utility billing and PayOS payments (payment links and webhook reconciliation).',
           ],
           slug: 'student-dormitory',
           githubUrl: 'https://github.com/KLBMinhLong/StudentDormitoryManagement',
-        },
-        {
-          title: 'PhotoCraft (open source)',
-          role: 'Contributor',
-          period: 'Oct 2026',
-          tech: ['Rust'],
-          points: [
-            'Pull request #7478 merged: the Enable Gestures preference now also ignores touch-screen pinch and twist when turned off, with three unit tests.',
-          ],
-          githubUrl: 'https://github.com/storytold/photocraft/pull/7478',
         },
       ],
       skillsTitle: 'Technical skills',
@@ -1004,7 +982,7 @@ export const content: Record<Language, LocaleContent> = {
       educationItems: [
         {
           school: 'Ho Chi Minh City University of Technology (HUTECH)',
-          degree: 'Bachelor of Engineering in Software Engineering',
+          degree: 'Software Engineering',
           period: 'Oct 2022 – Oct 2026, graduated',
           points: [
             'Final GPA: 3.54 / 4.00',
@@ -1092,7 +1070,7 @@ export const content: Record<Language, LocaleContent> = {
           source: 'Dự án nội bộ, mình sẵn sàng trình bày khi phỏng vấn',
         },
         {
-          claim: 'Tốt nghiệp Kỹ thuật Phần mềm tại HUTECH với GPA 3.54 / 4.00',
+          claim: 'Tốt nghiệp Công nghệ phần mềm tại HUTECH với GPA 3.54 / 4.00',
           source: 'Tháng 10/2026',
         },
       ],
@@ -1235,7 +1213,7 @@ export const content: Record<Language, LocaleContent> = {
     education: {
       title: 'Học vấn',
       school: 'Đại học Công nghệ TP.HCM (HUTECH)',
-      degree: 'Kỹ thuật Phần mềm',
+      degree: 'Công nghệ phần mềm',
       period: '10/2022 – 10/2026, đã tốt nghiệp',
       facts: [
         { label: 'GPA tốt nghiệp', value: '3.54 / 4.00' },
@@ -1279,7 +1257,7 @@ export const content: Record<Language, LocaleContent> = {
     resume: {
       badge: 'Software Engineer, backend và full-stack',
       headline: 'CV',
-      intro: 'CV một trang bằng tiếng Việt: công việc tại Viemind, kỳ thực tập FPT IS, dự án tiêu biểu và học vấn.',
+      intro: 'CV một trang: công việc tại Viemind, kỳ thực tập FPT IS, dự án học tập và học vấn. Chuyển site sang EN để xem bản tiếng Anh.',
       targetRole: 'Software Engineer (Backend / Full-stack)',
       fileLabel: 'Nguyen-Minh-Long-Resume.pdf',
       fileSize: '1 trang, tiếng Việt',
@@ -1304,7 +1282,7 @@ export const content: Record<Language, LocaleContent> = {
         { label: 'Khu vực', value: 'TP. Hồ Chí Minh, Việt Nam' },
       ],
       summaryTitle: 'Mục tiêu nghề nghiệp',
-      summaryText: 'Hiện xây công cụ nội bộ và tích hợp AI agent bằng TypeScript trên Cloudflare Workers tại Viemind, có nền tảng Java Spring Boot từ kỳ thực tập tại FPT IS. Mình dùng AI trong suốt quá trình phát triển và tự chịu trách nhiệm review code, test tự động và kiểm thử chức năng. Mục tiêu 1–2 năm tới: trở thành Backend Engineer vững về thiết kế hệ thống và kiểm thử tự động.',
+      summaryText: 'Hiện xây công cụ nội bộ và tích hợp AI agent bằng TypeScript trên Cloudflare Workers tại Viemind, có nền tảng Java Spring Boot từ kỳ thực tập tại FPT IS. Mục tiêu 1–2 năm tới: trở thành Backend Engineer vững về thiết kế hệ thống và kiểm thử tự động, đưa AI vào sản phẩm thật một cách có kiểm soát.',
       experienceTitle: 'Kinh nghiệm làm việc',
       experienceItems: [
         {
@@ -1313,9 +1291,9 @@ export const content: Record<Language, LocaleContent> = {
           period: '09/2026 – nay',
           location: 'TP. Hồ Chí Minh, Việt Nam',
           points: [
-            'Tự xây công cụ quản lý catalog sản phẩm từ PRD đến bản 1.14 (web app, CLI và MCP server 28 tool), giữ 379 sản phẩm đồng bộ với CMS production; mọi lần ghi đều được đọc lại để xác minh, có snapshot để khôi phục.',
-            'Đang xây hệ thống AI phân loại và soạn trả lời bình luận Facebook, TikTok, có cổng an toàn 9 luật, che PII và người duyệt từng câu (đang pilot; 1.341 test backend, 637 test frontend).',
-            'Tham gia website thương mại điện tử đang chạy của công ty trên Astro 5 và Cloudflare Workers: giao diện mobile, song ngữ Việt và Anh, bộ chọn biến thể sản phẩm, structured data.',
+            'Công cụ quản lý & đồng bộ catalog sản phẩm: web app nội bộ, CLI và MCP server hỗ trợ hậu kỳ ảnh tự động và đồng bộ hơn 370 sản phẩm lên CMS, có đối chiếu sau khi ghi, sao lưu và khôi phục.',
+            'Hệ thống hỗ trợ xử lý bình luận bằng AI (đang thử nghiệm): dịch vụ trên Cloudflare Workers (Hono, D1, Cron) kết nối Chrome qua CDP và LLM để phân loại, gợi ý trả lời bình luận Facebook/TikTok, có bộ lọc thông tin cá nhân (PII) và luồng duyệt thủ công.',
+            'Website thương mại điện tử của công ty (Astro 5 SSR trên Cloudflare Workers): giao diện mobile, song ngữ Việt/Anh, bộ chọn biến thể sản phẩm và dữ liệu có cấu trúc cho SEO.',
           ],
         },
         {
@@ -1324,48 +1302,26 @@ export const content: Record<Language, LocaleContent> = {
           period: '04/2026 – 07/2026',
           location: 'TP. Hồ Chí Minh, Việt Nam',
           points: [
-            'Độc lập xây eProcure Enterprise, capstone mua sắm gồm 9 service bao trọn quy trình từ đề nghị mua hàng đến thanh toán.',
-            'Trao đổi với mentor kỹ thuật về kiến trúc hệ thống, coding convention và nghiệp vụ mua sắm.',
-            'Dùng công cụ AI cho nghiên cứu, triển khai và viết tài liệu, đồng thời tự chịu trách nhiệm review code, kiểm tra tự động và kiểm thử chức năng.',
+            'eProcure Enterprise (dự án thực tập cá nhân): hệ thống quản lý mua sắm gồm 9 microservice, bao trọn quy trình từ đề nghị mua hàng, phê duyệt đa cấp, đơn đặt hàng đến nhận hàng, đối chiếu hóa đơn và thanh toán.',
+            'Clean Architecture, giao tiếp event-driven qua Kafka, phân quyền RBAC với Keycloak, ghi idempotent, quản lý schema bằng Flyway và đặc tả OpenAPI kèm kiểm thử tự động.',
           ],
           caseStudySlug: 'eprocure',
           caseStudyLabel: 'Đọc case study eProcure',
         },
       ],
-      projectsTitle: 'Dự án tiêu biểu',
+      projectsTitle: 'Dự án học tập',
       projectItems: [
-        {
-          title: 'eProcure Enterprise',
-          role: 'Capstone thực tập, làm một mình theo quy trình AI-assisted',
-          period: '2026',
-          tech: ['Java 17', 'Spring Boot', 'Angular', 'PostgreSQL', 'Kafka', 'Redis', 'Keycloak', 'Docker'],
-          points: [
-            '9 service bao trọn đề nghị mua hàng, duyệt nhiều cấp, đơn đặt hàng, nhận hàng, đối chiếu hóa đơn và thanh toán.',
-            'Clean Architecture, giao tiếp event-driven, phân quyền theo permission, ghi idempotent; 56 Flyway migration, 13 ADR, 9 đặc tả OpenAPI và 104 file test backend.',
-          ],
-          slug: 'eprocure',
-          githubUrl: 'https://github.com/KLBMinhLong/E-Procurement',
-        },
         {
           title: 'Student Dormitory Management',
           role: 'Trưởng nhóm, nhóm 6 người',
           period: '02/2026 – 04/2026',
           tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'JWT', 'PayOS', 'Jira'],
           points: [
-            'Chia việc và theo dõi tiến độ qua Jira, tích hợp tính năng; trực tiếp viết luồng chọn phòng/giường, đăng ký, thanh toán PayOS (payment link và webhook) và tiện ích hàng tháng (81/89 commit của repo).',
+            'Phân chia công việc, theo dõi tiến độ và tích hợp tính năng của cả nhóm qua Jira.',
+            'Trực tiếp thiết kế CSDL và lập trình các luồng chính: chọn phòng/giường, đăng ký lưu trú, tính phí tiện ích hàng tháng và tích hợp cổng thanh toán PayOS (tạo link thanh toán và xử lý webhook đối soát).',
           ],
           slug: 'student-dormitory',
           githubUrl: 'https://github.com/KLBMinhLong/StudentDormitoryManagement',
-        },
-        {
-          title: 'PhotoCraft (mã nguồn mở)',
-          role: 'Người đóng góp',
-          period: '10/2026',
-          tech: ['Rust'],
-          points: [
-            'Pull request #7478 đã được merge: khi tắt Enable Gestures thì cử chỉ pinch và twist trên màn hình cảm ứng cũng bị bỏ qua, kèm 3 unit test.',
-          ],
-          githubUrl: 'https://github.com/storytold/photocraft/pull/7478',
         },
       ],
       skillsTitle: 'Kỹ năng kỹ thuật',
@@ -1391,7 +1347,7 @@ export const content: Record<Language, LocaleContent> = {
       educationItems: [
         {
           school: 'Trường Đại học Công nghệ TP.HCM (HUTECH)',
-          degree: 'Kỹ sư Kỹ thuật Phần mềm',
+          degree: 'Công nghệ phần mềm',
           period: '10/2022 – 10/2026, đã tốt nghiệp',
           points: [
             'GPA tốt nghiệp: 3.54 / 4.00',
