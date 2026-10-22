@@ -1,8 +1,14 @@
-import { Code2, Mail, Network, Video } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { SocialIcon } from '../components/ui/SocialIcon';
+import { socialLinks } from '../data/socials';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export function Contact() {
   const { t } = useLanguage();
+  const groups = [
+    { label: t.contact.workLabel, links: socialLinks.filter((link) => link.kind === 'work') },
+    { label: t.contact.contentLabel, links: socialLinks.filter((link) => link.kind === 'content') },
+  ];
 
   return (
     <section className="contact" id="contact" aria-labelledby="contact-title">
@@ -14,10 +20,20 @@ export function Contact() {
         </a>
         <p className="contact__address">nguyenminhlongcntt@gmail.com</p>
         <div className="contact__socials">
-          <span>{t.contact.socialLabel}</span>
-          <a href="https://github.com/KLBMinhLong" target="_blank" rel="noreferrer"><Code2 aria-hidden="true" />GitHub</a>
-          <a href="https://www.linkedin.com/in/minh-long-nguyễn-09984a333" target="_blank" rel="noreferrer"><Network aria-hidden="true" />LinkedIn</a>
-          <a href="https://www.youtube.com/@KLB-MinhLong" target="_blank" rel="noreferrer"><Video aria-hidden="true" />YouTube</a>
+          {groups.map((group) => (
+            <div className="contact__group" key={group.label}>
+              <span>{group.label}</span>
+              <ul>
+                {group.links.map((link) => (
+                  <li key={link.id}>
+                    <a href={link.href} target="_blank" rel="noreferrer">
+                      <SocialIcon id={link.id} />{link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -6,6 +6,13 @@
     <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0c1830" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
+    <script>
+      // Apply a theme the visitor chose earlier before first paint; otherwise CSS follows the system setting.
+      try {
+        var savedTheme = localStorage.getItem('klb-theme');
+        if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+      } catch (e) {}
+    </script>
     <meta
       name="description"
       content="Portfolio of Nguyễn Minh Long, a Software Engineer at Viemind working on backend systems, full-stack products and AI-agent integrations."

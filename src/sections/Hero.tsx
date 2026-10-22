@@ -1,6 +1,8 @@
 import type { CSSProperties } from 'react';
-import { ArrowDown, ArrowUpRight, BadgeCheck, Code2, MapPin, Network } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, BadgeCheck, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SocialIcon } from '../components/ui/SocialIcon';
+import { socialLinks } from '../data/socials';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export function Hero() {
@@ -25,16 +27,13 @@ export function Hero() {
         </div>
         <ul className="hero__meta">
           <li><MapPin aria-hidden="true" />{t.hero.location}</li>
-          <li>
-            <a href="https://github.com/KLBMinhLong" target="_blank" rel="noreferrer">
-              <Code2 aria-hidden="true" />GitHub
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/minh-long-nguyễn-09984a333" target="_blank" rel="noreferrer">
-              <Network aria-hidden="true" />LinkedIn
-            </a>
-          </li>
+          {socialLinks.filter((link) => link.kind === 'work').map((link) => (
+            <li key={link.id}>
+              <a href={link.href} target="_blank" rel="noreferrer">
+                <SocialIcon id={link.id} />{link.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 

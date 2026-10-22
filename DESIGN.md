@@ -37,10 +37,12 @@ Core visual sentence:
 
 ### Logo use
 
-- Main dark navigation: `electric-mint-dark-row.svg`
-- Light fallback: `monochrome-light-row.svg`
-- Decorative personal mark: `logomarkV2.png`
-- Open Graph starting point: `logo-texture-rich.jpg`
+The standard logo is the brush mark (white K, royal-blue Lb, on black): `D:\KLB Studio\klbLogo.png`.
+Since October 2026 every web asset is cut from it, not from the earlier cyan redraw or the mint-tinted SVG:
+
+- Header: `public/assets/brand/klb-logo.png` (128 px, shown at 36 px in its own black tile on both themes)
+- Favicon and touch icon: `favicon-32.png`, `apple-touch-icon.png`
+- Open Graph: `og-cover.jpg` (1200 x 630, porcelain page, logo tile, name in cobalt, Be Vietnam Pro)
 
 The horizontal logo should be optimized or recreated as a small production SVG. Avoid loading the current large source SVG in the sticky header without optimization.
 
@@ -59,12 +61,14 @@ Tokens live at the top of `src/styles/global.css`. The old `--color-*` names rem
 | `--ink` | `#0F2547` | `#E8EEF8` | Headings and primary text |
 | `--ink-2` | `#3F5068` | `#B4C1D5` | Body copy |
 | `--ink-3` | `#5B6B82` | `#8F9FB8` | Metadata |
-| `--cobalt` | `#1D4FB5` | `#8FB3FF` | Name, links, primary action |
+| `--cobalt` | `#1650C8` | `#8FB3FF` | Name, links, primary action |
 | `--jade` | `#1F7A5A` | `#63D0A5` | "Verified" marks in the hero ledger only |
 | `--line` | `#D5DFEC` | `#233A62` | Hairlines |
 | `--band` | `#0F2547` | `#081122` | Contact band |
 
-The cursor and music modals keep a night-navy deck with the logo cyan `#40C4FF` in both themes.
+The cursor and music modals keep a night-navy deck with the logo blue `#4D8DFF` in both themes.
+`--cobalt` light is `#1650C8`, pulled toward the logo's royal blue. A header button lets visitors override the
+system theme (`data-theme` on `<html>`, saved as `klb-theme`).
 Do not bring back mint, purple gradients or several accent colours.
 
 ## 5. Typography

@@ -33,6 +33,10 @@ When content conflicts, use this file as the portfolio source of truth. Do not r
 - GitHub: `https://github.com/KLBMinhLong`
 - LinkedIn: `https://www.linkedin.com/in/minh-long-nguyễn-09984a333`
 - YouTube: `https://www.youtube.com/@KLB-MinhLong`
+- X: `https://x.com/l7_minh`
+- Threads: `https://www.threads.com/@tynidino_`
+- TikTok: handle not confirmed yet; add it to `src/data/socials.ts` when the owner gives it.
+- All public profiles live in `src/data/socials.ts`: `work` profiles (GitHub, LinkedIn) appear in the hero and lead the contact band; `content` channels (YouTube, TikTok, X, Threads) follow them and sit in the footer.
 - Phone: `+84 377241808`, but do not expose it on the website; keep it in the résumé only.
 
 `KLB.dev` is a brand label, not the owned domain. All logo links, canonical metadata and public URLs must point to `minhlongdev.id.vn`. Never imply ownership of `klb.dev`.

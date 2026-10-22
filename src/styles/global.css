@@ -13,9 +13,10 @@
   --ink: #0f2547;
   --ink-2: #3f5068;
   --ink-3: #5b6b82;
-  --cobalt: #1d4fb5;
-  --cobalt-strong: #163f93;
-  --cobalt-rgb: 29 79 181;
+  /* Pulled toward the royal blue of the brush logo (about #0058F5) while keeping 6.4:1 on --paper. */
+  --cobalt: #1650c8;
+  --cobalt-strong: #103e9e;
+  --cobalt-rgb: 22 80 200;
   --jade: #1f7a5a;
   --line: #d5dfec;
   --line-rgb: 15 37 71;
@@ -71,8 +72,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* Dark follows the system unless the visitor picked a theme with the header button (data-theme on <html>).
+   The two blocks below hold the same values; keep them in sync. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --paper: #0c1830;
     --surface: #11213f;
     --surface-2: #162a4d;
@@ -88,8 +91,30 @@
     --band: #081122;
     --on-cobalt: #0c1830;
     --shadow-elevated: 0 12px 32px rgb(0 0 0 / 0.35);
+    color-scheme: dark;
   }
 }
+
+:root[data-theme='dark'] {
+  --paper: #0c1830;
+  --surface: #11213f;
+  --surface-2: #162a4d;
+  --ink: #e8eef8;
+  --ink-2: #b4c1d5;
+  --ink-3: #8f9fb8;
+  --cobalt: #8fb3ff;
+  --cobalt-strong: #b6ccff;
+  --cobalt-rgb: 143 179 255;
+  --jade: #63d0a5;
+  --line: #233a62;
+  --line-rgb: 176 200 235;
+  --band: #081122;
+  --on-cobalt: #0c1830;
+  --shadow-elevated: 0 12px 32px rgb(0 0 0 / 0.35);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] { color-scheme: light; }
 
 /* ---------- Base ---------- */
 
@@ -142,11 +167,15 @@ main { display: block; }
 .site-header__inner { display: flex; height: var(--header-h); align-items: center; justify-content: space-between; gap: 24px; }
 
 .brand-link { display: inline-flex; gap: 10px; align-items: center; color: var(--ink); font-size: 1.0625rem; font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
-.brand-link__chip { display: grid; width: 34px; height: 34px; place-items: center; background: #0f2547; border-radius: 9px; }
-.brand-link__chip img { width: 28px; height: 28px; }
+.brand-link__logo { width: 36px; height: 36px; background: #000; border-radius: 9px; }
 .brand-link__tld { color: var(--ink-3); font-weight: 500; }
 
-.primary-nav { display: flex; gap: 4px; align-items: center; }
+.primary-nav { display: flex; gap: 4px; align-items: center; margin-left: auto; }
+.header-actions { display: flex; gap: 8px; align-items: center; order: 2; }
+.header-actions .icon-button { width: 40px; height: 40px; color: var(--ink-2); }
+.header-actions .icon-button:hover { color: var(--ink); background: var(--surface-2); }
+.header-actions svg { width: 19px; height: 19px; }
+.social-icon { width: 16px; height: 16px; flex: none; }
 .primary-nav > button,
 .primary-nav > a {
   padding: 8px 12px; color: var(--ink-2); background: none; border: 0; border-radius: var(--radius-sm);
@@ -359,9 +388,11 @@ main { display: block; }
 .contact p { max-width: 38em; margin-top: 16px; color: var(--band-ink-2); font-size: 1.125rem; }
 .contact .button { margin-top: 32px; }
 .contact .contact__address { margin-top: 12px; font-size: var(--step--1); }
-.contact__socials { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgb(244 247 251 / 0.16); color: var(--band-ink-2); font-size: var(--step--1); }
-.contact__socials a { display: inline-flex; gap: 6px; align-items: center; color: var(--band-ink); font-weight: 600; text-underline-offset: 4px; }
-.contact__socials svg { width: 16px; height: 16px; }
+.contact__socials { display: grid; gap: 14px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgb(244 247 251 / 0.16); color: var(--band-ink-2); font-size: var(--step--1); }
+.contact__group { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 8px 24px; align-items: baseline; }
+.contact__group ul { display: flex; flex-wrap: wrap; gap: 8px 24px; list-style: none; }
+.contact__socials a { display: inline-flex; gap: 8px; align-items: center; color: var(--band-ink); font-size: 0.9375rem; font-weight: 600; text-underline-offset: 4px; }
+.contact__socials .social-icon { width: 17px; height: 17px; }
 
 /* ---------- Footer ---------- */
 
@@ -508,6 +539,7 @@ main { display: block; }
   .notes-list article { grid-template-columns: minmax(0, 1fr); }
   .notes-list img { width: 100%; }
   .footer-meta { justify-items: start; text-align: left; }
+  .contact__group { grid-template-columns: minmax(0, 1fr); }
   .hero__actions .button { flex: 1 1 auto; }
 }
 

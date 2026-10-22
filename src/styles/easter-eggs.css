@@ -1,6 +1,6 @@
 /* Moved out of global.css in the 2026-10 redesign; colors now come from the tokens in global.css. */
 
-/* The cursor and music modals stay a dark night-navy deck in both page themes; the cyan comes from the KLB logo. */
+/* The cursor and music modals stay a dark night-navy deck in both page themes; the blue comes from the KLB brush logo. */
 .cursor-picker-backdrop,
 .music-modal-backdrop {
   --color-bg-canvas: #081122;
@@ -10,13 +10,13 @@
   --color-text-primary: #eef3fb;
   --color-text-secondary: #b4c1d5;
   --color-text-muted: #8f9fb8;
-  --accent-rgb: 64 196 255;
+  --accent-rgb: 77 141 255;
   --line-rgb: 176 200 235;
-  --color-accent: #40c4ff;
-  --color-accent-strong: #1fa8ea;
-  --color-accent-soft: rgb(64 196 255 / 0.12);
+  --color-accent: #4d8dff;
+  --color-accent-strong: #2f74f5;
+  --color-accent-soft: rgb(77 141 255 / 0.12);
   --color-border: rgb(176 200 235 / 0.14);
-  --color-border-strong: rgb(64 196 255 / 0.45);
+  --color-border-strong: rgb(77 141 255 / 0.45);
   --color-on-accent: #04121f;
   color: var(--color-text-primary);
 }

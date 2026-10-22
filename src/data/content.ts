@@ -40,6 +40,8 @@ export interface LocaleContent {
     resume: string;
     menu: string;
     close: string;
+    toLightTheme: string;
+    toDarkTheme: string;
   };
   hero: {
     role: string;
@@ -114,7 +116,8 @@ export interface LocaleContent {
     title: string;
     intro: string;
     emailCta: string;
-    socialLabel: string;
+    workLabel: string;
+    contentLabel: string;
   };
   footer: {
     statement: string;
@@ -674,6 +677,8 @@ export const content: Record<Language, LocaleContent> = {
       resume: 'Résumé',
       menu: 'Open menu',
       close: 'Close menu',
+      toLightTheme: 'Switch to light theme',
+      toDarkTheme: 'Switch to dark theme',
     },
     hero: {
       role: 'Software Engineer, backend and full-stack',
@@ -869,7 +874,8 @@ export const content: Record<Language, LocaleContent> = {
       intro:
         'Email reaches me fastest. I am glad to talk about backend, full-stack and AI-agent work.',
       emailCta: 'Write an email',
-      socialLabel: 'Also on',
+      workLabel: 'Work profiles',
+      contentLabel: 'Where I post',
     },
     footer: {
       statement: 'Built with React and TypeScript, set in Be Vietnam Pro.',
@@ -1058,6 +1064,8 @@ export const content: Record<Language, LocaleContent> = {
       resume: 'CV',
       menu: 'Mở menu',
       close: 'Đóng menu',
+      toLightTheme: 'Chuyển sang giao diện sáng',
+      toDarkTheme: 'Chuyển sang giao diện tối',
     },
     hero: {
       role: 'Software Engineer, backend và full-stack',
@@ -1253,7 +1261,8 @@ export const content: Record<Language, LocaleContent> = {
       intro:
         'Email là cách nhanh nhất để liên hệ với mình. Mình sẵn lòng trao đổi về backend, full-stack và tích hợp AI agent.',
       emailCta: 'Viết email',
-      socialLabel: 'Mình cũng ở',
+      workLabel: 'Hồ sơ công việc',
+      contentLabel: 'Kênh mình đăng nội dung',
     },
     footer: {
       statement: 'Xây bằng React và TypeScript, dùng font Be Vietnam Pro.',

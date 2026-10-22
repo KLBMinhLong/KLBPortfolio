@@ -1,10 +1,12 @@
-import { Code2, Music, Network, Sparkles, Video } from 'lucide-react';
+import { Music, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCustomCursor } from '../../context/CustomCursorContext';
 import { useMusic } from '../../context/MusicContext';
+import { socialLinks } from '../../data/socials';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CursorPickerModal } from '../ui/CursorPickerModal';
 import { MusicPlayerModal } from '../ui/MusicPlayerModal';
+import { SocialIcon } from '../ui/SocialIcon';
 
 export function Footer() {
   const { t, language } = useLanguage();
@@ -25,20 +27,11 @@ export function Footer() {
           <p>© {year} Nguyễn Minh Long</p>
           <p>{t.footer.domainNote}</p>
           <div className="social-links social-links--footer">
-            <a href="https://github.com/KLBMinhLong" target="_blank" rel="noreferrer" aria-label="GitHub">
-              <Code2 aria-hidden="true" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/minh-long-nguyễn-09984a333"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-            >
-              <Network aria-hidden="true" />
-            </a>
-            <a href="https://www.youtube.com/@KLB-MinhLong" target="_blank" rel="noreferrer" aria-label="YouTube">
-              <Video aria-hidden="true" />
-            </a>
+            {socialLinks.map((link) => (
+              <a href={link.href} target="_blank" rel="noreferrer" aria-label={link.label} title={link.label} key={link.id}>
+                <SocialIcon id={link.id} />
+              </a>
+            ))}
           </div>
         </div>
       </div>
